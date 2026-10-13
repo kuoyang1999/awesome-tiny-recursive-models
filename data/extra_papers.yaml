@@ -1,0 +1,37 @@
+# Hand-curated entries that are not arXiv/OpenReview records (blogs, reports).
+- id: arcprize-hrm-analysis-2025
+  title: "The Hidden Drivers of HRM's Performance on ARC-AGI"
+  short: ARC Prize HRM analysis
+  date: 2025-08
+  venue: ARC Prize blog
+  status: B
+  section: analysis
+  must_read: true
+  links:
+    paper: https://arcprize.org/blog/hrm-analysis
+    code: https://github.com/arcprize/hierarchical-reasoning-model-analysis
+  tldr: >-
+    Verification and ablation of HRM on ARC-AGI: semi-private score below the public one, a plain transformer
+    within a few points, gains concentrated in the outer refinement loop, and a transductive puzzle-ID setup.
+- id: osmani-loop-engineering-2026
+  title: "Loop Engineering"
+  date: 2026-06-07
+  venue: practitioner essay
+  status: B
+  section: boundary
+  links:
+    paper: https://addyosmani.com/blog/loop-engineering/
+  tldr: >-
+    Practitioner essay on specifying external agent loops (trigger, goal, verification, stop rule, memory);
+    an agent-level loop, not a weight-tied model.
+- id: weng-harness-2026
+  title: "Harness Engineering for Self-Improvement"
+  date: 2026-07-04
+  venue: Lil'Log
+  status: B
+  section: boundary
+  links:
+    paper: https://lilianweng.github.io/posts/2026-07-04-harness/
+  tldr: >-
+    Survey-style essay on agent harnesses as optimizable orchestration layers; boundary material for the
+    loop stack.

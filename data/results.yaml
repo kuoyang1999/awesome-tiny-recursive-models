@@ -1,0 +1,760 @@
+- benchmark: Sudoku-Extreme
+  system: HRM
+  value: 55.0
+  metric: exact (%)
+  params: 27M
+  protocol: single pass
+  source_short: '2506.21734'
+  source: https://arxiv.org/abs/2506.21734
+- benchmark: Sudoku-Extreme
+  system: TRM-MLP
+  value: 87.4
+  metric: exact (%)
+  params: 5M
+  protocol: single pass
+  source_short: '2510.04871'
+  source: https://arxiv.org/abs/2510.04871
+- benchmark: Sudoku-Extreme
+  system: CGAR
+  value: 86.02
+  metric: exact (%)
+  params: 5M
+  protocol: single pass
+  source_short: '2511.08653'
+  source: https://arxiv.org/abs/2511.08653
+- benchmark: Sudoku-Extreme
+  system: Augmented HRM
+  value: 96.9
+  metric: exact (%)
+  params: 27M
+  protocol: multi-trajectory / voting
+  source_short: '2601.10679'
+  source: https://arxiv.org/abs/2601.10679
+- benchmark: Sudoku-Extreme
+  system: WTA (K=4)
+  value: 96.9
+  metric: exact (%)
+  params: —
+  protocol: multi-trajectory / voting
+  source_short: '2601.19085'
+  source: https://arxiv.org/abs/2601.19085
+- benchmark: Sudoku-Extreme
+  system: RSM
+  value: 97.5
+  metric: exact (%)
+  params: —
+  protocol: extended test-time depth
+  source_short: '2603.15641'
+  source: https://arxiv.org/abs/2603.15641
+- benchmark: Sudoku-Extreme
+  system: ItrSA++ + C-voting
+  value: 95.2
+  metric: exact (%)
+  params: —
+  protocol: multi-trajectory / voting
+  source_short: '2604.13521'
+  source: https://arxiv.org/abs/2604.13521
+- benchmark: Sudoku-Extreme
+  system: LDT
+  value: 100.0
+  metric: exact (%)
+  params: 0.8M
+  protocol: lattice + learned search
+  source_short: '2605.08605'
+  source: https://arxiv.org/abs/2605.08605
+- benchmark: Sudoku-Extreme
+  system: PTRM
+  value: 98.75
+  metric: exact (%)
+  params: 7M
+  protocol: multi-trajectory / voting
+  source_short: '2605.19943'
+  source: https://arxiv.org/abs/2605.19943
+- benchmark: Sudoku-Extreme
+  system: Guided exploration
+  value: 98.0
+  metric: exact (%)
+  params: —
+  protocol: multi-trajectory / voting
+  source_short: '2605.25230'
+  source: https://arxiv.org/abs/2605.25230
+- benchmark: Sudoku-Extreme
+  system: FRM
+  value: 99.5
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: '2606.29150'
+  source: https://arxiv.org/abs/2606.29150
+- benchmark: Sudoku-Extreme
+  system: Diffusion curriculum
+  value: 99.9
+  metric: exact (%)
+  params: —
+  protocol: extended test-time depth
+  source_short: '2609.01449'
+  source: https://arxiv.org/abs/2609.01449
+- benchmark: Sudoku-Extreme
+  system: Compact attention solver
+  value: 99.62
+  metric: exact (%)
+  params: 1.06M
+  protocol: not stated
+  source_short: openreview:KGYYrHn7TX
+  source: https://openreview.net/forum?id=KGYYrHn7TX
+- benchmark: Sudoku-Extreme
+  system: FPSA-R
+  value: 98.5
+  metric: exact (%)
+  params: 6M
+  protocol: not stated
+  source_short: openreview:24jagwDpAK
+  source: https://openreview.net/forum?id=24jagwDpAK
+- benchmark: Sudoku-Extreme
+  system: TRM + ridge steering
+  value: 98.43
+  metric: exact (%)
+  params: 7M
+  protocol: multi-trajectory / voting
+  source_short: openreview:0695Ka8KEw
+  source: https://openreview.net/forum?id=0695Ka8KEw
+- benchmark: Sudoku-Extreme
+  system: LRFeed
+  value: 97.07
+  metric: exact (%)
+  params: —
+  protocol: extended test-time depth
+  source_short: openreview:niEvgSmsch
+  source: https://openreview.net/forum?id=niEvgSmsch
+- benchmark: Sudoku-Extreme
+  system: InfiLoop
+  value: 97.9
+  metric: exact (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2610.11570'
+  source: https://arxiv.org/abs/2610.11570
+- benchmark: Sudoku-Extreme
+  system: SFPRM
+  value: 96.6
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:97opj03iSk
+  source: https://openreview.net/forum?id=97opj03iSk
+- benchmark: Sudoku-Extreme
+  system: NRR
+  value: 95.2
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:ICrQrzUlub
+  source: https://openreview.net/forum?id=ICrQrzUlub
+- benchmark: Sudoku-Extreme
+  system: GFPR
+  value: 95.1
+  metric: exact (%)
+  params: 7M
+  protocol: extended test-time depth
+  source_short: '2609.33540'
+  source: https://arxiv.org/abs/2609.33540
+- benchmark: Sudoku-Extreme
+  system: DRLM
+  value: 93.9
+  metric: exact (%)
+  params: 6M
+  protocol: multi-trajectory / voting
+  source_short: openreview:1jtNAI8NRC
+  source: https://openreview.net/forum?id=1jtNAI8NRC
+- benchmark: Sudoku-Extreme
+  system: BiRRM
+  value: 93.05
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:q4FCmBLlE0
+  source: https://openreview.net/forum?id=q4FCmBLlE0
+- benchmark: Sudoku-Extreme
+  system: DRDM
+  value: 85.2
+  metric: exact (%)
+  params: 7M
+  protocol: not stated
+  source_short: openreview:PbdsrmhaI3
+  source: https://openreview.net/forum?id=PbdsrmhaI3
+- benchmark: Sudoku-Extreme
+  system: G-Loop
+  value: 72.5
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:Laa8I1vVBg
+  source: https://openreview.net/forum?id=Laa8I1vVBg
+- benchmark: Maze-Hard
+  system: HRM
+  value: 74.5
+  metric: exact (%)
+  params: 27M
+  protocol: single pass
+  source_short: '2506.21734'
+  source: https://arxiv.org/abs/2506.21734
+- benchmark: Maze-Hard
+  system: TRM-Att
+  value: 85.3
+  metric: exact (%)
+  params: 7M
+  protocol: single pass
+  source_short: '2510.04871'
+  source: https://arxiv.org/abs/2510.04871
+- benchmark: Maze-Hard
+  system: Augmented HRM
+  value: 93.3
+  metric: exact (%)
+  params: 27M
+  protocol: multi-trajectory / voting
+  source_short: '2601.10679'
+  source: https://arxiv.org/abs/2601.10679
+- benchmark: Maze-Hard
+  system: LDT
+  value: 99.9
+  metric: exact (%)
+  params: 1.8M
+  protocol: lattice + learned search
+  source_short: '2605.08605'
+  source: https://arxiv.org/abs/2605.08605
+- benchmark: Maze-Hard
+  system: FPSA-R
+  value: 95.2
+  metric: exact (%)
+  params: 6M
+  protocol: not stated
+  source_short: openreview:24jagwDpAK
+  source: https://openreview.net/forum?id=24jagwDpAK
+- benchmark: Maze-Hard
+  system: GFPR
+  value: 92.0
+  metric: exact (%)
+  params: 7M
+  protocol: extended test-time depth
+  source_short: '2609.33540'
+  source: https://arxiv.org/abs/2609.33540
+- benchmark: Maze-Hard
+  system: TRM + ridge steering
+  value: 91.0
+  metric: exact (%)
+  params: 7M
+  protocol: multi-trajectory / voting
+  source_short: openreview:0695Ka8KEw
+  source: https://openreview.net/forum?id=0695Ka8KEw
+- benchmark: Maze-Hard
+  system: NRR
+  value: 90.4
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:ICrQrzUlub
+  source: https://openreview.net/forum?id=ICrQrzUlub
+- benchmark: Maze-Hard
+  system: SFPRM
+  value: 87.7
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:97opj03iSk
+  source: https://openreview.net/forum?id=97opj03iSk
+- benchmark: Maze-Hard
+  system: DRDM
+  value: 87.3
+  metric: exact (%)
+  params: 7M
+  protocol: not stated
+  source_short: openreview:PbdsrmhaI3
+  source: https://openreview.net/forum?id=PbdsrmhaI3
+- benchmark: Maze-Hard
+  system: G-Loop
+  value: 85.9
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: openreview:Laa8I1vVBg
+  source: https://openreview.net/forum?id=Laa8I1vVBg
+- benchmark: Maze-Hard
+  system: ReWork
+  value: 82.0
+  metric: exact (%)
+  params: 36.8M
+  protocol: not stated
+  source_short: openreview:cNK4KZzHH2
+  source: https://openreview.net/forum?id=cNK4KZzHH2
+- benchmark: ARC-AGI-1
+  system: HRM
+  value: 40.3
+  metric: pass@2 (%)
+  params: 27M
+  protocol: test-time augmentation + vote
+  source_short: '2506.21734'
+  source: https://arxiv.org/abs/2506.21734
+- benchmark: ARC-AGI-1
+  system: TRM-Att
+  value: 44.6
+  metric: pass@2 (%)
+  params: 7M
+  protocol: test-time augmentation + vote
+  source_short: '2510.04871'
+  source: https://arxiv.org/abs/2510.04871
+- benchmark: ARC-AGI-1
+  system: DIS-medium
+  value: 40.0
+  metric: pass@2 (%)
+  params: 7M
+  protocol: test-time augmentation + vote
+  source_short: '2511.16886'
+  source: https://arxiv.org/abs/2511.16886
+- benchmark: ARC-AGI-1
+  system: URM
+  value: 53.8
+  metric: pass@1 (%)
+  params: —
+  protocol: not stated
+  source_short: '2512.14693'
+  source: https://arxiv.org/abs/2512.14693
+- benchmark: ARC-AGI-1
+  system: Mamba-2 hybrid
+  value: 45.88
+  metric: pass@2 (%)
+  params: 6.83M
+  protocol: test-time augmentation + vote
+  source_short: '2602.12078'
+  source: https://arxiv.org/abs/2602.12078
+- benchmark: ARC-AGI-1
+  system: TRM-Planner
+  value: 48.1
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: openreview:ggkeH4cfjE
+  source: https://openreview.net/forum?id=ggkeH4cfjE
+- benchmark: ARC-AGI-1
+  system: LoopViT
+  value: 65.8
+  metric: accuracy (%), attempts not stated
+  params: 18M
+  protocol: not stated
+  source_short: '2602.02156'
+  source: https://arxiv.org/abs/2602.02156
+- benchmark: ARC-AGI-1
+  system: USRL
+  value: 47.2
+  metric: accuracy (%), attempts not stated
+  params: 7M
+  protocol: not stated
+  source_short: openreview:FScvogJslA
+  source: https://openreview.net/forum?id=FScvogJslA
+- benchmark: ARC-AGI-1
+  system: DRDM
+  value: 50.5
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: openreview:PbdsrmhaI3
+  source: https://openreview.net/forum?id=PbdsrmhaI3
+- benchmark: ARC-AGI-1
+  system: FPSA-R
+  value: 44.2
+  metric: accuracy (%), attempts not stated
+  params: 6M
+  protocol: not stated
+  source_short: openreview:24jagwDpAK
+  source: https://openreview.net/forum?id=24jagwDpAK
+- benchmark: ARC-AGI-1
+  system: Looped flows
+  value: 58.8
+  metric: accuracy (%), attempts not stated
+  params: —
+  protocol: not stated
+  source_short: '2609.11801'
+  source: https://arxiv.org/abs/2609.11801
+- benchmark: ARC-AGI-1
+  system: TraceViT
+  value: 67.8
+  metric: pass@2 (%)
+  params: —
+  protocol: not stated
+  source_short: '2607.29586'
+  source: https://arxiv.org/abs/2607.29586
+- benchmark: ARC-AGI-1
+  system: Unified HRM/TRM/URM
+  value: 59.5
+  metric: pass@2 (%)
+  params: 13.6M
+  protocol: not stated
+  source_short: '2609.39967'
+  source: https://arxiv.org/abs/2609.39967
+- benchmark: ARC-AGI-1
+  system: CHARM
+  value: 84.0
+  metric: pass@2 (%)
+  params: —
+  protocol: test-time augmentation + vote
+  source_short: '2609.33270'
+  source: https://arxiv.org/abs/2609.33270
+- benchmark: ARC-AGI-1
+  system: BDH-CQ
+  value: 29.5
+  metric: pass@2 (%)
+  params: 150M
+  protocol: not stated
+  source_short: '2608.09888'
+  source: https://arxiv.org/abs/2608.09888
+- benchmark: ARC-AGI-2
+  system: HRM
+  value: 5.0
+  metric: pass@2 (%)
+  params: 27M
+  protocol: test-time augmentation + vote
+  source_short: '2506.21734'
+  source: https://arxiv.org/abs/2506.21734
+- benchmark: ARC-AGI-2
+  system: TRM-Att
+  value: 7.8
+  metric: pass@2 (%)
+  params: 7M
+  protocol: test-time augmentation + vote
+  source_short: '2510.04871'
+  source: https://arxiv.org/abs/2510.04871
+- benchmark: ARC-AGI-2
+  system: DIS-medium
+  value: 2.5
+  metric: pass@2 (%)
+  params: 7M
+  protocol: test-time augmentation + vote
+  source_short: '2511.16886'
+  source: https://arxiv.org/abs/2511.16886
+- benchmark: ARC-AGI-2
+  system: URM
+  value: 16.0
+  metric: pass@1 (%)
+  params: —
+  protocol: not stated
+  source_short: '2512.14693'
+  source: https://arxiv.org/abs/2512.14693
+- benchmark: ARC-AGI-2
+  system: TRM-Planner
+  value: 9.2
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: openreview:ggkeH4cfjE
+  source: https://openreview.net/forum?id=ggkeH4cfjE
+- benchmark: ARC-AGI-2
+  system: FPSA-R
+  value: 15.3
+  metric: accuracy (%), attempts not stated
+  params: 6M
+  protocol: not stated
+  source_short: openreview:24jagwDpAK
+  source: https://openreview.net/forum?id=24jagwDpAK
+- benchmark: ARC-AGI-2
+  system: Looped flows
+  value: 12.2
+  metric: accuracy (%), attempts not stated
+  params: —
+  protocol: not stated
+  source_short: '2609.11801'
+  source: https://arxiv.org/abs/2609.11801
+- benchmark: ARC-AGI-2
+  system: TraceViT
+  value: 24.3
+  metric: pass@2 (%)
+  params: —
+  protocol: not stated
+  source_short: '2607.29586'
+  source: https://arxiv.org/abs/2607.29586
+- benchmark: ARC-AGI-2
+  system: InfiLoop
+  value: 13.6
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2610.11570'
+  source: https://arxiv.org/abs/2610.11570
+- benchmark: ARC-AGI-2
+  system: CHARM
+  value: 46.7
+  metric: pass@2 (%)
+  params: —
+  protocol: test-time augmentation + vote
+  source_short: '2609.33270'
+  source: https://arxiv.org/abs/2609.33270
+- benchmark: Sudoku-Extreme
+  system: FPRM
+  value: 94.2
+  metric: exact (%)
+  params: 7M
+  protocol: extended test-time depth
+  source_short: '2606.18206'
+  source: https://arxiv.org/abs/2606.18206
+- benchmark: Maze-Hard
+  system: FPRM
+  value: 87.0
+  metric: exact (%)
+  params: 7M
+  protocol: extended test-time depth
+  source_short: '2606.18206'
+  source: https://arxiv.org/abs/2606.18206
+- benchmark: ARC-AGI-1
+  system: FPRM
+  value: 47.5
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2606.18206'
+  source: https://arxiv.org/abs/2606.18206
+- benchmark: ARC-AGI-2
+  system: FPRM
+  value: 6.2
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2606.18206'
+  source: https://arxiv.org/abs/2606.18206
+- benchmark: Sudoku-Extreme
+  system: RIM
+  value: 89.34
+  metric: exact (%)
+  params: —
+  protocol: not stated
+  source_short: '2603.05234'
+  source: https://arxiv.org/abs/2603.05234
+- benchmark: ARC-AGI-1
+  system: RIM
+  value: 47.5
+  metric: pass@2 (%)
+  params: —
+  protocol: not stated
+  source_short: '2603.05234'
+  source: https://arxiv.org/abs/2603.05234
+- benchmark: ARC-AGI-2
+  system: RIM
+  value: 9.9
+  metric: pass@1 (%)
+  params: —
+  protocol: not stated
+  source_short: '2603.05234'
+  source: https://arxiv.org/abs/2603.05234
+- benchmark: Sudoku-Extreme
+  system: CMM
+  value: 93.7
+  metric: exact (%)
+  params: 5M
+  protocol: not stated
+  source_short: '2603.22871'
+  source: https://arxiv.org/abs/2603.22871
+- benchmark: Sudoku-Extreme
+  system: GRAM (N=20)
+  value: 96.1
+  metric: exact (%)
+  params: —
+  protocol: multi-trajectory / voting
+  source_short: '2605.19376'
+  source: https://arxiv.org/abs/2605.19376
+- benchmark: ARC-AGI-1
+  system: GRAM
+  value: 50.3
+  metric: pass@2 (%)
+  params: —
+  protocol: test-time augmentation + vote
+  source_short: '2605.19376'
+  source: https://arxiv.org/abs/2605.19376
+- benchmark: ARC-AGI-2
+  system: GRAM
+  value: 9.5
+  metric: pass@2 (%)
+  params: —
+  protocol: test-time augmentation + vote
+  source_short: '2605.19376'
+  source: https://arxiv.org/abs/2605.19376
+- benchmark: Sudoku-Extreme
+  system: Attractor (27M)
+  value: 91.4
+  metric: exact (%)
+  params: 27M
+  protocol: not stated
+  source_short: '2605.12466'
+  source: https://arxiv.org/abs/2605.12466
+- benchmark: Maze-Hard
+  system: Attractor (27M)
+  value: 93.1
+  metric: exact (%)
+  params: 27M
+  protocol: not stated
+  source_short: '2605.12466'
+  source: https://arxiv.org/abs/2605.12466
+- benchmark: Sudoku-Extreme
+  system: EqR
+  value: 99.8
+  metric: exact (%)
+  params: 5.03M
+  protocol: multi-trajectory / voting
+  source_short: '2605.21488'
+  source: https://arxiv.org/abs/2605.21488
+- benchmark: Sudoku-Extreme
+  system: NCA
+  value: 92.7
+  metric: exact (%)
+  params: 603K
+  protocol: multi-trajectory / voting
+  source_short: '2609.36126'
+  source: https://arxiv.org/abs/2609.36126
+- benchmark: Maze-Hard
+  system: NCA
+  value: 89.2
+  metric: exact (%)
+  params: 41K
+  protocol: multi-trajectory / voting
+  source_short: '2609.36126'
+  source: https://arxiv.org/abs/2609.36126
+- benchmark: ARC-AGI-1
+  system: NCA
+  value: 48.75
+  metric: pass@2 (%)
+  params: 3.5M
+  protocol: test-time augmentation + vote
+  source_short: '2609.36126'
+  source: https://arxiv.org/abs/2609.36126
+- benchmark: Sudoku-Extreme
+  system: SE-RRM
+  value: 93.73
+  metric: exact (%)
+  params: 2M
+  protocol: single pass
+  source_short: '2603.02193'
+  source: https://arxiv.org/abs/2603.02193
+- benchmark: ARC-AGI-1
+  system: SE-RRM
+  value: 45.3
+  metric: pass@2 (%)
+  params: 2M
+  protocol: not stated
+  source_short: '2603.02193'
+  source: https://arxiv.org/abs/2603.02193
+- benchmark: ARC-AGI-2
+  system: SE-RRM
+  value: 7.1
+  metric: pass@2 (%)
+  params: 2M
+  protocol: not stated
+  source_short: '2603.02193'
+  source: https://arxiv.org/abs/2603.02193
+- benchmark: ARC-AGI-2
+  system: DRM
+  value: 24.9
+  metric: pass@2 (%)
+  params: 14M
+  protocol: test-time augmentation + vote
+  source_short: '2604.18839'
+  source: https://arxiv.org/abs/2604.18839
+- benchmark: Sudoku-Extreme
+  system: R-Qwen
+  value: 88.5
+  metric: exact (%)
+  params: 27B
+  protocol: single pass
+  source_short: '2608.01534'
+  source: https://arxiv.org/abs/2608.01534
+- benchmark: Maze-Hard
+  system: R-Qwen
+  value: 93.1
+  metric: exact (%)
+  params: 27B
+  protocol: single pass
+  source_short: '2608.01534'
+  source: https://arxiv.org/abs/2608.01534
+- benchmark: ARC-AGI-1
+  system: R-Qwen
+  value: 82.1
+  metric: accuracy (%), attempts not stated
+  params: 27B
+  protocol: not stated
+  source_short: '2608.01534'
+  source: https://arxiv.org/abs/2608.01534
+- benchmark: ARC-AGI-2
+  system: R-Qwen
+  value: 33.5
+  metric: accuracy (%), attempts not stated
+  params: 27B
+  protocol: not stated
+  source_short: '2608.01534'
+  source: https://arxiv.org/abs/2608.01534
+- benchmark: Sudoku-Extreme
+  system: FOCUS
+  value: 64.4
+  metric: exact (%)
+  params: 1.7B
+  protocol: single pass
+  source_short: '2609.33149'
+  source: https://arxiv.org/abs/2609.33149
+- benchmark: Maze-Hard
+  system: FOCUS
+  value: 91.1
+  metric: exact (%)
+  params: 1.7B
+  protocol: single pass
+  source_short: '2609.33149'
+  source: https://arxiv.org/abs/2609.33149
+- benchmark: Sudoku-Extreme
+  system: TAPS
+  value: 91.39
+  metric: exact (%)
+  params: —
+  protocol: single pass
+  source_short: '2609.36653'
+  source: https://arxiv.org/abs/2609.36653
+- benchmark: Sudoku-Extreme
+  system: ImR
+  value: 98.7
+  metric: exact (%)
+  params: 5.03M
+  protocol: extended test-time depth
+  source_short: '2610.10996'
+  source: https://arxiv.org/abs/2610.10996
+- benchmark: Sudoku-Extreme
+  system: RoFB
+  value: 74.2
+  metric: exact (%)
+  params: —
+  protocol: single pass
+  source_short: '2608.24136'
+  source: https://arxiv.org/abs/2608.24136
+- benchmark: Sudoku-Extreme
+  system: UTM
+  value: 57.4
+  metric: exact (%)
+  params: 3.2M
+  protocol: single pass
+  source_short: '2604.21999'
+  source: https://arxiv.org/abs/2604.21999
+- benchmark: Maze-Hard
+  system: InfiLoop
+  value: 87.4
+  metric: exact (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2610.11570'
+  source: https://arxiv.org/abs/2610.11570
+- benchmark: ARC-AGI-1
+  system: InfiLoop
+  value: 49.1
+  metric: pass@2 (%)
+  params: 7M
+  protocol: not stated
+  source_short: '2610.11570'
+  source: https://arxiv.org/abs/2610.11570
+- benchmark: Maze-Hard
+  system: TAPS
+  value: 79.9
+  metric: exact (%)
+  params: —
+  protocol: single pass
+  source_short: '2609.36653'
+  source: https://arxiv.org/abs/2609.36653

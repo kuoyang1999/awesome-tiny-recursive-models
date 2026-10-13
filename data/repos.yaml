@@ -1,0 +1,15 @@
+# Code repositories (verified to exist on GitHub, 2026-10-12). kind: official | community | analysis | catalog
+- {name: SamsungSAILMontreal/TinyRecursiveModels, url: "https://github.com/SamsungSAILMontreal/TinyRecursiveModels", kind: official, notes: "TRM reference code (archived, read-only); Sudoku, Maze, ARC-AGI pipelines"}
+- {name: sapientinc/HRM, url: "https://github.com/sapientinc/HRM", kind: official, notes: "Hierarchical Reasoning Model release"}
+- {name: arcprize/hierarchical-reasoning-model-analysis, url: "https://github.com/arcprize/hierarchical-reasoning-model-analysis", kind: analysis, notes: "ARC Prize verification and ablations of HRM"}
+- {name: lucidrains/tiny-recursive-model, url: "https://github.com/lucidrains/tiny-recursive-model", kind: community, notes: "compact PyTorch re-implementation of TRM"}
+- {name: olivkoch/nano-trm, url: "https://github.com/olivkoch/nano-trm", kind: community, notes: "minimal TRM implementation"}
+- {name: alimaslax/TinyRecursiveModels-MLX, url: "https://github.com/alimaslax/TinyRecursiveModels-MLX", kind: community, notes: "TRM for Apple MLX"}
+- {name: dnakov/hrm-mlx, url: "https://github.com/dnakov/hrm-mlx", kind: community, notes: "HRM for Apple MLX"}
+- {name: krychu/hrm, url: "https://github.com/krychu/hrm", kind: community, notes: "HRM re-implementation on pathfinding"}
+- {name: qingy1337/HRM-Text, url: "https://github.com/qingy1337/HRM-Text", kind: community, notes: "HRM trained for next-token prediction"}
+- {name: SourceShift/book-trm, url: "https://github.com/SourceShift/book-trm", kind: community, notes: "tutorial: building TRMs from scratch"}
+- {name: huskydoge/Awesome-Loop-Models, url: "https://github.com/huskydoge/Awesome-Loop-Models", kind: catalog, notes: "broad catalog of loop models (looped, recurrent-depth, DEQ)"}
+- {name: HJSang/awesome-looped-transformers, url: "https://github.com/HJSang/awesome-looped-transformers", kind: catalog, notes: "looped / recurrent-depth / weight-tied Transformers"}
+- {name: ngocdaobao/A-Survey-on-Looped-Transformers, url: "https://github.com/ngocdaobao/A-Survey-on-Looped-Transformers", kind: catalog, notes: "looped Transformers for language modeling, by architecture, training, inference"}
+- {name: Interactive-Active-AI/Aha-Looped-Transformer, url: "https://github.com/Interactive-Active-AI/Aha-Looped-Transformer", kind: catalog, notes: "visual atlas of looped transformers"}
