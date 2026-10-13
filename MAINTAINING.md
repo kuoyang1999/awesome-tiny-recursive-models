@@ -7,6 +7,10 @@ overwrites it.
 
 ## Weekly (about 20 minutes)
 
+The `weekly-candidates` workflow runs every Monday (and on demand from the Actions tab), lists
+papers posted in the last eight days that are not yet in the catalog, and opens an issue labelled
+`candidates`. Screen the issue as below and close it. To run the same search locally:
+
 ```bash
 python scripts/find_new.py --since $(date -d '-8 days' +%F) > candidates.md   # OpenReview, then arXiv
 ```

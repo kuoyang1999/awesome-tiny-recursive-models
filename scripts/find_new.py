@@ -91,9 +91,16 @@ def openreview(since):
     out = {}
     cutoff = dt.datetime.fromisoformat(since).replace(tzinfo=dt.timezone.utc).timestamp() * 1000
     for term in OR_TERMS:
-        r = requests.get("https://api2.openreview.net/notes/search", timeout=60, params={
-            "term": term, "type": "terms", "content": "all", "source": "forum", "limit": 1000})
-        for n in r.json().get("notes", []):
+        try:
+            r = requests.get("https://api2.openreview.net/notes/search", timeout=60, params={
+                "term": term, "type": "terms", "content": "all", "source": "forum", "limit": 1000})
+            notes = r.json().get("notes", []) if r.status_code == 200 else None
+        except (requests.RequestException, ValueError):
+            notes = None
+        if notes is None:
+            print(f"<!-- OpenReview search unavailable for: {term}; rerun later -->")
+            continue
+        for n in notes:
             c = n.get("content", {})
             title = (c.get("title") or {}).get("value", "")
             abstract = (c.get("abstract") or {}).get("value", "")
