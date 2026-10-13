@@ -24,13 +24,14 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml requests
       - name: Find candidates
+        shell: bash
         id: find
         env:
           SINCE_INPUT: ${{ github.event.inputs.since }}
         run: |
           SINCE="$SINCE_INPUT"
           if ! [[ "$SINCE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then SINCE=$(date -u -d '-8 days' +%F); fi
-          python scripts/find_new.py --since "$SINCE" > candidates.md
+          python scripts/find_new.py --since "$SINCE" | tee candidates.md
           N=$(grep -c '^- \[ \]' candidates.md || true)
           echo "since=$SINCE" >> "$GITHUB_OUTPUT"
           echo "count=$N" >> "$GITHUB_OUTPUT"
