@@ -1,6 +1,6 @@
 - id: openreview-hGaZzTGWou
   title: 'LoopCoder: Scaling Code Intelligence via Looped Language Models'
-  date: '2026-12-31'
+  date: '2025-12-31'
   venue: Findings of ACL 2026
   status: V
   section: looped
@@ -11,7 +11,7 @@
   short: LoopCoder
 - id: '2610.13660'
   title: 'Pretraining and Test-Time Training Budgets Matter for ARC: A Controlled Study of VARC and TRM'
-  date: '2026-10-09'
+  date: '2026-09-29'
   venue: BNAIC/BeNeLearn 2026
   status: V
   section: analysis
@@ -23,7 +23,7 @@
     under a common inductive protocol.
 - id: '2610.13106'
   title: Scaling RNA Foundation Models through Iterative Refinement
-  date: '2026-10-09'
+  date: '2026-10-03'
   venue: arXiv
   status: P
   section: looped
@@ -32,6 +32,9 @@
   tldr: Presents Eco-RNA, an 80M RNA foundation model whose shared input-conditioned Transformer core is applied
     iteratively, with test-time-selectable depth trained via state regularization and anchoring loss.
   short: Eco-RNA
+  versions:
+  - label: ICLR 2027 submission (withdrawn)
+    url: https://openreview.net/forum?id=VMdLkdFkph
 - id: '2610.13041'
   title: 'RAMP: Recurrent Adaptive Mixed Precision for Efficient Prefill in Recurrent-Depth Language Models'
   date: '2026-10-09'
@@ -45,7 +48,7 @@
   short: RAMP
 - id: '2610.11570'
   title: Scaling to Tens of Thousands of Test-Time Iterations with Loop-Native Attention Residuals
-  date: '2026-10-08'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -104,7 +107,7 @@
   short: ELR / Koi-4B
 - id: '2610.09876'
   title: 'Think Before You Paint: Recursive Latent Reasoning for Diffusion Models'
-  date: '2026-10-07'
+  date: '2026-09-28'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -114,14 +117,18 @@
   tldr: 'Painter-Thinker: a small TRM-inspired recursive Thinker refines a latent each denoising step and steers
     a frozen diffusion model via ControlNet for visual constraint puzzles.'
   short: PaTh
+  versions:
+  - label: NeurIPS 2026 Workshop (BeNTo) version
+    url: https://openreview.net/forum?id=EbD1JCRk20
 - id: '2610.10996'
   title: 'Invariant-Measure Reasoners: Stable Representations for Latent Reasoning'
-  date: '2026-10-07'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: depth
   links:
     paper: https://arxiv.org/abs/2610.10996
+    openreview: https://openreview.net/forum?id=1WGIpZsg8f
   tldr: Invariant-measure reasoners predict from the expectation over the long-run distribution of latent states
     of recurrent reasoners, reducing prediction instability across depths on maze and Sudoku.
   short: ImR
@@ -172,12 +179,13 @@
     and cheap RL, and improves them with a learned depth prior and orthogonal injection.
 - id: openreview-bb4DbQgvgM
   title: 'RELAGRAM: Recursive Latent Graph Model for Capacitated Vehicle Routing Problem'
-  date: '2026-10-04'
+  date: '2026-10-03'
   venue: NeurIPS 2026 Workshop (MLxOR)
   status: W
   section: applications
   links:
     openreview: https://openreview.net/forum?id=bb4DbQgvgM
+    paper: https://arxiv.org/abs/2610.15106
   tldr: 'RELAGRAM brings latent recursion to CVRP: a compact transformer recurrently updates edge-token latents,
     outputting an edge heatmap decoded autoregressively into feasible routes.'
   short: RELAGRAM
@@ -247,7 +255,7 @@
     Loop Transformers, restoring monotonic per-loop gains while keeping decode-time parallelism.
 - id: openreview-hFzQqcftGJ
   title: Useful Memories Become Faulty When Continuously Updated by LLMs
-  date: '2026-10-04'
+  date: '2026-09-30'
   venue: NeurIPS 2026 Workshop (CL4FMAgents)
   status: W
   section: boundary
@@ -255,6 +263,11 @@
     openreview: https://openreview.net/forum?id=hFzQqcftGJ
   tldr: Shows LLM agents' continuously updated textual memory abstractions become faulty and harmful over time,
     attributing failures to iterative consolidation and recommending episodic, selectively gated abstraction.
+  versions:
+  - label: NeurIPS 2026 Workshop (TTCL) version
+    url: https://openreview.net/forum?id=3At4mC6e4c
+  - label: IAEval 2026 version
+    url: https://openreview.net/forum?id=0CIAe2EV2x
 - id: openreview-7HBFahIr6g
   title: Semantic Density Does Not Predict Agent-Memory Collapse
   date: '2026-10-01'
@@ -512,6 +525,7 @@
   section: looped
   links:
     openreview: https://openreview.net/forum?id=HnzKqEb3aD
+    paper: https://arxiv.org/abs/2610.14252
   tldr: Introduces fixed-first training for looped transformers, varying loop depth only in a short final phase,
     cutting training compute while keeping NLL across inference depths nearly unchanged.
   short: fixed-first training
@@ -539,17 +553,6 @@
   tldr: LoopICL loops a single two-stream (cell/row) transformer block for tabular in-context learning, trained
     with variable loop counts and a learned exit gate.
   short: LoopICL
-- id: openreview-EbD1JCRk20
-  title: Latent Visual Reasoning with Recursive Diffusion Models
-  date: '2026-09-28'
-  venue: NeurIPS 2026 Workshop (BeNTo)
-  status: W
-  section: architecture
-  links:
-    openreview: https://openreview.net/forum?id=EbD1JCRk20
-  tldr: Proposes Painter-Thinker, a small TRM-inspired recursive Thinker that refines a latent grid inside each
-    denoising step to steer a frozen diffusion model on pixel-space puzzles.
-  short: PaTh
 - id: '2609.34218'
   title: 'Loop Dropout: Regularizing Shared Updates in Looped Language Models'
   date: '2026-09-28'
@@ -565,8 +568,8 @@
 - id: '2609.34585'
   title: Compute Time Scaling with Recursive Models for Combinatorial Optimization
   date: '2026-09-28'
-  venue: ICLR 2027 (under review)
-  status: U
+  venue: ICLR 2027 submission (withdrawn)
+  status: P
   section: applications
   links:
     paper: https://arxiv.org/abs/2609.34585
@@ -703,17 +706,20 @@
 - id: '2609.24196'
   title: 'LoopCD: Loop-wise Contrastive Decoding for Improving Reasoning in Looped Language Models'
   date: '2026-09-21'
-  venue: arXiv
-  status: P
+  venue: EMNLP 2026
+  status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2609.24196
   tldr: Identifies loop instability producing uncertain hard tokens in looped LMs and proposes LoopCD, contrasting
     earlier-iteration and final-iteration logits at inference without training.
   short: LoopCD
+  versions:
+  - label: EMNLP 2026 paper
+    url: https://aclanthology.org/2026.emnlp-main.1367/
 - id: openreview-gPGnc81k3P
   title: 'Let it Settle: Allocating Test-Time Compute in Looped Language Models'
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -724,7 +730,7 @@
   short: SETTLE
 - id: openreview-5X9lX8FOch
   title: Recursive Message Passing is Topology-Adaptive
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: applications
@@ -736,7 +742,7 @@
   app: combinatorial
 - id: openreview-EWlhtIywvZ
   title: Depth-Conditioned looped Transformers for Adaptive ASR Inference
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -759,7 +765,7 @@
   short: WFD
 - id: openreview-oU4IJuA1Kc
   title: 'Continual-ARC: Measuring Skill Acquisition over a Working Lifetime'
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -770,7 +776,7 @@
   short: Continual-ARC
 - id: openreview-7gjlGpGNEn
   title: When Do Two Hops Suffice? Learning Reusable Composition in Looped Transformers
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -780,7 +786,7 @@
     preservation loss, achieving deep composition from shallow supervision.
 - id: openreview-sI3TpJxlWx
   title: Residual Geometry Separates State Motion from Predictive Change in Weight-Tied Iterative Refinement
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -790,17 +796,18 @@
     residual convergence diagnostics mislead, and proposes a geometry-and-readout halting gate.
 - id: openreview-wIT6q20aK0
   title: 'How Humans Learn Unfamiliar Worlds: A Think-Aloud Dataset on ARC-AGI-3'
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=wIT6q20aK0
+    paper: https://arxiv.org/abs/2610.34523
   tldr: Releases a think-aloud dataset of 144 human trajectories (64 participants, 25 ARC-AGI-3 games) plus 250
     LLM-agent trajectories, annotated for mechanism discovery, errors and recovery.
 - id: openreview-24jagwDpAK
   title: Recurrent Reasoning with Fixed Point Attention
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -811,7 +818,7 @@
   short: FPSA-R
 - id: openreview-niEvgSmsch
   title: 'LRFeed: Latent Residual Feedback for Efficient Reasoning in Looped Transformers'
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -820,19 +827,9 @@
   tldr: LRFeed feeds back latent-state evolution to guide subsequent computation in a single-state TRM variant,
     strengthening long-horizon reasoning beyond the training horizon with less compute.
   short: LRFeed
-- id: openreview-FwNyRCul6v
-  title: Probing the Emergent Global Workspace of Reasoning Models on Structured Reasoning Tasks
-  date: '2026-09-19'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: analysis
-  links:
-    openreview: https://openreview.net/forum?id=FwNyRCul6v
-  tldr: Jacobian-lens probing finds a thin, causally necessary workspace subspace in a recursive latent reasoner
-    that repairs single-step damage, contrasted with an autoregressive LLM.
 - id: openreview-D1tgJZlgAI
   title: Recursive LLM-as-a-Judge for Long-Horizon Web-Agent Trajectories
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -843,7 +840,7 @@
   short: RecursiveWebJudge
 - id: openreview-D3RjQ1gZX0
   title: '$\lambda$-RLM: Statically Restricted Control for Recursive Long-Context Reasoning'
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -854,7 +851,7 @@
   short: λ-RLM
 - id: openreview-OlR1pLUKxy
   title: Identity Supervision for Readable Intermediate States
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -864,7 +861,7 @@
     modular addition and two-hop composition, varying supervision location and gradient exposure.
 - id: openreview-Laa8I1vVBg
   title: Loop Attention, not the Block
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -875,7 +872,7 @@
   short: G-Loop
 - id: openreview-MOIKCu9eSG
   title: How Depth Growth and Looping Shape In-Context Learning in Language Models
-  date: '2026-09-19'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -886,9 +883,9 @@
   short: Growth/looping and ICL
 - id: openreview-ltDDkopBuV
   title: Interaction Locality in Spatial Reasoning
-  date: '2026-09-18'
-  venue: ICLR 2027 (under review)
-  status: U
+  date: '2026-10-03'
+  venue: ICLR 2027 submission (withdrawn)
+  status: P
   section: analysis
   links:
     openreview: https://openreview.net/forum?id=ltDDkopBuV
@@ -896,30 +893,33 @@
     against a matched Transformer and uses it as a fine-tuning regularizer.
 - id: openreview-1jtNAI8NRC
   title: 'Breaking Diffusion: Parallel Reasoning with Draft Refinement'
-  date: '2026-09-18'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: search
+  date: '2026-10-03'
+  venue: ICLR 2027 submission (desk rejected)
+  status: P
+  section: boundary
   links:
     openreview: https://openreview.net/forum?id=1jtNAI8NRC
-  tldr: 'Draft Refinement Language Models: one denoiser proposes parallel draft revisions and scores drafts with
-    a one-pass cavity energy, keeping only lower-energy revisions.'
+    paper: https://arxiv.org/abs/2610.26542
+  tldr: 'DRLM: a standard 14-layer bidirectional Transformer denoiser proposes parallel token revisions of a complete
+    draft and keeps a revision only if its one-pass cavity energy drops; refines token drafts, not weight-tied latent
+    depth.'
   short: DRLM
 - id: openreview-ZYi3Jbzoao
   title: 'Tiny Recursive Policy: Recursive Latent Refinement for Visuomotor Control'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: applications
   links:
     openreview: https://openreview.net/forum?id=ZYi3Jbzoao
+    paper: https://arxiv.org/abs/2610.33288
   tldr: 'Tiny Recursive Policy: behaviour-cloning visuomotor policy with TRM-style high/low latent refinement each
     control step and a persistent carry across steps.'
   short: TRP
   app: control
 - id: openreview-vzsNgu6lFR
   title: When Do Stored Facts Become Available in Looped Transformers?
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -929,9 +929,9 @@
     loops under higher memorization load; multi-hop intermediate entities emerge in order.
 - id: openreview-5kvxELC0Rp
   title: 'The Loop Records Where It Slipped: Verifying Execution Slips in Looped Language Models'
-  date: '2026-09-18'
-  venue: ICLR 2027 (under review)
-  status: U
+  date: '2026-10-03'
+  venue: ICLR 2027 submission (desk rejected)
+  status: P
   section: looped
   links:
     openreview: https://openreview.net/forum?id=5kvxELC0Rp
@@ -939,7 +939,7 @@
     selection and selective resampling.
 - id: openreview-6NkDZW0hTr
   title: 'Learning to Loop: Reinforcement Learning for Looped Transformers'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -949,7 +949,7 @@
     question-specific repetition routes under a compute cap.
 - id: openreview-wc1I8t7wS6
   title: 'LoopDistill: Student-Aware Knowledge Distillation for Looped Language Models'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -960,19 +960,20 @@
   short: LoopDistill
 - id: openreview-hE7zfzHgNM
   title: 'Look, Reason, Draw a Region: Recursive Refinement for Spatial Context Prediction'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: applications
   links:
     openreview: https://openreview.net/forum?id=hE7zfzHgNM
+    paper: https://arxiv.org/abs/2610.23302
   tldr: Introduces Spatial-TRM, a compact weight-tied recursive reasoner over frozen vision-language features with
     a convex region decoder for spatial context prediction.
   short: Spatial-TRM
   app: vision
 - id: openreview-f1J5bOFhmz
   title: 'Freeze, Refit, Compare: A Procedure-Level Contamination Audit for Symbolic ARC Solvers'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -982,17 +983,18 @@
     reserved-training and public-evaluation success rates.
 - id: openreview-z5WQY0LczU
   title: Can LLMs Improve Their Own Harness? A Controlled Study on ARC-AGI-3
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
   links:
     openreview: https://openreview.net/forum?id=z5WQY0LczU
+    paper: https://arxiv.org/abs/2610.30499
   tldr: Tests whether frontier LLMs can autonomously build and revise ARC-AGI-3 harnesses, finding feedback-driven
     revisions often fail to improve or transfer to held-out games.
 - id: openreview-0j1zyCWT7r
   title: 'Depth Is Not Enough: Compositional Generalization In Looped Transformers'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1002,7 +1004,7 @@
     extrapolation through syntax inference, not depth; extra iterations stop helping.
 - id: openreview-PjfQgrbPXy
   title: How Training Loop Counts Shape Computation in Looped Transformers
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1012,7 +1014,7 @@
     tasks; fewer training loops yield faster frontiers and extra loops can hurt.
 - id: openreview-Ww8nQMWeiH
   title: 'LoopQ: Quantization for Looped Language Models'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1023,7 +1025,7 @@
   short: LoopQ
 - id: openreview-6rIi22UcqG
   title: 'ReMem: Reusable Latent Computation for Depth Extrapolation in Looped Language Models'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1034,17 +1036,18 @@
   short: ReMem
 - id: openreview-ApDGui1ZYU
   title: Knowledge transfer between simple discrete worlds
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: analysis
   links:
     openreview: https://openreview.net/forum?id=ApDGui1ZYU
+    paper: https://arxiv.org/abs/2610.15081
   tldr: Trains a depth-recurrent model on Sudoku-like puzzles with combinable rules and tests four novelty levels
     when rules are given as symbolic descriptions versus solved examples.
 - id: openreview-p2MB01N5QE
   title: 'ARC-Golf Bench: Benchmarking Continual Program Optimization with Code Golf Agents'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1055,7 +1058,7 @@
   short: ARC-Golf Bench
 - id: openreview-8u4GwD0Jwm
   title: 'Compiled Worlds: What Adaptation Costs on Transformed ARC-AGI-3 Games'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -1066,7 +1069,7 @@
   short: Compiled Worlds
 - id: openreview-v2s01DQuOl
   title: 'Megrez: Reconstructing Intermediate Supervision for Ternary Looped Transformers'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1077,7 +1080,7 @@
   short: Megrez
 - id: openreview-i1h0zQU3cl
   title: 'ARLoop: Strong Fully-Open Looped Transformers with Attention Residuals'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1088,7 +1091,7 @@
   short: ARLoop
 - id: openreview-d6MpL4YyvG
   title: 'Beyond the Loop: From Latent Dynamics to Performant Recurrent Models'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -1099,7 +1102,7 @@
   short: L^nH
 - id: openreview-nea9pdbfVz
   title: Latent Test-Time Computation with Energy Transformer Components
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1110,17 +1113,18 @@
   short: EGPT-GPT hybrid
 - id: openreview-d36lMaMdBz
   title: Tiny Recursive Message Passing
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
   links:
     openreview: https://openreview.net/forum?id=d36lMaMdBz
+    paper: https://arxiv.org/abs/2610.18649
   tldr: Applies recursive-transformer procedures (deep supervision, truncated recursion, adaptive halting, deduction
     lattices) to message-passing networks; a 16k-parameter model exceeds 99% on Sudoku-Extreme.
 - id: openreview-rBf29ZC7f7
   title: Replace or Repair? Isolating Handover Value in Stalled Agents
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1130,19 +1134,20 @@
     then a budget-aware manager evaluated on Craftax, FLE, SWE-bench Pro, ARC-AGI-3.
 - id: openreview-l06ZB2czBv
   title: 'RTSM: Adapting Recursive Models to Multivariate Time-Series Classification'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: applications
   links:
     openreview: https://openreview.net/forum?id=l06ZB2czBv
+    paper: https://arxiv.org/abs/2610.23353
   tldr: RTSM adapts recursive models to multivariate time-series classification with a convolutional temporal tokenizer,
     single-state weight-tied refinement, and a pooled readout.
   short: RTSM
   app: other
 - id: openreview-WnWuMmsljg
   title: 'GitSwarm: Cumulative Inference Over Structured Persistent Memory'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1153,7 +1158,7 @@
   short: GitSwarm
 - id: openreview-L49FACvzY7
   title: DELAYED DEPTH EXPANSION FOR LOOPED TRANSFORMERS
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1164,7 +1169,7 @@
   short: DDE
 - id: openreview-CHy7sejNlH
   title: Learning Recursive Reasoners without Solutions
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: training
@@ -1174,7 +1179,7 @@
     recurrence with stochastic refinement of explicit candidates; studies compute allocation and depth extrapolation.
 - id: openreview-7faF0IyPXX
   title: Induction and Adaptation in Natural Language
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1194,7 +1199,7 @@
     while scores still change, decomposing score motion across Huginn-3.5B and Ouro-1.4B.
 - id: openreview-3t0j2Y05EH
   title: 'Self-Evolution Should Be Stable, Not Frozen: Lyapunov-Gated Recursive Self-Improvement'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1205,28 +1210,30 @@
   short: EvoLyapunov
 - id: openreview-F2Gf9kssdG
   title: Looped Reasoning Finishes Earlier Than You Think
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
   links:
     openreview: https://openreview.net/forum?id=F2Gf9kssdG
+    paper: https://arxiv.org/abs/2610.18174
   tldr: Shows slowly decaying oscillatory latent modes bottleneck convergence in looped reasoning, and proposes
     QRR, a gauge-equivariant recurrent reasoner whose phase-rotation symmetry decouples them, converging faster.
   short: QRR
 - id: openreview-i097UD5gny
   title: Agreement rather than normalisation keeps depth reusable in looped language models
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
   links:
     openreview: https://openreview.net/forum?id=i097UD5gny
+    paper: https://arxiv.org/abs/2610.31943
   tldr: Shows depth reuse in looped LMs depends on agreement between training and inference loops, not loop-boundary
     normalization, using Ouro ablations and 19M-parameter from-scratch models.
 - id: openreview-fSC9jzrkmT
   title: 'Variational Autoreasoners: Recursive Reasoning by Amortizing the Other Half of EM'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: training
@@ -1237,18 +1244,19 @@
   short: Variational Autoreasoner
 - id: openreview-rmRnCsS98o
   title: Input-Conditioned Search for Efficient Test-Time Scaling of Recursive Reasoners
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: search
   links:
     openreview: https://openreview.net/forum?id=rmRnCsS98o
+    paper: https://arxiv.org/abs/2610.18547
   tldr: Proposes Input-Conditioned Search, a training-free test-time method exploring alternative update maps of
     a pretrained recursive reasoner by searching over input conditions to escape incorrect attractors.
   short: ICS
 - id: openreview-rv2p3FKcKx
   title: 'Some Tokens Think, Others Remember: Separating Compute and Capacity in LLMs'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1258,7 +1266,7 @@
     deep sublayer and a once-applied wide FFN with per-token gates.
 - id: openreview-2siSqdx8wm
   title: 'ConceptARC at Scale: Studying Conceptual Understanding in Reasoning Models'
-  date: '2026-09-18'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -1268,25 +1276,15 @@
     reviewed tasks, 100 per concept, ten times ConceptARC), evaluating LRMs and from-scratch models and probing
     representation clusters by transformation type.
   short: ConceptARC-100
-- id: openreview-YGnpHMuhJI
-  title: 'Mimir: A Sub-2B Hierarchical Reasoning Model Trained on Permissible Data Punches Above Its Weight Class'
-  date: '2026-09-17'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: depth
-  links:
-    openreview: https://openreview.net/forum?id=YGnpHMuhJI
-  tldr: 'Mimir: 1.78B HRM-Text language model with iterated, interleaved L/H stacks trained from scratch on permissibility-constrained
-    data; ablates inference-time recurrent depth.'
-  short: Mimir
 - id: openreview-Mu5daDrvj9
   title: 'How to Loop Your Transformer: Loop Scaling, Specialization, and Parallel Inference'
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
   links:
     openreview: https://openreview.net/forum?id=Mu5daDrvj9
+    paper: https://arxiv.org/abs/2610.40325
   tldr: Studies looping trade-offs in from-scratch decoder-only transformers up to 1B parameters and 32 loops, adds
     loop-specific low-rank updates, and fixes Parallel Loop Transformer quality.
 - id: '2609.19818'
@@ -1302,7 +1300,7 @@
   short: CoReLoop
 - id: openreview-7UXKgr1Akp
   title: 'CoEvo-RSI: A Recursive Self-Improvement Framework for Long-Horizon Model--Harness Co-Evolution'
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1313,7 +1311,7 @@
   short: CoEvo-RSI
 - id: openreview-cJPfi08SM6
   title: 'Competence Without Performance: Models Represent ARC-AGI-3 but Cannot Play It'
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -1335,7 +1333,7 @@
   short: LSTM-UT
 - id: openreview-vJgG20sjea
   title: How Weight Tying Elicits Iterative Computation in Looped Transformers
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1345,9 +1343,9 @@
     on directed permutation traversal; training on one iteration's gradient prevents it.
 - id: openreview-RqYZS5HaYn
   title: 'LoopAhead: Parallelling Recurrent Depth In Looped Transformers'
-  date: '2026-09-17'
-  venue: ICLR 2027 (under review)
-  status: U
+  date: '2026-10-03'
+  venue: ICLR 2027 submission (desk rejected)
+  status: P
   section: looped
   links:
     openreview: https://openreview.net/forum?id=RqYZS5HaYn
@@ -1367,7 +1365,7 @@
     ARC-AGI-3 and research tasks like polyomino packing and MNIST classifier compression.
 - id: openreview-jOaOEA2iY9
   title: 'Experts of Exit: Risk-Controlled Halting in Looped Language Models'
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1389,7 +1387,7 @@
   short: DCP
 - id: openreview-tBuBIeReU3
   title: Random Recursive Models
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -1411,7 +1409,7 @@
   short: USRL
 - id: openreview-mCm6MwKprF
   title: Implicit Rule Induction with Test-Time Task Embeddings in ARC-like Tasks
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
@@ -1422,9 +1420,9 @@
   short: Embed-TTT
 - id: openreview-oJ6wTTe7zz
   title: Nearly Opposite Gradients in Shrinking Regions of Looped Networks
-  date: '2026-09-17'
-  venue: ICLR 2027 (under review)
-  status: U
+  date: '2026-10-03'
+  venue: ICLR 2027 submission (desk rejected)
+  status: P
   section: applications
   links:
     openreview: https://openreview.net/forum?id=oJ6wTTe7zz
@@ -1434,7 +1432,7 @@
   app: language
 - id: openreview-Sp9jcZDRoC
   title: 'Looping in Context: Node Classification with Looped Prior-Fitted Networks'
-  date: '2026-09-17'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1445,7 +1443,7 @@
   short: Looped NodePFN
 - id: openreview-0695Ka8KEw
   title: Latent Trajectory Steering Unlocks Trapped Capacity in Recursive Reasoning
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: search
@@ -1455,18 +1453,22 @@
     perturbations plus Gibbs-weighted selection recover failed rollouts.
 - id: openreview-auyZ4A1BXU
   title: ARC-AGI Without Pretraining
-  date: '2026-09-16'
+  date: '2025-10-08'
   venue: ICLR 2027 (under review)
   status: U
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=auyZ4A1BXU
+    paper: https://arxiv.org/abs/2512.06104
   tldr: Introduces CompressARC, a 76K-parameter model without pretraining that solves ARC-AGI-1 puzzles by minimizing
     description length on each target puzzle at inference.
   short: CompressARC
+  versions:
+  - label: ICLR 2026 submission (not accepted)
+    url: https://openreview.net/forum?id=TbbMyr3E0x
 - id: openreview-FnZaqERwFp
   title: Do More Loops Follow the Evidence?
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1477,7 +1479,7 @@
 - id: openreview-mQUR2BQm7r
   title: What Does Another Loop Buy? Attention Reallocation Tracks the Marginal Value of Test-Time Compute in Looped
     Transformers
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1487,18 +1489,20 @@
     training-free stopping rule transferring from synthetic tasks to pretrained looped LMs.
 - id: openreview-r7z9xY47M2
   title: 'recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models'
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
   links:
     openreview: https://openreview.net/forum?id=r7z9xY47M2
+    paper: https://arxiv.org/abs/2610.26747
+    code: https://github.com/chandar-lab/AMPLIFY/tree/recamplify
   tldr: 'recAMPLIFY: recursive pretraining of masked protein LMs with a weight-tied core; Gated Mixture Recurrence
     unifies halting and gating, recovering PonderNet as a special case.'
   short: recAMPLIFY
 - id: openreview-KGYYrHn7TX
   title: Learned Correction Dynamics in Recursive Reasoning Models
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -1508,7 +1512,7 @@
     attention solvers reach about 99.5% with under 2M parameters; ARC candidate-pool limits.
 - id: openreview-MNwejBwJSK
   title: Adaptive Supervision Helps Tiny Recursive Models Learn Better
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: training
@@ -1529,7 +1533,7 @@
     scaling exponents; under data constraints, looping regularizes and compute-optimal loop counts grow with scale.
 - id: openreview-qLsYisXkD5
   title: Tiny Recursive Models Underuse their Depth
-  date: '2026-09-16'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -1538,48 +1542,31 @@
   tldr: Shows TRM recursion reaches fixed points early, wasting depth, and widens the carried state with Virtual
     Width Networks at unchanged backbone compute so additional supervision steps stay useful.
   short: VWN+TRM
-- id: openreview-eGVeq4Cvyk
-  title: 'PonderLM-3: Token-Adaptive Pondering with Differentiable Masking'
-  date: '2026-09-16'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=eGVeq4Cvyk
-  tldr: Introduces PonderLM-3, self-supervised token-adaptive pondering pretraining that learns per-token pondering
-    steps via differentiable attention masking, realized by hard pruning at inference.
-  short: PonderLM-3
 - id: openreview-vxkm7Oolhp
   title: 'Slots, Transitions, Loops: Learning Composable World Models for ARC'
-  date: '2026-09-16'
+  date: '2026-06-10'
   venue: UniWorld Workshop @ ECCV2026
   status: W
   section: architecture
   links:
     openreview: https://openreview.net/forum?id=vxkm7Oolhp
+    paper: https://arxiv.org/abs/2606.12316
   tldr: Loop-OWM learns ARC rules as composable transitions over object-centric slot states, combining color-prototype
     slots, demonstration-conditioned summaries and a looped transition model, outperforming non-looped and looped
     baselines on ARC-1 and ARC-2.
   short: Loop-OWM
-- id: openreview-ce4t4zXhPj
-  title: 'T-LoopFormer: Token-Level Elastic-Depth Looped Transformers with Dynamic Routing'
-  date: '2026-09-15'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=ce4t4zXhPj
-  tldr: T-LoopFormer lets each token choose its own loop count via token-choice routing and adds recursion-wise
-    KV caches for faster decoding.
-  short: T-LoopFormer
+  versions:
+  - label: X-Reason workshop version (oral)
+    url: https://openreview.net/forum?id=I3qCWNKJWV
 - id: openreview-97opj03iSk
   title: 'Spherical Fixed-Point Reasoners: Adaptive Loop Halting on the Hypersphere'
-  date: '2026-09-15'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: depth
   links:
     openreview: https://openreview.net/forum?id=97opj03iSk
+    paper: https://arxiv.org/abs/2610.25646
   tldr: Proposes Spherical Fixed-Point Reasoners, running damped fixed-point looping with geodesic injection, damping
     and halting on the nGPT hypersphere, with existence and convergence proofs.
   short: SFPRM
@@ -1608,7 +1595,7 @@
     at full step; curvature decomposition and a quadratic model predict useful step scales.
 - id: openreview-PbdsrmhaI3
   title: Learning to Refine Partial Solutions with Recursive Discrete Denoising
-  date: '2026-09-15'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: training
@@ -1619,18 +1606,19 @@
   short: DRDM
 - id: openreview-Uf1hyKjI0d
   title: 'Asymmetric Looped Transformers: Fixed Global Representations for an Iterative Decoder'
-  date: '2026-09-15'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
   links:
     openreview: https://openreview.net/forum?id=Uf1hyKjI0d
+    paper: https://arxiv.org/abs/2610.28489
   tldr: AsymLoop separates a single-pass encoder producing fixed global KV caches from a weight-tied recurrent decoder,
     with a dynamic learning-rate schedule; 60M-1B FineWeb-Edu models.
   short: AsymLoop
 - id: openreview-ziKfmgJXjk
   title: 'MolGAN: Few-Step 3D Molecule Generation with Hierarchical Reasoning'
-  date: '2026-09-15'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: applications
@@ -1642,7 +1630,7 @@
   app: science
 - id: openreview-ICrQrzUlub
   title: Negotiated Recursive Reasoning
-  date: '2026-09-14'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: architecture
@@ -1653,7 +1641,7 @@
   short: NRR
 - id: openreview-gmpIqVKZzs
   title: Reinforced Generative Recursive Reasoning for Native Adaptive Computation Depth
-  date: '2026-09-14'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: depth
@@ -1663,31 +1651,20 @@
     pretraining, then outcome RL over transitions and a residual-conditioned halting action.'
   short: ReGRAM
 - id: '2609.15160'
-  title: 'T-LoopFormer: Token-Level Elastic-Depth Looped Transformers for Latent Reasoning with Dynamic Routing'
+  title: 'T-LoopFormer: Token-Level Elastic-Depth Looped Transformers with Dynamic Routing'
   date: '2026-09-14'
-  venue: arXiv
-  status: P
+  venue: ICLR 2027 (under review)
+  status: U
   section: looped
   links:
     paper: https://arxiv.org/abs/2609.15160
+    openreview: https://openreview.net/forum?id=ce4t4zXhPj
   tldr: T-LoopFormer adds token-choice routing so each token picks its own loop count, plus a recursion-wise KV
     cache per loop for faster autoregressive decoding in looped transformers.
   short: T-LoopFormer
-- id: openreview-QzvTscsiCZ
-  title: Recursive Transformer with State Injection and Per-Slice Supervision for Thermo-Mechanical Surrogate Modeling
-  date: '2026-09-13'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: applications
-  links:
-    openreview: https://openreview.net/forum?id=QzvTscsiCZ
-  tldr: 'DEPTH: recursive transformer with state injection and per-step supervision producing per-layer stress contours
-    for semiconductor package surrogates, benchmarked against TRM and UT.'
-  short: DEPTH
-  app: science
 - id: openreview-6G4PNsgJ3H
   title: 'Dual-Mod Attention: Token Recurrence Beats Looping'
-  date: '2026-09-13'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1698,7 +1675,7 @@
   short: Dual-Mod Attention
 - id: openreview-G2TjewZKzr
   title: 'VeriACT: Action-Grounded Verification for Efficient Interactive Visual Reasoning'
-  date: '2026-09-12'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1721,7 +1698,7 @@
   short: Looped Flows
 - id: openreview-cMNaCZyQdB
   title: 'ALoDLM: Adaptively Looped Diffusion Language Models'
-  date: '2026-09-09'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1744,7 +1721,7 @@
 - id: openreview-L4Y1gbrK0i
   title: When Does Per-Token Halting Help? Adaptive Token-Wise Damping for Fixed-Point Reasoning Models in Looped
     Transformers
-  date: '2026-09-08'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: depth
@@ -1753,20 +1730,9 @@
   tldr: 'Adaptive Token-Wise Damping for Fixed-Point Reasoning Models: per-token damping with periodic step-size
     refresh against slow-token halting; mixed results on A5, S5 and Sudoku.'
   short: ATWD
-- id: openreview-vnYE7hZoKz
-  title: 'Loop-μP: Residual Scaling and Hyperparameter Transfer in Looped Transformers'
-  date: '2026-09-08'
-  venue: ICLR 2027 (under review)
-  status: U
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=vnYE7hZoKz
-  tldr: Derives Loop-μP, scaling residual branches by 1/N in loop count (combined with the L^-1/2 depth factor)
-    so learning rates transfer across loop counts in looped Transformers.
-  short: Loop-μP
 - id: openreview-X9BcfhZsuB
   title: 'CoMATE: Consolidating Memory Across Trajectories for Long-Horizon Interactive Exploration on ARC-AGI-3'
-  date: '2026-09-05'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -1857,7 +1823,7 @@
     whose accuracy keeps rising with depth; noise injection explores solutions without parallel rollouts.
 - id: '2609.22197'
   title: 'Dissecting Hierarchical Reasoning Models: A Mechanistic Study'
-  date: '2026-08-30'
+  date: '2026-06-11'
   venue: ICML 2026 Workshop (Mech Interp)
   status: W
   section: analysis
@@ -1869,7 +1835,7 @@
     and SAEs, concluding it performs constraint-aware iterative refinement of a solution state.
 - id: openreview-MvvZQZQ1NN
   title: LOOPED TRANSFORMERS LEARN ONE OF TWO ALGORITHMS, AND TRAINING MOVES THE ODDS
-  date: '2026-08-29'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1911,9 +1877,9 @@
     set by initialization, and that the phase governs test-time compute scaling.
 - id: openreview-QFz6hXZIbF
   title: The Co-evolution Cycle of AI and Science
-  date: '2026-08-25'
-  venue: NeurIPS 2026 Workshop (WiML)
-  status: W
+  date: '2026-09-30'
+  venue: WiML @ NeurIPS 2026 submission (not accepted)
+  status: P
   section: surveys
   links:
     openreview: https://openreview.net/forum?id=QFz6hXZIbF
@@ -1932,7 +1898,7 @@
   short: Meta^n
 - id: openreview-kN54kfhdDB
   title: Rethinking at Fixed Points in Looped Language Models
-  date: '2026-08-25'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1965,7 +1931,7 @@
   short: Prime Agent
 - id: openreview-jrYRhzjMcs
   title: 'Jacobi Recirculation: Parallelizing Recirculation with Fixed-Point Iteration'
-  date: '2026-08-24'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1977,7 +1943,7 @@
   short: Jacobi recirculation
 - id: openreview-6AMsJpfxDX
   title: Recurrent Refinement Moves Candidate-Quality Readability Earlier and Stabilizes Its Coordinates
-  date: '2026-08-23'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1987,7 +1953,7 @@
     it emerges by loops 3-4 with stable coordinates after a first-pass shift.
 - id: openreview-cnkL9N9iiM
   title: 'Scaling Laws for Latent Reasoning: How Test-Time Compute Tracks Circuit Depth'
-  date: '2026-08-23'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -1997,7 +1963,7 @@
     per-step reliability; verified on a 19M-121M ladder and Huginn-3.5B.'
 - id: openreview-dcQKvnC6cP
   title: 'Learning from Recurrence: Internalizing Depth-Induced Preferences in Looped Language Models'
-  date: '2026-08-22'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -2008,7 +1974,7 @@
   short: preference write-back
 - id: openreview-IbYlE3lDII
   title: 'When Wrong Answers Remain Unsettled: Failure Dynamics in Recurrent Reasoners'
-  date: '2026-08-20'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: analysis
@@ -2018,7 +1984,7 @@
     separating persistence, local geometry and perturb-and-reselect efficacy.
 - id: openreview-1YacpejHL6
   title: 'miniFlux: Exploring Agent-Directed Harness Evolution for Online Adaptation'
-  date: '2026-08-20'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: boundary
@@ -2029,7 +1995,7 @@
   short: miniFlux
 - id: openreview-25DdNVKXg6
   title: 'Shared Computation, Different Readouts: Depth Compatibility in Looped Transformers'
-  date: '2026-08-20'
+  date: '2026-10-03'
   venue: ICLR 2027 (under review)
   status: U
   section: looped
@@ -2085,18 +2051,18 @@
     to play unknown ARC-AGI-3 games, inferring goals and validating actions by replay.
   short: Twin
 - id: '2608.13517'
-  title: 'DFM Mimir v1: An Open HRM Delivering Frontier Performance at 1B Parameters Using Only Permissible Post-Training
-    Data'
+  title: 'Mimir: A Sub-2B Hierarchical Reasoning Model Trained on Permissible Data Punches Above Its Weight Class'
   date: '2026-08-13'
-  venue: arXiv
-  status: P
+  venue: ICLR 2027 (under review)
+  status: U
   section: lineage
   links:
     paper: https://arxiv.org/abs/2608.13517
     code: https://github.com/schneiderkamplab/HRM-Text
+    openreview: https://openreview.net/forum?id=YGnpHMuhJI
   tldr: Releases Mimir v1, a 1B-parameter HRM-architecture language model trained from scratch on permissible data,
     outperforming HRM-Text 1B and setting a Danish state of the art.
-  short: Mimir v1
+  short: Mimir
 - id: '2608.09888'
   title: 'BDH-CQ: In-Context Learning with Recurrent Latent Reasoning'
   date: '2026-08-10'
@@ -2122,7 +2088,7 @@
   short: CDB
 - id: '2608.08113'
   title: 'Think Deep, Speak Once: Relit, A Recursive Latent Implicit Transformer Framework'
-  date: '2026-08-08'
+  date: '2026-03-02'
   venue: ICLR 2026 Workshop (LIT)
   status: W
   section: applications
@@ -2216,12 +2182,13 @@
   date: '2026-08-02'
   venue: arXiv
   status: P
-  section: training
+  section: boundary
   links:
     paper: https://arxiv.org/abs/2608.01534
     code: https://github.com/IMPACT-L/RQwen
-  tldr: R-Qwen brings recursive refinement with deep supervision to a pretrained Qwen backbone, adding Hierarchical
-    Supervision Weighting across recursive steps for symbolic puzzles.
+  tldr: R-Qwen LoRA-tunes a pretrained Qwen3.5-27B model to rewrite an explicit, serialized task candidate over
+    repeated calls, with exponentially weighted per-step losses (HSW); the loop runs over text candidates in a pretrained
+    LLM, not tied latent weights.
   short: R-Qwen
 - id: '2608.00857'
   title: 'REIMU: Efficient Heterogeneous Hierarchical Reasoning for SSL-Based Speech Deepfake Detection'
@@ -2417,7 +2384,7 @@
   short: RecRec
   app: tabular
 - id: '2607.10681'
-  title: LayerNorm as Implicit Gain Control in Looped Transformers
+  title: Spectral Margins and Memory Routing in Looped Transformers
   date: '2026-07-12'
   venue: arXiv
   status: P
@@ -2452,7 +2419,7 @@
 - id: '2607.09059'
   title: 'ARCANA: A Reflective Multi-Agent Program Synthesis Framework for ARC-AGI-2 Reasoning'
   date: '2026-07-10'
-  venue: 2026 11th International Symposium on Advances in E
+  venue: ISAEECE 2026
   status: V
   section: boundary
   links:
@@ -2462,20 +2429,24 @@
   short: ARCANA
 - id: openreview-0f1EnRlUh2
   title: 'Squeeze Evolve: A Unified Multi-Model Orchestration Framework for Verifier-Free Evolution'
-  date: '2026-07-08'
+  date: '2026-04-09'
   venue: COLM 2026
   status: V
   section: boundary
   links:
     openreview: https://openreview.net/forum?id=0f1EnRlUh2
+    paper: https://arxiv.org/abs/2604.07725
   tldr: Introduces Squeeze Evolve, multi-model orchestration for verifier-free evolutionary inference that reserves
     strong models for high-impact stages to improve diversity and cost.
   short: Squeeze Evolve
+  versions:
+  - label: ICML 2026 Workshop (AI4Math) version
+    url: https://openreview.net/forum?id=2rREyVB08Y
 - id: '2607.20519'
   title: 'Adaptive Depth in Looped Transformers: Diagnosing Learned Halting Gates and Trajectory Readouts'
   date: '2026-07-08'
-  venue: arXiv
-  status: P
+  venue: TMLR (under review)
+  status: U
   section: looped
   links:
     paper: https://arxiv.org/abs/2607.20519
@@ -2521,7 +2492,7 @@
 - id: '2606.31543'
   title: Modality-Driven Search with Holistic Trace Judging for ARC-AGI-2
   date: '2026-06-30'
-  venue: 2026 9th International Conference on Artificial In
+  venue: ICAIBD 2026
   status: V
   section: boundary
   links:
@@ -2598,7 +2569,7 @@
   short: AdaR
 - id: openreview-qzFxBcK9Cg
   title: A Survey on the Abstraction and Reasoning Corpus
-  date: '2026-06-20'
+  date: '2026-02-18'
   venue: TMLR
   status: V
   section: surveys
@@ -2617,31 +2588,21 @@
   tldr: 'optimize_anything: one declarative LLM-based search loop that improves text artifacts under a scoring function,
     covering prompt, code, and agent-architecture optimization.'
   short: optimize_anything
-- id: openreview-2rREyVB08Y
-  title: 'Squeeze Evolve: Unified Multi-Model Orchestration for Verifier-Free Evolution'
-  date: '2026-06-17'
-  venue: ICML 2026 Workshop (AI4Math)
-  status: W
-  section: boundary
-  links:
-    openreview: https://openreview.net/forum?id=2rREyVB08Y
-  tldr: Squeeze Evolve orchestrates multiple LLMs in verifier-free evolutionary inference, reserving strong models
-    for high-impact stages to improve diversity and the cost-capability frontier.
-  short: Squeeze Evolve
 - id: '2606.18524'
-  title: 'On the Residual Scaling of Looped Transformers: Stability and Transferability'
+  title: 'Loop-μP: Residual Scaling and Hyperparameter Transfer in Looped Transformers'
   date: '2026-06-16'
-  venue: ICLR 2026 Workshop (LIT)
-  status: W
+  venue: ICLR 2027 (under review)
+  status: U
   section: looped
   links:
     paper: https://arxiv.org/abs/2606.18524
-    openreview: https://openreview.net/forum?id=bj8l2FYjSd
+    openreview: https://openreview.net/forum?id=vnYE7hZoKz
   tldr: Shows weight-shared residual loops need epsilon=1/N scaling (factored lambda/(N*sqrt(L))), making optimal
     learning rate independent of loop count and enabling hyperparameter transfer.
+  short: Loop-μP
 - id: '2606.18022'
   title: Recursive Scaling in Masked Diffusion Models
-  date: '2026-06-16'
+  date: '2026-05-26'
   venue: NeurIPS 2026 Workshop (BeNTo)
   status: W
   section: looped
@@ -2651,27 +2612,34 @@
   tldr: Introduces Recursive Masked Diffusion Models that apply a shared denoiser L times per step, plus entropy-guided
     rules jointly choosing loop count and tokens to commit.
   short: R-MDM
+  versions:
+  - label: ICML 2026 Workshop (FoGen) version
+    url: https://openreview.net/forum?id=QZwBhjogcY
 - id: '2606.18206'
   title: 'Fixed-Point Reasoners: Stable and Adaptive Deep Looped Transformers'
-  date: '2026-06-16'
+  date: '2026-05-26'
   venue: ICML 2026 Workshop (CompLearn)
   status: W
   section: depth
   links:
     paper: https://arxiv.org/abs/2606.18206
-    openreview: https://openreview.net/forum?id=s66nL9PEw1
+    openreview: https://openreview.net/forum?id=8HeM93bcCq
   tldr: FPRM, a Transformer-based Fixed-Point Reasoning Model, fixes looped-depth signal propagation with pre-norm
     and residual scaling and uses fixed-point convergence as end-to-end halting.
   short: FPRM
   must_read: true
+  versions:
+  - label: ICML 2026 Workshop (FoGen) version
+    url: https://openreview.net/forum?id=EpkmPWS4Tm
 - id: openreview-7M28lVzVUq
-  title: 'optimize_anything: Unified Text Optimization can Outperform Specialized Systems'
-  date: '2026-06-16'
-  venue: Proceedings of the ACM Conference on AI and Agenti
+  title: 'optimize_anything: A Universal API for Optimizing any Text Parameter'
+  date: '2026-05-19'
+  venue: ACM CAIS 2026
   status: V
   section: boundary
   links:
     openreview: https://openreview.net/forum?id=7M28lVzVUq
+    paper: https://arxiv.org/abs/2605.19633
   tldr: Shows a single LLM-based text-artifact optimization system with search and cross-task transfer matches specialized
     tools across six domains, including discovering ARC-AGI agent architectures.
   short: optimize_anything
@@ -2746,8 +2714,8 @@
 - id: '2606.04438'
   title: 'LoopMoE: Unifying Iterative Computation with Mixture-of-Experts for Language Modeling'
   date: '2026-06-03'
-  venue: under review
-  status: U
+  venue: EMNLP 2026
+  status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2606.04438
@@ -2755,9 +2723,12 @@
   tldr: Presents LoopMoE, a looped MoE LM using IterAdaLN to break weight-sharing symmetry and capacity balancing,
     enabling a strictly matched comparison against vanilla MoE at 3B and 9B.
   short: LoopMoE
+  versions:
+  - label: EMNLP 2026 paper
+    url: https://aclanthology.org/2026.emnlp-main.2160/
 - id: '2606.03741'
   title: 'When to Re-Plan: Subgoal Persistence in Hierarchical Latent Reasoning'
-  date: '2026-06-02'
+  date: '2026-05-27'
   venue: ICML 2026 Workshop (CompLearn)
   status: W
   section: architecture
@@ -2789,7 +2760,7 @@
   tldr: TRM-PL applies TRM's two-level latent recursion to the J2-perturbed Lambert problem, iteratively correcting
     departure velocity from simulated tracking error; compares three supervision paradigms.
   short: TRM-PL
-  app: control
+  app: science
 - id: '2605.30215'
   title: 'Déjà View: Looping Transformers for Multi-View 3D Reconstruction'
   date: '2026-05-28'
@@ -2848,9 +2819,9 @@
   app: language
 - id: openreview-9dNSyhxeWo
   title: 'On the Generalization of LLM Agents: An Empirical Analysis of Agentic Harness Performance on ARC-AGI'
-  date: '2026-05-26'
-  venue: under review
-  status: U
+  date: '2026-06-02'
+  venue: ACL ARR 2026 May submission
+  status: P
   section: boundary
   links:
     openreview: https://openreview.net/forum?id=9dNSyhxeWo
@@ -2870,7 +2841,7 @@
   short: STARS
 - id: openreview-vtTox3sHaS
   title: 'Reasoning Across Space: Tiny Recursive Models for Spatial Omics'
-  date: '2026-05-26'
+  date: '2026-05-23'
   venue: ICML 2026 Workshop (FoGen)
   status: W
   section: applications
@@ -2879,6 +2850,9 @@
   tldr: Applies Tiny Recursive Models to spatial omics, outperforming parameter-matched supervised baselines in
     domain identification and gene-expression prediction, with recursion enabling test-time scaling.
   app: science
+  versions:
+  - label: ICML 2026 Workshop (SD4H) version
+    url: https://openreview.net/forum?id=G05mb0EfIc
 - id: '2605.25931'
   title: 'Explore Before You Solve: The Speed--Depth Trade-off in Epistemic Agents for ARC-AGI-3'
   date: '2026-05-25'
@@ -2964,6 +2938,7 @@
   section: lineage
   links:
     paper: https://arxiv.org/abs/2605.20613
+    code: https://github.com/sapientinc/HRM-Text
   tldr: HRM-Text replaces Transformers with HRM for language-model pretraining, adding MagicNorm and warmup deep
     credit assignment and training on instruction-response pairs; 1B model rivals 2-7B models.
   short: HRM-Text
@@ -2983,17 +2958,19 @@
   must_read: true
 - id: '2605.19376'
   title: Generative Recursive Reasoning
-  date: '2026-05-19'
+  date: '2026-03-05'
   venue: arXiv
   status: P
   section: search
   links:
     paper: https://arxiv.org/abs/2605.19376
-    openreview: https://openreview.net/forum?id=FN1ucDnPfg
   tldr: GRAM turns recursive latent reasoning into stochastic multi-trajectory computation, a latent-variable model
     trained by amortized variational inference supporting parallel sampling and unconditional generation.
   short: GRAM
   must_read: true
+  versions:
+  - label: ICLR 2026 Workshop (RSI) version
+    url: https://openreview.net/forum?id=Vxu6kcIjwV
 - id: '2605.19943'
   title: Probabilistic Tiny Recursive Model
   date: '2026-05-19'
@@ -3058,11 +3035,12 @@
 - id: '2605.10661'
   title: Investigating Single-Block Recurrence in Vision Transformers for Image Recognition
   date: '2026-05-11'
-  venue: arXiv
-  status: P
+  venue: ICLR 2027 (under review)
+  status: U
   section: looped
   links:
     paper: https://arxiv.org/abs/2605.10661
+    openreview: https://openreview.net/forum?id=C3E8VDeNG6
   tldr: bViT, a single-block recurrent ViT, reaches 0.779 ImageNet-1K accuracy versus 0.789 for ViT-B with 8.6M
     rather than 86.6M parameters; the gap narrows with width, and analyses show step-dependent parameter use.
   short: bViT
@@ -3139,11 +3117,12 @@
   date: '2026-05-05'
   venue: arXiv
   status: P
-  section: depth
+  section: looped
   links:
     paper: https://arxiv.org/abs/2605.13872
-  tldr: Proposes S-AI-Recursive, a bio-inspired hormonally regulated recursive reasoning cycle with convergence/uncertainty-based
-    stopping, contraction and Lyapunov analysis, and warm-start memory.
+  tldr: 'S-AI-Recursive: a hormone-inspired stopping and warm-start rule for closed-loop iterative refinement, with
+    contraction and Lyapunov analysis; evaluated with hand-coded task operators (Bellman backup, constraint propagation),
+    not a trained recursive network.'
   short: S-AI-Recursive
 - id: '2605.06690'
   title: State Representation and Termination for Recursive Reasoning Systems
@@ -3201,7 +3180,7 @@
     exponent phi that also diagnoses truncated BPTT and hyperconnections.
 - id: '2604.18839'
   title: 'One Step Forward and K Steps Back: Better Reasoning with Denoising Recursion Models'
-  date: '2026-04-20'
+  date: '2026-03-02'
   venue: ICML 2026
   status: V
   section: training
@@ -3210,9 +3189,12 @@
     openreview: https://openreview.net/forum?id=78MQeA1Jyq
   tldr: Introduces Denoising Recursion Models, training looped transformers to reverse noise corruption over multiple
     recursive steps as an intermediate-state curriculum; outperforms TRM on ARC-AGI.
+  versions:
+  - label: ICLR 2026 Workshop (LIT) version
+    url: https://openreview.net/forum?id=o1KnUEh8Nj
 - id: '2604.17224'
   title: 'LASER: Low-Rank Activation SVD for Efficient Recursion'
-  date: '2026-04-19'
+  date: '2026-03-02'
   venue: ICLR 2026 Workshop (LIT)
   status: W
   section: analysis
@@ -3247,7 +3229,7 @@
   app: language
 - id: '2604.13521'
   title: 'C-voting: Confidence-Based Test-Time Voting without Explicit Energy Functions'
-  date: '2026-04-15'
+  date: '2025-10-08'
   venue: ICLR 2026
   status: V
   section: search
@@ -3261,7 +3243,7 @@
   title: 'Parcae: Scaling Laws For Stable Looped Language Models'
   date: '2026-04-14'
   venue: COLM 2026
-  status: P
+  status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2604.12946
@@ -3341,13 +3323,13 @@
   date: '2026-03-23'
   venue: arXiv
   status: P
-  section: applications
+  section: looped
   links:
     paper: https://arxiv.org/abs/2603.21676
     code: https://github.com/hhchen1105/Depth-Recurrent-Transformer
-  tldr: Studies a depth-recurrent shared-block Transformer with silent final-only supervision, LayerScale and identity-biased
-    gating, finding a computational frontier and depth extrapolation; per-step supervision harms extrapolation.
-  app: combinatorial
+  tldr: Depth-recurrent shared-block Transformer with final-output-only ('silent') supervision, LayerScale and identity-biased
+    gating; accuracy rises once steps match task depth, and per-step supervision hurts depth extrapolation on graph
+    reachability.
 - id: '2603.19714'
   title: 'LoopRPT: Reinforcement Pre-Training for Looped Language Models'
   date: '2026-03-20'
@@ -3398,7 +3380,7 @@
 - id: '2603.14593'
   title: Parameter-Efficient Quality Estimation via Frozen Recursive Models
   date: '2026-03-15'
-  venue: workshop
+  venue: LoResLM 2026 (workshop)
   status: W
   section: applications
   links:
@@ -3410,13 +3392,13 @@
   app: language
 - id: '2603.08391'
   title: 'Adaptive Loops and Memory in Transformers: Think Harder or Know More?'
-  date: '2026-03-09'
+  date: '2026-03-02'
   venue: ICLR 2026 Workshop (LIT)
   status: W
   section: looped
   links:
     paper: https://arxiv.org/abs/2603.08391
-    openreview: https://openreview.net/forum?id=GCAk2hSyUi
+    openreview: https://openreview.net/forum?id=F87X9c107e
   tldr: 'Transformers with adaptive per-layer looping (learned halting) and gated memory banks: looping aids math,
     memory aids commonsense; combined model beats an iso-FLOP deeper baseline.'
 - id: '2603.13372'
@@ -3431,25 +3413,29 @@
     cross-version degradation, cost trends, test-time adaptation and refinement loops.
 - id: '2603.08082'
   title: Tiny Autoregressive Recursive Models
-  date: '2026-03-09'
+  date: '2026-03-02'
   venue: ICLR 2026 Workshop (LIT)
   status: W
   section: applications
   links:
     paper: https://arxiv.org/abs/2603.08082
-    openreview: https://openreview.net/forum?id=8Rojq5F3VV
+    openreview: https://openreview.net/forum?id=ikNCYypbT9
   tldr: Proposes an Autoregressive TRM and a controlled suite morphing a Transformer into it; compute-matched character-level
     algorithmic tasks show no reliable gains from the full architecture.
   short: Autoregressive TRM
   app: other
+  versions:
+  - label: ICLR 2026 Workshop (RSI) version
+    url: https://openreview.net/forum?id=aY5kmaNrwB
 - id: '2603.08251'
   title: 'Not All Queries Need Deep Thought: CoFiCot for Adaptive Coarse-to-fine Stateful Refinement'
   date: '2026-03-09'
-  venue: arXiv
-  status: P
+  venue: UAI 2026
+  status: V
   section: boundary
   links:
     paper: https://arxiv.org/abs/2603.08251
+    openreview: https://openreview.net/forum?id=jyPasN0tzm
   tldr: CoFiCot triages queries by semantic entropy, consensus and predicted reasoning depth, aggregating cheaply
     for easy ones and routing hard ones to a stateful PRM-guided correction loop conditioned on verified prior repairs.
   short: CoFiCot
@@ -3476,7 +3462,7 @@
 - id: '2603.05099'
   title: 'ARC-TGI: Human-Validated Task Generators with Reasoning Chain Templates for ARC-AGI'
   date: '2026-03-05'
-  venue: Proceedings of the 32nd ACM SIGKDD Conference on K
+  venue: KDD 2026
   status: V
   section: benchmarks
   links:
@@ -3484,17 +3470,6 @@
   tldr: Releases ARC-TGI, 461 human-validated Python task-family generators with reasoning-chain templates covering
     ARC-Mini, ARC-AGI-1 and ARC-AGI-2 tasks for scalable, controlled benchmarking.
   short: ARC-TGI
-- id: openreview-Vxu6kcIjwV
-  title: Generative Recursive Reasoning Models
-  date: '2026-03-05'
-  venue: ICLR 2026 Workshop (RSI)
-  status: W
-  section: search
-  links:
-    openreview: https://openreview.net/forum?id=Vxu6kcIjwV
-  tldr: GRAM recasts latent recursive reasoning architectures as stochastic generative recursion trained by amortized
-    variational inference, exploring multiple latent trajectories; competitive on ARC-1 and ARC-2.
-  short: GRAM
 - id: '2603.05234'
   title: Recursive Inference Machines for Neural Reasoning
   date: '2026-03-05'
@@ -3518,17 +3493,6 @@
   tldr: Proposes the Recursive Stem Model, keeping TRM's backbone but detaching history, warm-up iterations, final-step
     loss and stochastic outer depth to learn a stable depth-agnostic operator.
   short: RSM
-- id: openreview-3dOB7kznDk
-  title: 'Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models'
-  date: '2026-03-02'
-  venue: ICLR 2026 Workshop (LIT)
-  status: W
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=3dOB7kznDk
-  tldr: 'Identifies latent overthinking in looped LMs and proposes Think-at-Hard: a neural decider iterates only
-    hard tokens, with depth-aware LoRA and duo-causal attention.'
-  short: TaH
 - id: openreview-ri0LAMdhd9
   title: 'Parcae: A Dynamical Systems Perspective to Stable Looped LLMs'
   date: '2026-03-02'
@@ -3565,7 +3529,7 @@
     and high-loss attractors; answer-init noise and more guesses escape them without retraining.
 - id: openreview-SYVmt9mFEm
   title: 'Latent Imagination Thinking: Beyond Recursive Models for Reasoning'
-  date: '2026-03-02'
+  date: '2026-03-05'
   venue: ICLR 2026 Workshop (World Models)
   status: W
   section: training
@@ -3620,11 +3584,12 @@
 - id: '2602.16490'
   title: 'From Growing to Looping: A Unified View of Iterative Computation in LLMs'
   date: '2026-02-18'
-  venue: arXiv
-  status: P
+  venue: ICML 2026
+  status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2602.16490
+    openreview: https://openreview.net/forum?id=FrXKVuK0yS
   tldr: Shows looped and depth-grown LLMs share depth-wise signatures consistent with common iterative computation;
     inference-time looping on a depth-grown model's middle blocks improves some reasoning primitives by up to 2x.
   short: Growing to Looping
@@ -3652,13 +3617,13 @@
     pass@2 and higher-K candidate coverage with pass@1 parity.
 - id: '2602.11451'
   title: 'LoopFormer: Elastic-Depth Looped Transformers for Latent Reasoning via Shortcut Modulation'
-  date: '2026-02-11'
+  date: '2025-10-08'
   venue: ICLR 2026
   status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2602.11451
-    openreview: https://openreview.net/forum?id=OBJjhoRRss
+    openreview: https://openreview.net/forum?id=RzYXb5YWBs
   tldr: LoopFormer trains looped Transformers on variable-length trajectories with shortcut-consistency and time/step-size
     conditioning, enabling budget-conditioned elastic-depth reasoning.
   short: LoopFormer
@@ -3748,7 +3713,7 @@
   tldr: Shows theoretically and empirically that under outcome-only supervision OOD performance keeps improving
     with training-time reasoning length (loop count or RL token budget) after ID saturates.
 - id: '2601.21582'
-  title: 'Depth-Recurrent Attention Mixtures: Giving Latent Reasoning the Attention it Deserves'
+  title: 'Depth-Recurrent Attention Mixture (Dreamer): Giving Latent Reasoning the Attention it Deserves'
   date: '2026-01-29'
   venue: arXiv
   status: P
@@ -3767,13 +3732,13 @@
   section: search
   links:
     paper: https://arxiv.org/abs/2601.19085
-    code: https://github.com/jvdillon/sic
+    code: https://github.com/rekursiv-ai/sic
   tldr: Uses halting time as confidence for TRM ensembles (halt-first selection) and internalizes it by training
     K parallel latents with winner-take-all backprop, matching ensemble accuracy at single-model cost.
   short: WTA
 - id: openreview-9Pba4rcQbE
   title: 'MoDr: Mixture-of-Depth-Recurrent Transformers for Test-Time Reasoning'
-  date: '2026-01-26'
+  date: '2025-10-08'
   venue: ICLR 2026
   status: V
   section: looped
@@ -3784,7 +3749,7 @@
   short: MoDr
 - id: openreview-kdZbxizwGK
   title: 'ChainGPT: Dual-Reasoning Model with Recurrent Depth and Multi-Rank State Updates'
-  date: '2026-01-26'
+  date: '2025-10-08'
   venue: ICLR 2026
   status: V
   section: looped
@@ -3842,7 +3807,7 @@
   app: tabular
 - id: openreview-ggkeH4cfjE
   title: 'TRM-Planner: Offline Target Planning and Distillation for Tiny Recursive Models'
-  date: '2026-01-06'
+  date: '2026-03-20'
   venue: Findings of ACL 2026
   status: V
   section: training
@@ -3853,9 +3818,9 @@
   short: TRM-Planner
 - id: openreview-3Eutnnd6Hy
   title: Tiny Recursive Language Diffusion Models
-  date: '2026-01-06'
-  venue: under review
-  status: U
+  date: '2026-03-20'
+  venue: ACL ARR 2026 January submission
+  status: P
   section: architecture
   links:
     openreview: https://openreview.net/forum?id=3Eutnnd6Hy
@@ -3864,44 +3829,48 @@
   short: TR-LDM
 - id: openreview-JDJAKYF10o
   title: In Benchmarks We Trust ... Or Not?
-  date: '2025-12-31'
-  venue: arXiv
+  date: 2025-11
+  venue: EMNLP 2025
   status: P
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=JDJAKYF10o
+    paper: https://aclanthology.org/2025.emnlp-main.1208/
   tldr: Surveys NLP benchmarking issues and proposed fixes, proposes checklists for benchmark creation and usage,
     and applies them to SuperGLUE, WinoGrande and ARC-AGI.
 - id: openreview-x9Lg771woB
   title: 'ArcMemo: Abstract Reasoning Composition with Lifelong LLM Memory'
-  date: '2025-12-31'
+  date: '2025-09-04'
   venue: arXiv
   status: P
   section: boundary
   links:
-    openreview: https://openreview.net/forum?id=x9Lg771woB
+    openreview: https://openreview.net/forum?id=zTLMPYaF6F
+    paper: https://arxiv.org/abs/2509.04439
   tldr: Proposes ArcMemo, concept-level natural-language memory distilled from LLM solution traces and retrieved
     for new ARC-AGI queries, enabling test-time continual learning without weight updates.
   short: ArcMemo
 - id: openreview-AlavWQq9sY
   title: 'ARCTraj: A Dataset and Benchmark of Human Reasoning Trajectories for Abstract Problem Solving'
-  date: '2025-12-31'
-  venue: Proceedings of the 32nd ACM SIGKDD Conference on K
+  date: '2025-11-14'
+  venue: KDD 2026
   status: V
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=AlavWQq9sY
+    paper: https://arxiv.org/abs/2511.11079
   tldr: 'ARCTraj: about 10,000 human object-level action trajectories on 400 ARC-AGI-1 training tasks, with an MDP
     pipeline for RL, generative, and sequence models.'
   short: ARCTraj
 - id: openreview-LT7FpRjJFZ
   title: 'LSRL: Process-Supervised GRPO on Latent Recurrent States Improves Mathematical Reasoning'
-  date: '2025-12-31'
-  venue: Findings of ACL 2025
+  date: 2025-11
+  venue: Findings of EMNLP 2025
   status: V
   section: looped
   links:
     openreview: https://openreview.net/forum?id=LT7FpRjJFZ
+    paper: https://aclanthology.org/2025.findings-emnlp.669/
   tldr: Proposes LSRL, process-supervised GRPO that decodes and grades each recurrent depth of Huginn-3.5B to give
     dense per-latent-step rewards, improving math reasoning with LoRA.
   short: LSRL
@@ -4033,7 +4002,7 @@
   short: VARC
 - id: '2511.08577'
   title: 'Think-at-Hard: Dynamic Looped Transformers for Improved Reasoning'
-  date: '2025-11-11'
+  date: '2025-10-08'
   venue: ICML 2026
   status: V
   section: looped
@@ -4043,6 +4012,11 @@
   tldr: Identifies latent overthinking in looped LMs and proposes Think-at-Hard, a looped transformer with a neural
     decider for selective token iteration, depth-aware LoRA and duo-causal attention.
   short: TaH
+  versions:
+  - label: ICLR 2026 Workshop (LIT) version
+    url: https://openreview.net/forum?id=3dOB7kznDk
+  - label: ICLR 2026 submission
+    url: https://openreview.net/forum?id=jLdx3kmsrs
 - id: '2511.08653'
   title: Accelerating Training Speed of Tiny Recursive Models with Curriculum Guided Adaptive Recursion
   date: '2025-11-11'
@@ -4068,7 +4042,7 @@
   short: CellARC
 - id: '2511.07384'
   title: Teaching Pretrained Language Models to Think Deeper with Retrofitted Recurrence
-  date: '2025-11-10'
+  date: '2025-10-08'
   venue: COLM 2026
   status: V
   section: looped
@@ -4078,6 +4052,9 @@
   tldr: Converts pretrained non-recurrent LMs into depth-recurrent models with a curriculum over recurrence counts,
     outperforming plain post-training at matched compute on mathematics.
   short: Retrofitted Recurrence
+  versions:
+  - label: ICLR 2026 submission
+    url: https://openreview.net/forum?id=eC85h3y4pG
 - id: '2511.02886'
   title: Test-time Adaptation of Tiny Recursive Models
   date: '2025-11-04'
@@ -4112,19 +4089,9 @@
   tldr: HRM-Agent trains an HRM variant purely with reinforcement learning to navigate dynamic, uncertain mazes,
     reusing recurrent computation across environment time-steps.
   short: HRM-Agent
-- id: openreview-nA5IRfAfbn
-  title: Efficient Parallel Samplers for Recurrent-Depth Models and Their Connections to Diffusion Language Models
-  date: '2025-10-16'
-  venue: NeurIPS 2025 Workshop (ER)
-  status: W
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=nA5IRfAfbn
-  tldr: Relates recurrent-depth language models to diffusion LMs and derives a diffusion-forcing sampler that decodes
-    new tokens while earlier latents keep refining, applicable without tuning.
 - id: '2510.14961'
   title: Efficient Parallel Samplers for Recurrent-Depth Models and Their Connection to Diffusion Language Models
-  date: '2025-10-16'
+  date: '2025-10-08'
   venue: ICML 2026
   status: V
   section: looped
@@ -4133,9 +4100,14 @@
     openreview: https://openreview.net/forum?id=h7WBYYJF1Q
   tldr: Links recurrent-depth LMs to diffusion LMs and develops a diffusion-forcing sampler that decodes new tokens
     each pass while refining latents in parallel, speeding up a 3.5B model.
+  versions:
+  - label: NeurIPS 2025 Workshop (ER) version
+    url: https://openreview.net/forum?id=nA5IRfAfbn
+  - label: ICLR 2026 submission
+    url: https://openreview.net/forum?id=z62rRFnNaX
 - id: '2510.10089'
   title: What Makes Looped Transformers Perform Better Than Non-Recursive Ones
-  date: '2025-10-11'
+  date: '2025-10-08'
   venue: arXiv
   status: P
   section: looped
@@ -4144,6 +4116,9 @@
   tldr: Explains looped-attention advantages via a River-V-Valley loss-landscape inductive bias and proposes SHIFT,
     a staged progressive training strategy that accelerates looped-transformer training.
   short: SHIFT
+  versions:
+  - label: ICLR 2026 submission (withdrawn)
+    url: https://openreview.net/forum?id=7kLRpAH5at
 - id: '2510.07739'
   title: 'MeSH: Memory-as-State-Highways for Recursive Transformers'
   date: '2025-10-09'
@@ -4215,11 +4190,14 @@
   tldr: Reviews HRM-class models, examines key design choices, tests alternative variants and clarifies misconceptions;
     v2 removed erroneous v1 results and changed conclusions.
   must_read: true
+  versions:
+  - label: ICLR 2026 submission, earlier title (withdrawn)
+    url: https://openreview.net/forum?id=cL840F9yoG
 - id: '2509.26626'
   title: Recursive Self-Aggregation Unlocks Deep Thinking in Large Language Models
   date: '2025-09-30'
-  venue: arXiv
-  status: P
+  venue: TMLR (under review)
+  status: U
   section: boundary
   links:
     paper: https://arxiv.org/abs/2509.26626
@@ -4231,11 +4209,12 @@
   title: 'Latent Thinking Optimization: Your Latent Reasoning Language Model Secretly Encodes Reward Signals in
     Its Latent Thoughts'
   date: '2025-09-30'
-  venue: arXiv
-  status: P
+  venue: ICLR 2026
+  status: V
   section: looped
   links:
     paper: https://arxiv.org/abs/2509.26314
+    openreview: https://openreview.net/forum?id=2jkAk3EP0v
   tldr: Analyzes Huginn-3.5B latent thoughts, shows a latent classifier predicts answer correctness, and uses it
     as a latent reward model to optimize latent thinking at test time.
   short: LTO
@@ -4253,49 +4232,32 @@
 - id: openreview-glcyJdmdPx
   title: 'Bitter Lesson of the ARC-AGI Challenge: Intelligence may look very different in machines and humans'
   date: '2025-09-23'
-  venue: NeurIPS 2025 Workshop (CogInterp)
-  status: W
+  venue: CogInterp @ NeurIPS 2025 submission (not accepted)
+  status: P
   section: surveys
   links:
     openreview: https://openreview.net/forum?id=glcyJdmdPx
   tldr: Position paper arguing ARC-AGI progress (o3, augmentation-heavy solutions) suggests machine intelligence
     differs from human cognition, motivating new concepts and benchmarks.
-- id: openreview-cL840F9yoG
-  title: Investigating Design Choices for Recurrent Reasoning Models on 2D Tasks
-  date: '2025-09-20'
-  venue: arXiv
-  status: P
-  section: architecture
-  links:
-    openreview: https://openreview.net/forum?id=cL840F9yoG
-  tldr: Critically reviews HRM-style recurrent reasoning models, examining key design choices and proposing variants
-    that significantly outperform reported results on Sudoku-Extreme and Maze-Hard.
+  versions:
+  - label: ICML 2025 position-track submission (not accepted)
+    url: https://openreview.net/forum?id=GCqffUAyiu
 - id: openreview-4XBaqkreEP
   title: 'COGITAO: A Procedural Object-Centric Framework to Study Compositional Generalization'
-  date: '2025-09-19'
+  date: '2025-09-05'
   venue: arXiv
   status: P
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=4XBaqkreEP
+    paper: https://arxiv.org/abs/2509.05249
   tldr: Introduces COGITAO, an ARC-inspired procedural generator of object-centric grid tasks over 28 composable
     transformations; UT/PonderNet and diffusion baselines fail compositional generalization.
   short: COGITAO
-- id: openreview-7kLRpAH5at
-  title: What Makes Looped Transformers Perform Better Than Non-Recursive Ones (Provably)
-  date: '2025-09-19'
-  venue: arXiv
-  status: P
-  section: looped
-  links:
-    openreview: https://openreview.net/forum?id=7kLRpAH5at
-  tldr: Explains looped Transformers' advantage via a River-V-Valley loss-landscape inductive bias and proposes
-    SHIFT, a staged progressive training framework that accelerates looped training.
-  short: SHIFT
 - id: openreview-CcYCgF491G
   title: Do AI models perform human-like abstract reasoning across modalities?
-  date: '2025-09-19'
-  venue: arXiv
+  date: '2025-10-08'
+  venue: ICLR 2026 submission (not accepted)
   status: P
   section: benchmarks
   links:
@@ -4304,7 +4266,7 @@
     generated rules to test whether intended abstractions, not shortcuts, drive accuracy.
 - id: openreview-NNiwGUY50Y
   title: 'ROVER: Recursive Reasoning Over Videos with Vision-Language Models for Embodied Tasks'
-  date: '2025-09-18'
+  date: '2025-10-29'
   venue: NeurIPS 2025
   status: V
   section: boundary
@@ -4316,12 +4278,13 @@
 - id: openreview-0ACUx9pMWJ
   title: 'Out-of-Distribution Generalization in the ARC-AGI Domain: Comparing Execution-Guided Neural Program Synthesis
     and Test-Time Fine-Tuning'
-  date: '2025-09-17'
+  date: '2025-07-17'
   venue: arXiv
   status: P
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=0ACUx9pMWJ
+    paper: https://arxiv.org/abs/2507.15877
   tldr: Controlled ARC-AGI compositional generalization experiment comparing execution-guided neural program synthesis
     with test-time fine-tuning; TTFT success mainly elicits in-distribution knowledge.
 - id: '2509.02350'
@@ -4409,6 +4372,7 @@
   links:
     paper: https://arxiv.org/abs/2506.21734
     openreview: https://openreview.net/forum?id=HFbtdgk5Hc
+    code: https://github.com/sapientinc/HRM
   tldr: 'Introduces HRM: coupled slow high-level and fast low-level recurrent modules reasoning in one forward pass
     without CoT, 27M parameters, about 1000 training examples.'
   short: HRM
@@ -4452,13 +4416,16 @@
 - id: '2505.16782'
   title: 'Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning'
   date: '2025-05-22'
-  venue: arXiv
-  status: P
+  venue: Findings of EMNLP 2026
+  status: V
   section: surveys
   links:
     paper: https://arxiv.org/abs/2505.16782
   tldr: Surveys latent chain-of-thought reasoning, with a taxonomy running from token-wise horizontal approaches
     to layer-wise vertical strategies, plus design principles, applications and open challenges.
+  versions:
+  - label: Findings of EMNLP 2026 paper
+    url: https://aclanthology.org/2026.findings-emnlp.55/
 - id: '2505.11831'
   title: 'ARC-AGI-2: A New Challenge for Frontier AI Reasoning Systems'
   date: '2025-05-17'
@@ -4517,7 +4484,7 @@
 - id: '2502.08482'
   title: Enhancing Auto-regressive Chain-of-Thought through Loop-Aligned Reasoning
   date: '2025-02-12'
-  venue: Proceedings of the 19th Conference of the European
+  venue: EACL 2026
   status: V
   section: looped
   links:
@@ -4560,22 +4527,11 @@
   tldr: Introduces a recurrent-depth language model that iterates a shared block to arbitrary test-time depth for
     latent reasoning, scaled to 3.5B parameters and 800B tokens.
   short: Huginn
-- id: openreview-GCqffUAyiu
-  title: 'Position: Bitter lesson of the ARC-AGI Challenge: Intelligence may look very different in machines and
-    humans'
-  date: '2025-01-22'
-  venue: arXiv
-  status: P
-  section: surveys
-  links:
-    openreview: https://openreview.net/forum?id=GCqffUAyiu
-  tldr: Position paper discussing ARC-AGI winners' reliance on augmentation and test-time training, arguing machine
-    and human reasoning may differ and calling for better machine benchmarks.
 - id: openreview-TtGONY7UKy
   title: '[AML] T$^5$-ARC: Test-Time Training for Transductive Transformer Models in ARC-AGI Challenge'
-  date: '2024-12-11'
-  venue: under review
-  status: U
+  date: '2024-12-12'
+  venue: THU AML course project (Winter 2024)
+  status: O
   section: benchmarks
   links:
     openreview: https://openreview.net/forum?id=TtGONY7UKy
@@ -4607,20 +4563,22 @@
 - id: '2411.07279'
   title: The Surprising Effectiveness of Test-Time Training for Few-Shot Learning
   date: '2024-11-11'
-  venue: arXiv
-  status: P
+  venue: ICML 2025
+  status: V
   section: benchmarks
   links:
     paper: https://arxiv.org/abs/2411.07279
+    openreview: https://openreview.net/forum?id=asgBo3FNdg
   tldr: The Surprising Effectiveness of Test-Time Training for Few-Shot Learning
 - id: '2411.02272'
   title: Combining Induction and Transduction for Abstract Reasoning
   date: '2024-11-04'
-  venue: arXiv
-  status: P
+  venue: ICLR 2025
+  status: V
   section: benchmarks
   links:
     paper: https://arxiv.org/abs/2411.02272
+    openreview: https://openreview.net/forum?id=UmdotAAVDe
   tldr: Combining Induction and Transduction for Abstract Reasoning
 - id: '2410.21698'
   title: On the Role of Depth and Looping for In-Context Learning with Task Diversity
@@ -4659,8 +4617,8 @@
   title: 'Bypassing the Exponential Dependency: Looped Transformers Efficiently Learn In-context by Multi-step Gradient
     Descent'
   date: '2024-10-15'
-  venue: arXiv
-  status: P
+  venue: AISTATS 2025
+  status: V
   section: foundations
   links:
     paper: https://arxiv.org/abs/2410.11268
@@ -4670,8 +4628,8 @@
 - id: '2410.09375'
   title: Looped ReLU MLPs May Be All You Need as Practical Programmable Computers
   date: '2024-10-12'
-  venue: arXiv
-  status: P
+  venue: AISTATS 2025
+  status: V
   section: foundations
   links:
     paper: https://arxiv.org/abs/2410.09375
@@ -4702,8 +4660,8 @@
 - id: '2410.04444'
   title: 'Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement'
   date: '2024-10-06'
-  venue: arXiv
-  status: P
+  venue: ACL 2025
+  status: V
   section: boundary
   links:
     paper: https://arxiv.org/abs/2410.04444
@@ -4711,6 +4669,9 @@
     guided only by high-level objectives, and surpasses hand-crafted agents on mathematical reasoning and agent
     tasks.
   short: Gödel Agent
+  versions:
+  - label: ACL 2025 paper
+    url: https://aclanthology.org/2025.acl-long.1354/
 - id: '2410.01405'
   title: 'On Expressive Power of Looped Transformers: Theoretical Analysis and Enhancement via Timestep Encoding'
   date: '2024-10-02'
@@ -4736,11 +4697,12 @@
 - id: '2409.10502'
   title: Causal Language Modeling Can Elicit Search and Reasoning Capabilities on Logic Puzzles
   date: '2024-09-16'
-  venue: arXiv
-  status: P
+  venue: NeurIPS 2024
+  status: V
   section: benchmarks
   links:
     paper: https://arxiv.org/abs/2409.10502
+    openreview: https://openreview.net/forum?id=i5PoejmWoC
   tldr: Causal Language Modeling Can Elicit Search and Reasoning Capabilities on Logic Puzzles
 - id: '2409.01374'
   title: 'H-ARC: A Robust Estimate of Human Performance on the Abstraction and Reasoning Corpus Benchmark'
@@ -4805,11 +4767,12 @@
 - id: '2402.14083'
   title: 'Beyond A*: Better Planning with Transformers via Search Dynamics Bootstrapping'
   date: '2024-02-21'
-  venue: arXiv
-  status: P
+  venue: COLM 2024
+  status: V
   section: benchmarks
   links:
     paper: https://arxiv.org/abs/2402.14083
+    openreview: https://openreview.net/forum?id=SGoVIC0u0f
   tldr: 'Beyond A*: Better Planning with Transformers via Search Dynamics Bootstrapping'
 - id: '2402.01107'
   title: Simulation of Graph Algorithms with Looped Transformers
@@ -4832,20 +4795,9 @@
     paper: https://arxiv.org/abs/2402.00976
   tldr: Studies inductive biases of depth-wise (Universal Transformer) and chunk-wise recurrent Transformers and
     proposes a global mean-based dynamic halting mechanism; tests on LRA, ListOps, logical inference.
-- id: openreview-NwghnqOpOp
-  title: On the Expressive Power of a Variant of the Looped Transformer
-  date: '2024-01-01'
-  venue: arXiv
-  status: P
-  section: foundations
-  links:
-    openreview: https://openreview.net/forum?id=NwghnqOpOp
-  tldr: 'AlgoFormer: pre-transformer, looped transformer and post-transformer blocks with theoretical and empirical
-    evidence of greater algorithmic expressiveness than standard or vanilla looped Transformers.'
-  short: AlgoFormer
 - id: '2311.12424'
   title: Looped Transformers are Better at Learning Learning Algorithms
-  date: '2023-11-21'
+  date: '2023-07-16'
   venue: ICLR 2024
   status: V
   section: foundations
@@ -4854,14 +4806,18 @@
     openreview: https://openreview.net/forum?id=HHbRxoDTxE
   tldr: Proposes looped transformers and a training methodology for in-context learning of iterative data-fitting
     algorithms, matching standard transformers with under 10% of the parameters.
+  versions:
+  - label: ES-FoMo 2023 workshop version
+    url: https://openreview.net/forum?id=XpVoUnPuYV
 - id: '2311.06964'
   title: Adaptive recurrent vision performs zero-shot computation scaling to unseen difficulty levels
-  date: '2023-11-12'
+  date: '2023-11-02'
   venue: NeurIPS 2023
   status: V
   section: foundations
   links:
     paper: https://arxiv.org/abs/2311.06964
+    openreview: https://openreview.net/forum?id=iqezE0EyXq
   tldr: Adaptive ConvRNNs with Graves-style learnable halting scale iterations with difficulty and zero-shot generalize
     to harder PathFinder and maze instances by iterating longer.
   short: AdRNN
@@ -4878,7 +4834,7 @@
 - id: '2310.07096'
   title: Sparse Universal Transformer
   date: '2023-10-11'
-  venue: Proceedings of the 2023 Conference on Empirical Me
+  venue: EMNLP 2023
   status: V
   section: foundations
   links:
@@ -4924,29 +4880,32 @@
 - id: '2305.16291'
   title: 'Voyager: An Open-Ended Embodied Agent with Large Language Models'
   date: '2023-05-25'
-  venue: arXiv
-  status: P
+  venue: TMLR
+  status: V
   section: boundary
   links:
     paper: https://arxiv.org/abs/2305.16291
+    openreview: https://openreview.net/forum?id=ehfRiF0R3a
   tldr: 'Voyager: An Open-Ended Embodied Agent with Large Language Models'
 - id: '2305.10601'
   title: 'Tree of Thoughts: Deliberate Problem Solving with Large Language Models'
   date: '2023-05-17'
-  venue: arXiv
-  status: P
+  venue: NeurIPS 2023
+  status: V
   section: boundary
   links:
     paper: https://arxiv.org/abs/2305.10601
+    openreview: https://openreview.net/forum?id=5Xc1ecxO1h
   tldr: 'Tree of Thoughts: Deliberate Problem Solving with Large Language Models'
 - id: '2305.07141'
   title: 'The ConceptARC Benchmark: Evaluating Understanding and Generalization in the ARC Domain'
   date: '2023-05-11'
-  venue: arXiv
-  status: P
+  venue: TMLR
+  status: V
   section: benchmarks
   links:
     paper: https://arxiv.org/abs/2305.07141
+    openreview: https://openreview.net/forum?id=8ykyGbtt2q
   tldr: 'The ConceptARC Benchmark: Evaluating Understanding and Generalization in the ARC Domain'
 - id: '2301.13196'
   title: Looped Transformers as Programmable Computers
@@ -5083,7 +5042,7 @@
 - id: '2104.06022'
   title: Lessons on Parameter Sharing across Layers in Transformers
   date: '2021-04-13'
-  venue: workshop
+  venue: SustaiNLP 2023 (workshop)
   status: W
   section: foundations
   links:

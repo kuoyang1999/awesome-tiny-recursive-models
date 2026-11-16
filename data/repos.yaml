@@ -1,6 +1,9 @@
-# Code repositories (verified to exist on GitHub, 2026-10-12). kind: official | community | analysis | catalog
+# Code repositories (existence checked through the GitHub API, 2026-11-15). kind: official | community | analysis | catalog
+# Maintained by hand: the knowledge-base export does not update this file.
 - {name: SamsungSAILMontreal/TinyRecursiveModels, url: "https://github.com/SamsungSAILMontreal/TinyRecursiveModels", kind: official, notes: "TRM reference code (archived, read-only); Sudoku, Maze, ARC-AGI pipelines"}
 - {name: sapientinc/HRM, url: "https://github.com/sapientinc/HRM", kind: official, notes: "Hierarchical Reasoning Model release"}
+- {name: UbiquantAI/URM, url: "https://github.com/UbiquantAI/URM", kind: official, notes: "Universal Reasoning Model code (linked from the URM paper)"}
+- {name: sapientinc/HRM-Text, url: "https://github.com/sapientinc/HRM-Text", kind: official, notes: "HRM-Text language-model pretraining code (linked from the HRM-Text paper)"}
 - {name: arcprize/hierarchical-reasoning-model-analysis, url: "https://github.com/arcprize/hierarchical-reasoning-model-analysis", kind: analysis, notes: "ARC Prize verification and ablations of HRM"}
 - {name: lucidrains/tiny-recursive-model, url: "https://github.com/lucidrains/tiny-recursive-model", kind: community, notes: "compact PyTorch re-implementation of TRM"}
 - {name: olivkoch/nano-trm, url: "https://github.com/olivkoch/nano-trm", kind: community, notes: "minimal TRM implementation"}
