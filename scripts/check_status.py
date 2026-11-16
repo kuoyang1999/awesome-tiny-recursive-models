@@ -78,6 +78,8 @@ def value(content, key):
 def decision(venueid, venue):
     """Map an OpenReview venue id to the catalog's status vocabulary."""
     vid = venueid or ""
+    if vid.startswith("dblp.org/") or vid == "OpenReview.net/Public_Article" or (venue or "").startswith("CoRR"):
+        return None, "mirror of an arXiv or publisher record (check the publisher)"
     if re.search(r"/(Withdrawn|Desk_Rejected)_Submission$", vid):
         return "P", "withdrawn" if "Withdrawn" in vid else "desk rejected"
     if vid.endswith("/Rejected_Submission"):

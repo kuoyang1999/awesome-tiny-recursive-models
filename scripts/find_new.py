@@ -128,7 +128,8 @@ def arxiv(since, until, log):
             entries = root.findall(ATOM + "entry")
             for e in entries:
                 aid = re.sub(r"v\d+$", "", e.find(ATOM + "id").text.rsplit("/abs/", 1)[-1])
-                out[aid] = (e.find(ATOM + "published").text[:10], " ".join(e.find(ATOM + "title").text.split()))
+                out[aid] = (e.find(ATOM + "published").text[:10], " ".join(e.find(ATOM + "title").text.split()),
+                            " ".join((e.find(ATOM + "summary").text or "").split()))
             start += len(entries)
             if not entries or start >= total:
                 if entries == [] and start < (total or 0):
@@ -154,7 +155,7 @@ def openalex(since, log):
             urls = [(loc or {}).get("landing_page_url") or "" for loc in w.get("locations") or []]
             ids = [m for u in urls for m in re.findall(r"arxiv\.org/abs/(\d{4}\.\d{4,5})", u)]
             if ids:
-                out[ids[0]] = (w.get("publication_date") or "", " ".join((w.get("title") or "").split()))
+                out[ids[0]] = (w.get("publication_date") or "", " ".join((w.get("title") or "").split()), "")
         log.append({"source": label, "status": "ok", "detail": f"{len(works)} results"})
     return out
 
@@ -184,11 +185,22 @@ def openreview(since, log):
             abstract = (c.get("abstract") or {}).get("value", "")
             if term.lower() not in (title + " " + abstract).lower():
                 continue
-            public = n.get("odate") or n.get("pdate") or n.get("cdate") or 0  # odate = made public
+            venueid = (c.get("venueid") or {}).get("value", "")
+            links = " ".join(str((c.get(k) or {}).get("value", "")) for k in ("pdf", "html"))
+            mirror = venueid.startswith("dblp.org/") or venueid == "OpenReview.net/Public_Article"
+            arxiv_ids = re.findall(r"(\d{4}\.\d{4,5})", links) if mirror else []
+            if arxiv_ids:
+                # a DBLP mirror of an arXiv paper: the arXiv search covers it; skip papers older than the window
+                if arxiv_ids[0][:4] < since[2:4] + since[5:7]:
+                    continue
+            # odate = made public; mirrors carry a placeholder year-end pdate, so use their creation date
+            public = (n.get("cdate") if mirror else (n.get("odate") or n.get("pdate") or n.get("cdate"))) or 0
             if public < cutoff:
                 continue
             day = dt.datetime.fromtimestamp(public / 1000, dt.timezone.utc).strftime("%Y-%m-%d")
-            out[n["forum"]] = ((c.get("venue") or {}).get("value", ""), " ".join(title.split()), day)
+            venue = (c.get("venue") or {}).get("value", "") + (" (DBLP mirror)" if mirror else "")
+            out[n["forum"]] = (venue, " ".join(title.split()), day, " ".join(abstract.split()),
+                               arxiv_ids[0] if arxiv_ids else None)
     return out
 
 
@@ -218,23 +230,23 @@ def main():
     capped = [e["source"] for e in log if e["status"] == "capped"]
 
     cands, skipped = [], 0
-    for forum, (venue, title, day) in ors.items():
-        if forum in keys or norm(title) in titles:
+    for forum, (venue, title, day, abstract, aid) in ors.items():
+        if forum in keys or norm(title) in titles or (aid and (aid in keys or aid in arx)):
             continue
-        if forum in seen:
+        if forum in seen or (aid and aid in seen):
             skipped += 1
             continue
         cands.append({"source": "openreview", "id": forum, "date": day, "venue": venue, "title": title,
-                      "url": f"https://openreview.net/forum?id={forum}"})
+                      "url": f"https://openreview.net/forum?id={forum}", "abstract": abstract})
     for src, found in (("arxiv", arx), ("openalex", fallback)):
-        for aid, (day, title) in found.items():
+        for aid, (day, title, abstract) in found.items():
             if aid in keys or norm(title) in titles or any(c["id"] == aid for c in cands):
                 continue
             if aid in seen:
                 skipped += 1
                 continue
             cands.append({"source": src, "id": aid, "date": day, "title": title,
-                          "url": f"https://arxiv.org/abs/{aid}"})
+                          "url": f"https://arxiv.org/abs/{aid}", "abstract": abstract})
 
     print(f"# Candidates since {since}\n")
     print(f"Window: OpenReview records made public on or after {since}; arXiv v1 submitted {since} to "
