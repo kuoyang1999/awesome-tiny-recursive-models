@@ -45,11 +45,28 @@ def norm(t):
 
 
 def by_title(title):
-    """OpenReview forum notes whose title equals `title` (normalized), or None if the search failed."""
+    """OpenReview forum notes whose title equals `title` (normalized), or None if the search failed.
+
+    The title is searched first as a quoted phrase (query-syntax characters such as ? : ( ) removed), then
+    unquoted: unquoted, the search matches any of the words and the record may rank below the first page."""
+    phrase = '"' + " ".join(re.sub(r"[^\w\s-]", " ", title).split()) + '"'
+    for term in (phrase, title):
+        notes = search(term)
+        if notes is None:
+            return None
+        hits = [n for n in notes if norm(value(n.get("content", {}), "title")) == norm(title)]
+        if hits:
+            return hits
+        time.sleep(0.5)
+    return []
+
+
+def search(term):
+    """Forum notes matching `term`, or None if the search failed."""
     for attempt in range(3):
         try:
             r = requests.get("https://api2.openreview.net/notes/search", timeout=60, headers=UA, params={
-                "term": title, "type": "terms", "content": "all", "source": "forum", "limit": 25})
+                "term": term, "type": "terms", "content": "all", "source": "forum", "limit": 25})
         except requests.RequestException:
             time.sleep(10 * (attempt + 1))
             continue
@@ -58,7 +75,7 @@ def by_title(title):
             continue
         if r.status_code != 200:
             return None
-        return [n for n in r.json().get("notes", []) if norm(value(n.get("content", {}), "title")) == norm(title)]
+        return r.json().get("notes", [])
     return None
 
 
@@ -73,6 +90,9 @@ def decision(venueid, venue):
     if vid.startswith("dblp.org/") or vid in ("OpenReview.net/Public_Article", "OpenReview.net/Archive") \
             or (venue or "").startswith("CoRR"):
         return None, "mirror or author-uploaded record, not a venue decision (check the publisher)"
+    if vid.startswith("aclweb.org/ACL/ARR/"):
+        # ARR records keep the /Submission venue id; acceptance happens at the venue a paper is committed to
+        return None, "ACL Rolling Review record, not a venue decision (check the ACL Anthology)"
     if re.search(r"/(Under_Review|Decision_Pending)$", vid):
         return "U", "under review"
     if vid.endswith("/Rejected"):
@@ -87,6 +107,9 @@ def decision(venueid, venue):
         return None, "workshop submission record without a posted decision (check the workshop's accepted papers)"
     if vid.endswith("/Submission") or (venue or "").startswith("Submitted to"):
         return "U", "under review"
+    if re.search(r"\breject", venue or "", re.I):
+        # some workshops record a rejection only in the venue string (e.g. 'CogInterp @ NeurIPS 2025 Reject')
+        return "P", "not accepted"
     if vid:
         return ("W" if "workshop" in (vid + " " + (venue or "")).lower() else "V"), "accepted"
     return None, "no venue id"
@@ -106,6 +129,8 @@ def main():
     def day(ms):
         return dt.datetime.fromtimestamp(ms / 1000, dt.timezone.utc).strftime("%Y-%m-%d") if ms else None
     for p in catalog():
+        if p["status"] in ("O", "B"):  # reports, course projects and blogs are not venue submissions
+            continue
         url = (p.get("links") or {}).get("openreview") or ""
         m = re.search(r"forum\?id=([\w-]+)", url)
         if (m or (args.title_search and p["status"] in ("P", "U"))) and \
