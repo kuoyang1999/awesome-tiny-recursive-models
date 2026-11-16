@@ -1,4 +1,4 @@
-# Code repositories (existence checked through the GitHub API, 2026-11-15). kind: official | community | analysis | catalog
+# Code repositories (existence checked through the GitHub API, 2026-11-16). kind: official | community | analysis | catalog
 # Maintained by hand: the knowledge-base export does not update this file.
 - {name: SamsungSAILMontreal/TinyRecursiveModels, url: "https://github.com/SamsungSAILMontreal/TinyRecursiveModels", kind: official, notes: "TRM reference code (archived, read-only); Sudoku, Maze, ARC-AGI pipelines"}
 - {name: sapientinc/HRM, url: "https://github.com/sapientinc/HRM", kind: official, notes: "Hierarchical Reasoning Model release"}

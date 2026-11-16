@@ -2,7 +2,7 @@
 # scripts/find_new.py starts its window three days before `searched_through`, so update this file at the
 # end of each complete manual pass (see MAINTAINING.md). A pass with failed or capped queries is recorded
 # with its failures; do not advance `searched_through` past a window that was not fully searched.
-searched_through: '2026-11-12'   # last arXiv v1 submission date announced when the 2026-11-15 pass ran
+searched_through: '2026-11-13'   # last arXiv v1 submission date announced when the 2026-11-16 pass ran
 passes:
   - date: '2026-10-12'
     note: initial knowledge-base harvest (arXiv query families and OpenReview term search); 2026-10-13 release
@@ -20,3 +20,16 @@ passes:
       - "Semantic Scholar answered HTTP 429 and was not used"
       - "arXiv papers announced after 2026-11-13 and publisher-only papers without an arXiv or OpenReview record are not covered"
     checked: 2026-11-15, AI-assisted search and screening
+  - date: '2026-11-16'
+    window: ['2026-11-09', '2026-11-13']
+    sources:
+      - "arXiv API: the knowledge base's 45 queries in 5 families plus 12 recall queries, submittedDate 2026-11-09..2026-11-16 (the announcement of 2026-11-16 01:00 UTC covers submissions through 2026-11-13 19:00 UTC); all 57 answered; 51 unique hits, 4 already listed, 47 screened: 5 added (3 looped, 2 boundary), 42 excluded (36 of them 'ti:looped' title matches on unrelated loops such as physics, closed-loop control and domain agent workflows)"
+      - "weekly-candidates workflow on main, report only (run 43794267067): complete; its 15 arXiv queries found 5 new hits, all among the above; OpenReview term search found no new record made public on or after 2026-11-09"
+      - "arXiv metadata for all 389 arXiv links in the catalog (all resolve; no catalog date later than arXiv v1) and the GitHub API for the 52 linked repositories (all resolve)"
+      - "official records for venue and date checks: CVF open access (CVPR 2026), Crossref (ECCV 2026), the NeurIPS 2026 virtual site, the COLM 2026 WAB workshop site"
+    limits:
+      - "6 of 8 OpenReview terms reached the 1000-result limit in run 43794267067, before paging was added; newly public records ranked below it were not returned"
+      - "OpenReview is challenge-gated outside GitHub Actions and was not bypassed; OpenReview pages and PDFs were not read"
+      - "arXiv submissions after 2026-11-13 19:00 UTC (announced from 2026-11-17) are not covered; the next default window starts 2026-11-10"
+      - "publisher-only papers without an arXiv or OpenReview record were not searched systematically"
+    checked: 2026-11-16, AI-assisted search and screening

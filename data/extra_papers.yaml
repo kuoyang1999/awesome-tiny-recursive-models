@@ -580,3 +580,67 @@
   tldr: Gradient-trained neural cellular automata learn an iterative local update rule from each ARC-AGI task's
     demonstrations and apply it to the test input; examines design modifications and training constraints.
   checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.13378'
+  title: 'Looping Deeper Without Growing the KV Cache: Recurrent Depth for Causal Encoder-Decoders'
+  date: '2026-11-09'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.13378
+  tldr: 'Looped causal encoder-decoder: recurrence goes in the sparse encoder layers that write global KV, and
+    training with stochastic recurrence depth yields a fixed point at which each round reuses the last round''s
+    KV cache; recovers 86-93% of a looped Transformer''s gain with 1/6 of its global KV (depth, loop memory).'
+  checked: 2026-11-16, AI-assisted screen of the abstract
+- id: '2611.14947'
+  title: 'One Block Is Enough: LoopMR for Accelerated MRI Reconstruction'
+  short: LoopMR
+  date: '2026-11-11'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.14947
+    code: https://github.com/hym97/LoopMR
+  tldr: 'LoopMR reuses one Restormer block at every unrolled iteration of accelerated MRI reconstruction; with
+    10.3M parameters (PromptMR+: 92.9M) it reports higher PSNR/SSIM on four datasets, and shared transformer
+    blocks match their distinct-weight versions while shared CNN blocks do not (weight sharing vs. operator).'
+  checked: 2026-11-16, AI-assisted screen of the abstract
+- id: '2611.16981'
+  title: 'Compiling Known Rules into Compact Neural Agents: Weight-Space Programming on Unseen Games'
+  date: '2026-11-12'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.16981
+    code: https://github.com/JensLehmann/weight-space-programming-games
+  tldr: 'LLM writers set, without training, the weights of a fixed 57k-parameter recurrent convolutional actor
+    whose weight-tied 3x3 block iterates 128 times per step, on 20 private ARC-AGI-3-style game families: 56%
+    held-out-level success at best (written Python players: 97-100%); cutting the tied iterations to 8 hurts most.'
+  checked: 2026-11-16, AI-assisted screen of the abstract and full text (Sec. 3.2, ablations)
+- id: '2611.12552'
+  title: 'SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery'
+  short: SciMARS
+  date: '2026-11-09'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2611.12552
+  tldr: 'SciMARS recursively adapts a multi-agent LLM harness for closed-loop scientific discovery: separate
+    editors revise roles, coordination and (in SciMARS + Memory) how agents use a shared evidence graph. Harness
+    loop.'
+  checked: 2026-11-16, AI-assisted screen of the abstract
+- id: '2611.14256'
+  title: A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents
+  date: '2026-11-10'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2611.14256
+  tldr: 'Survey of self-evolving multimodal agents in reasoning, generation, GUI/web navigation and embodied
+    manipulation, analysed through a three-stage loop of experience generation, feedback acquisition and update
+    consolidation. Agent loop.'
+  checked: 2026-11-16, AI-assisted screen of the abstract

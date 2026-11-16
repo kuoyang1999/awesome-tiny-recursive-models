@@ -7,7 +7,7 @@ recursive reasoning models: small, weight-tied networks that think by iterating.
 
 <img src="assets/field_timeline.png" alt="Monthly count of recursive-reasoning-model papers by type" width="92%"/>
 
-**507 papers** · 16 repositories · 95 annotated results (90 in RRM scope) · 112 peer-reviewed · 60 workshop · 139 under review · 192 preprint · 1 report · 3 blog · updated 2026-11-16
+**512 papers** · 16 repositories · 95 annotated results (90 in RRM scope) · 112 peer-reviewed · 60 workshop · 139 under review · 197 preprint · 1 report · 3 blog · updated 2026-11-16
 
 </div>
 
@@ -44,9 +44,9 @@ recursive reasoning models: small, weight-tied networks that think by iterating.
 - [🌍 Applications beyond puzzles](#-applications-beyond-puzzles) (33)
 - [📏 Benchmarks, competitions, and evaluation](#-benchmarks-competitions-and-evaluation) (43)
 - [🏛️ Foundations and precursors](#-foundations-and-precursors) (44)
-- [🔁 Related looped and recurrent-depth models](#-related-looped-and-recurrent-depth-models) (192)
+- [🔁 Related looped and recurrent-depth models](#-related-looped-and-recurrent-depth-models) (195)
 - [📚 Surveys, perspectives, and related lists](#-surveys-perspectives-and-related-lists) (9)
-- [🧱 Boundary: agent, harness, and self-improvement loops](#-boundary-agent-harness-and-self-improvement-loops) (82)
+- [🧱 Boundary: agent, harness, and self-improvement loops](#-boundary-agent-harness-and-self-improvement-loops) (84)
 - [📊 Protocol-annotated results](#-protocol-annotated-results)
 - [🧰 Code and implementations](#-code-and-implementations)
 - [🤝 Contributing](#-contributing)
@@ -379,6 +379,9 @@ recursive reasoning models: small, weight-tied networks that think by iterating.
 | Date | Paper | Venue / status | Links | TL;DR |
 |:--|:--|:--|:--|:--|
 | 2026-11 | **RLT** — Rectified Looped Transformer | arXiv | [arXiv](https://arxiv.org/abs/2611.16265) | Rectified Looped Transformer forms each loop's input by interpolating between the current state and its prediction, provably bounding state norms under assumptions; lower perplexity and more robust to depth changes at no extra parameters (stability). |
+| 2026-11 | Compiling Known Rules into Compact Neural Agents: Weight-Space Programming on Unseen Games | arXiv | [arXiv](https://arxiv.org/abs/2611.16981) · [code](https://github.com/JensLehmann/weight-space-programming-games) | LLM writers set, without training, the weights of a fixed 57k-parameter recurrent convolutional actor whose weight-tied 3x3 block iterates 128 times per step, on 20 private ARC-AGI-3-style game families: 56% held-out-level success at best (written Python players: 97-100%); cutting the tied iterations to 8 hurts most. |
+| 2026-11 | **LoopMR** — One Block Is Enough: LoopMR for Accelerated MRI Reconstruction | arXiv | [arXiv](https://arxiv.org/abs/2611.14947) · [code](https://github.com/hym97/LoopMR) | LoopMR reuses one Restormer block at every unrolled iteration of accelerated MRI reconstruction; with 10.3M parameters (PromptMR+: 92.9M) it reports higher PSNR/SSIM on four datasets, and shared transformer blocks match their distinct-weight versions while shared CNN blocks do not (weight sharing vs. operator). |
+| 2026-11 | Looping Deeper Without Growing the KV Cache: Recurrent Depth for Causal Encoder-Decoders | arXiv | [arXiv](https://arxiv.org/abs/2611.13378) | Looped causal encoder-decoder: recurrence goes in the sparse encoder layers that write global KV, and training with stochastic recurrence depth yields a fixed point at which each round reuses the last round's KV cache; recovers 86-93% of a looped Transformer's gain with 1/6 of its global KV (depth, loop memory). |
 | 2026-11 | **DPA** — Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in Large Language Models | arXiv | [arXiv](https://arxiv.org/abs/2611.12293) | On recurrent-depth LLMs, deeper recurrence can lose answers found at shallower depths and per-depth success sets are non-nested; Depth Portfolio Allocation spreads a candidate budget across depths instead of choosing one stopping depth (selection across depths). |
 | 2026-11 | **RELOAD** — Extending Reasoning in Typed Decision Models via Looping | arXiv | [arXiv](https://arxiv.org/abs/2611.07736) | RELOAD retrofits a damped loop over the middle block of pretrained encoders and decoders, with a controller that picks the number of passes per input; looping improves accuracy and calibration, mostly on longer reasoning chains than seen in training (adaptive depth). |
 | 2026-11 | Loop Before You Leap: What Recurrent Depth Can and Cannot Buy in Data-Limited Pretraining | arXiv | [arXiv](https://arxiv.org/abs/2611.06206) | BabyLM-scale study under a 100M-word budget: a 12-layer stack looped four times beats a 48-layer Transformer by 5.4 BLiMP points at matched inference compute, but recurrence does not offset the drop from multimodal training (recurrence vs depth, data-limited scaling). |
@@ -589,6 +592,8 @@ recursive reasoning models: small, weight-tied networks that think by iterating.
 
 | Date | Paper | Venue / status | Links | TL;DR |
 |:--|:--|:--|:--|:--|
+| 2026-11 | A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents | arXiv | [arXiv](https://arxiv.org/abs/2611.14256) | Survey of self-evolving multimodal agents in reasoning, generation, GUI/web navigation and embodied manipulation, analysed through a three-stage loop of experience generation, feedback acquisition and update consolidation. Agent loop. |
+| 2026-11 | **SciMARS** — SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery | arXiv | [arXiv](https://arxiv.org/abs/2611.12552) | SciMARS recursively adapts a multi-agent LLM harness for closed-loop scientific discovery: separate editors revise roles, coordination and (in SciMARS + Memory) how agents use a shared evidence graph. Harness loop. |
 | 2026-11 | **SARBLOH** — Transforming Integer Grids to Spatial Intuition: Perception, Not Planning, Governs ARC-AGI-3 | arXiv | [arXiv](https://arxiv.org/abs/2611.06793) | SARBLOH, an open-weight ARC-AGI-3 agent, pairs a zero-parameter perception engine (objects, invariants, annotated canvas) with a code-as-action runtime and argues that perception, not planning, limits play. Agent loop. |
 | 2026-10 | Algebraic World Model: From Exploration to Proofs | arXiv | [arXiv](https://arxiv.org/abs/2610.40503) | Algebraic World Model: an agent explores games, writes executable hypotheses and formalizes them in Lean 4 to prove level reachability or impossibility; replays all 183 public ARC-AGI-3 levels from its learned models. Agent loop. |
 | 2026-10 | When the harness decides success: state that cannot be re-observed | arXiv | [arXiv](https://arxiv.org/abs/2610.26632) | Pre-registered harness study: dropping old turns is harmless when a needed fact can be re-observed and fatal when it cannot; on ARC-AGI-3 (one model, four games), summarizing old turns recovers 86% of a 63-point gap between two harnesses. Harness loop. |
