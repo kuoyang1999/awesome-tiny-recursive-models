@@ -95,3 +95,13 @@ outside the core RRM sections must carry `scope: related` (looped, benchmark, fo
 `scope: boundary` (CI enforces this). Entries that
 graduate from `extra_papers.yaml` into the knowledge base are removed from `extra_papers.yaml` in the
 same change, and `data/repos.yaml` is maintained by hand (the exporter does not update it).
+
+The exporter publishes a knowledge-base `adjacent` record only if it is high-confidence and tagged with a
+depth, supervision, exploration or scaling question; 21 high-confidence records about loop state, memory
+or the latent-explicit interface were therefore added to `extra_papers.yaml` by hand on 2026-11-16. If the
+export rule changes, compare each exported entry with its hand entry before dropping the latter: an exported
+entry with the same id silently replaces the hand entry, and the knowledge base links several anonymous
+ICLR 2027 records whose abstracts differ from the arXiv versions (deliberately not linked here). Hyper-SET
+(`2502.11646`) shares no key with its knowledge-base record (the DBLP mirror `openreview:AyFA8VcUMn`), so
+the duplicate check would not flag it; the CoT/latent-thought entry (`2509.25239`) merges `2505.19245` and
+`openreview:KE5C7qK82R`, so an export of either must become a merge, not a new entry.
