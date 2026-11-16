@@ -179,7 +179,7 @@
     and cheap RL, and improves them with a learned depth prior and orthogonal injection.
 - id: openreview-bb4DbQgvgM
   title: 'RELAGRAM: Recursive Latent Graph Model for Capacitated Vehicle Routing Problem'
-  date: '2026-10-03'
+  date: '2026-10-04'
   venue: NeurIPS 2026 Workshop (MLxOR)
   status: W
   section: applications
@@ -1398,12 +1398,13 @@
   short: Random Recursive Model
 - id: openreview-FScvogJslA
   title: Human-like Abstract Visual Reasoning via Understanding and Solving Reasoning Loop
-  date: '2026-09-17'
+  date: 2026-06
   venue: CVPR 2026
   status: V
   section: architecture
   links:
     openreview: https://openreview.net/forum?id=FScvogJslA
+    paper: https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Human-like_Abstract_Visual_Reasoning_via_Understanding_and_Solving_Reasoning_Loop_CVPR_2026_paper.html
   tldr: Proposes USRL, a 7M-parameter loop in which an Understanding Module refines rule representations and a Solving
     Module refines a draft solution, with consistency-based adaptive halting.
   short: USRL
@@ -1509,7 +1510,8 @@
   links:
     openreview: https://openreview.net/forum?id=KGYYrHn7TX
   tldr: Trajectory measurements and interventions on Sudoku-Extreme RRMs reveal learned correction dynamics; compact
-    attention solvers reach about 99.5% with under 2M parameters; ARC candidate-pool limits.
+    attention solvers reach 99.48% (0.62M parameters) and 99.62% (1.06M and 1.97M) with one 64-iteration trajectory;
+    on ARC, tested candidate pools lack correct answers for most queries.
 - id: openreview-MNwejBwJSK
   title: Adaptive Supervision Helps Tiny Recursive Models Learn Better
   date: '2026-10-03'
@@ -2335,9 +2337,12 @@
   section: boundary
   links:
     paper: https://arxiv.org/abs/2607.12227
-    openreview: https://openreview.net/forum?id=QDdWiaNkk2
+    openreview: https://openreview.net/forum?id=WVAeeSlVim
   tldr: Re-evaluates automatic harness evolution for LLM agents against matched-budget test-time scaling baselines
     and held-out tasks, finding gains mainly in long-horizon games.
+  versions:
+  - label: ICLR 2027 submission
+    url: https://openreview.net/forum?id=QDdWiaNkk2
 - id: '2607.12945'
   title: 'RecRec: Latent Interests Recursive Reasoning for Sequential Recommendation'
   date: '2026-07-14'
@@ -2542,8 +2547,9 @@
   section: analysis
   links:
     paper: https://arxiv.org/abs/2606.26488
-  tldr: 'Studies compressing few-million-parameter recursive reasoning models for edge on three puzzle tasks: pruning,
-    distillation and linear attention destroy puzzle-exact accuracy; calibrated INT4 recovers it.'
+  tldr: 'Compresses few-million-parameter recursive reasoners for edge budgets on three puzzle tasks: in the tested
+    settings pruning, distillation and linear attention drive puzzle-exact accuracy to zero while cell accuracy
+    holds, and per-channel calibrated INT4 reverses naive-INT4 damage (the 4 MB INT4 budget is a weights-only analysis).'
 - id: '2607.16237'
   title: Quantizing Recursive Reasoning Models
   date: '2026-06-25'
@@ -2940,7 +2946,8 @@
     paper: https://arxiv.org/abs/2605.20613
     code: https://github.com/sapientinc/HRM-Text
   tldr: HRM-Text replaces Transformers with HRM for language-model pretraining, adding MagicNorm and warmup deep
-    credit assignment and training on instruction-response pairs; 1B model rivals 2-7B models.
+    credit assignment and training only on instruction-response pairs; reports that a 1B model trained from scratch
+    on 40B unique tokens performs competitively with 2-7B open models.
   short: HRM-Text
 - id: '2605.21488'
   title: 'Equilibrium Reasoners: Learning Attractors Enables Scalable Reasoning'
@@ -2986,8 +2993,8 @@
 - id: '2605.17811'
   title: 'One Model, Two Roles: Emergent Specialization in a Shared Recurrent Transformer'
   date: '2026-05-18'
-  venue: arXiv
-  status: P
+  venue: NeurIPS 2026
+  status: V
   section: analysis
   links:
     paper: https://arxiv.org/abs/2605.17811
@@ -2996,6 +3003,9 @@
   tldr: Asymmetric Input Recurrence reuses one Transformer for HRM-style L and H updates; on Sudoku-Extreme and
     Maze, z_H becomes a committed proposal while z_L keeps local uncertainty.
   short: AIR
+  versions:
+  - label: NeurIPS 2026 poster
+    url: https://neurips.cc/virtual/2026/poster/155435
 - id: '2605.13037'
   title: 'MAP: A Map-then-Act Paradigm for Long-Horizon Interactive Agent Reasoning'
   date: '2026-05-13'
@@ -3076,7 +3086,8 @@
     paper: https://arxiv.org/abs/2605.08605
     openreview: https://openreview.net/forum?id=AGwDx82Vq3
   tldr: 'Lattice Deduction Transformer: recurrent transformer projecting its latent state through a lattice between
-    passes, trained on-policy with abstract-interpretation supervision; answers correctly or abstains.'
+    passes, trained on-policy with abstract-interpretation supervision; empirically sound (correct answer or abstention)
+    on the tested Sudoku sets, while its few Maze-Hard failures are wrong paths, not abstentions.'
   short: LDT
   must_read: true
 - id: '2605.09165'
@@ -3165,8 +3176,9 @@
   links:
     paper: https://arxiv.org/abs/2604.21999
     code: https://github.com/che-shr-cat/utm-jax
-  tldr: 'Single-block Universal Transformer with ACT on Sudoku-Extreme: memory tokens are necessary and substitute
-    for ponder depth; identifies an ACT router-initialization trap fixed by negative bias.'
+  tldr: 'Single-block Universal Transformer with ACT on Sudoku-Extreme: in this minimal setting memory tokens are
+    empirically necessary and trade off against ponder depth (the author notes that TRM and URM compensate differently);
+    identifies an ACT router-initialization trap fixed by a negative halting bias.'
 - id: '2604.21106'
   title: How Much Is One Recurrence Worth? Iso-Depth Scaling Laws for Looped Language Models
   date: '2026-04-22'
@@ -3264,7 +3276,7 @@
 - id: '2604.09168'
   title: 'ELT: Elastic Looped Transformers for Visual Generation'
   date: '2026-04-10'
-  venue: LNCS 2026
+  venue: ECCV 2026
   status: V
   section: looped
   links:
@@ -3273,6 +3285,9 @@
   tldr: Introduces Elastic Looped Transformers for image/video generation, trained with Intra-Loop Self Distillation
     so intermediate loops match the max-loop teacher, enabling any-time inference.
   short: ELT
+  versions:
+  - label: ECCV 2026 paper
+    url: https://doi.org/10.1007/978-3-032-37324-3_17
 - id: '2604.07822'
   title: 'Loop, Think, & Generalize: Implicit Reasoning in Recurrent-Depth Transformers'
   date: '2026-04-09'
@@ -3514,8 +3529,9 @@
     paper: https://arxiv.org/abs/2603.02193
     openreview: https://openreview.net/forum?id=Rd1oQZ3s2o
     code: https://github.com/ml-jku/SE-RRM
-  tldr: Introduces symbol-equivariant recurrent reasoning models enforcing permutation equivariance architecturally,
-    beating prior RRMs on Sudoku with size extrapolation and needing less augmentation on ARC.
+  tldr: 'Symbol-equivariant recurrent reasoning models enforce permutation equivariance architecturally: they outperform
+    prior RRMs on 9x9 Sudoku, transfer to 4x4 grids (95.46% fully solved) but fully solve none of the larger 16x16/25x25
+    grids, and need less augmentation on ARC.'
   short: SE-RRM
 - id: openreview-kKps9W1K7n
   title: 'Recursive Reasoning as Attractor Landscape Search: Mechanistic Dynamics of the Tiny Recursive Model'
@@ -4151,8 +4167,8 @@
   section: lineage
   links:
     paper: https://arxiv.org/abs/2510.04871
-  tldr: Proposes Tiny Recursive Model, a simpler recursive reasoning approach using a single 2-layer, 7M-parameter
-    network that generalizes better than HRM on Sudoku, Maze, and ARC-AGI.
+  tldr: 'Proposes the Tiny Recursive Model: a single 2-layer network (7M parameters; 5M MLP variant on Sudoku-Extreme)
+    recursively updates a latent and an answer, generalizing better than HRM on Sudoku, Maze, and ARC-AGI.'
   short: TRM
   must_read: true
 - id: '2510.03638'

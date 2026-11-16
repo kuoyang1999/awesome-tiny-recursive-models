@@ -418,10 +418,10 @@ papers:
     basis: "paper: Code available at github.com/sapientinc/HRM-Text"
     checked: "2026-11-15, AI-assisted source check"
   - id: "openreview-bb4DbQgvgM"
-    set: {date: "2026-10-03", links: {paper: "https://arxiv.org/abs/2610.15106"}}
+    set: {date: "2026-10-04", links: {paper: "https://arxiv.org/abs/2610.15106"}}
     source: "https://arxiv.org/abs/2610.15106"
-    basis: "arXiv version under the same title (differs only by 'the') and the same RELAGRAM method and results; OpenReview public date 2026-10-03"
-    checked: "2026-11-15, AI-assisted source check"
+    basis: "arXiv 2610.15106 (v1 2026-10-10; comment: accepted to the NeurIPS 2026 MLxOR workshop) has the same title (adds 'the'), the same two authors and the same abstract as this named workshop record. Date: the workshop record's OpenReview public date (odate) is 2026-10-04 21:16 UTC; the 2026-10-03 recorded on 2026-11-15 was the ICLR 2027 batch date, which does not apply to this record"
+    checked: "2026-11-15, AI-assisted source check; date corrected 2026-11-16, AI-assisted source check"
   - id: "2511.08577"
     set: {date: "2025-10-08", versions: [{label: "ICLR 2026 submission", url: "https://openreview.net/forum?id=jLdx3kmsrs"}]}
     source: "https://openreview.net/forum?id=jLdx3kmsrs"
@@ -892,6 +892,62 @@ papers:
     source: "https://openreview.net/forum?id=ziKfmgJXjk"
     basis: "OpenReview public date (odate 2026-10-03); the exported date 2026-09-15 is the record's creation/submission or decision date"
     checked: "2026-11-15, AI-assisted source check"
+  # 2026-11-16 pass: claims narrowed to what the papers report (cf. the October knowledge-base audit), dates, venues
+  - id: "2605.08605"
+    set: {tldr: "Lattice Deduction Transformer: recurrent transformer projecting its latent state through a lattice between passes, trained on-policy with abstract-interpretation supervision; empirically sound (correct answer or abstention) on the tested Sudoku sets, while its few Maze-Hard failures are wrong paths, not abstentions."}
+    source: "https://arxiv.org/abs/2605.08605"
+    basis: "abstract: the 800K-parameter LDT on Sudoku-Extreme and Snowflake Sudoku 'returns a correct answer or abstains'; p. 9: on Maze-Hard (K=1: 993/1000, K=512: 999/1000) 'Neither is empirically sound: the unsolved instances emitted incorrect solutions rather than abstaining'. The exported 'answers correctly or abstains' was unqualified"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2603.02193"
+    set: {tldr: "Symbol-equivariant recurrent reasoning models enforce permutation equivariance architecturally: they outperform prior RRMs on 9x9 Sudoku, transfer to 4x4 grids (95.46% fully solved) but fully solve none of the larger 16x16/25x25 grids, and need less augmentation on ARC."}
+    source: "https://arxiv.org/abs/2603.02193"
+    basis: "abstract; pp. 7-8 and Table 1: 95.46% full-solve rate on 4x4; 'the trained SE-RRM model does not solve any of the larger Sudokus' (cell accuracy 51.95% on 16x16, 31.49% on 25x25). The exported 'with size extrapolation' did not say that larger grids are only partly solved"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2606.26488"
+    set: {tldr: "Compresses few-million-parameter recursive reasoners for edge budgets on three puzzle tasks: in the tested settings pruning, distillation and linear attention drive puzzle-exact accuracy to zero while cell accuracy holds, and per-channel calibrated INT4 reverses naive-INT4 damage (the 4 MB INT4 budget is a weights-only analysis)."}
+    source: "https://arxiv.org/abs/2606.26488"
+    basis: "abstract (pruning, distillation and linear attention 'drive puzzle-exact accuracy to zero while cell accuracy holds'; per-channel calibration reverses naive-INT4 damage); Fig. 1 caption and Sec. 3: 'Everything we report at the 4 MB budget is therefore an analytical, weights-only projection'"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2605.20613"
+    set: {tldr: "HRM-Text replaces Transformers with HRM for language-model pretraining, adding MagicNorm and warmup deep credit assignment and training only on instruction-response pairs; reports that a 1B model trained from scratch on 40B unique tokens performs competitively with 2-7B open models."}
+    source: "https://arxiv.org/abs/2605.20613"
+    basis: "abstract: 'a 1B-parameter HRM-Text model trained from scratch on only 40 billion unique tokens ... performs competitively with 2-7B parameter open models' (the authors' comparison, not a reproduced ranking)"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2604.21999"
+    set: {tldr: "Single-block Universal Transformer with ACT on Sudoku-Extreme: in this minimal setting memory tokens are empirically necessary and trade off against ponder depth (the author notes that TRM and URM compensate differently); identifies an ACT router-initialization trap fixed by a negative halting bias."}
+    source: "https://arxiv.org/abs/2604.21999"
+    basis: "abstract; p. 14: 'Our \"memory tokens are necessary\" finding is specific to the minimal configuration ... not that memory tokens are universally necessary for recursive computation'"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "openreview-KGYYrHn7TX"
+    set: {tldr: "Trajectory measurements and interventions on Sudoku-Extreme RRMs reveal learned correction dynamics; compact attention solvers reach 99.48% (0.62M parameters) and 99.62% (1.06M and 1.97M) with one 64-iteration trajectory; on ARC, tested candidate pools lack correct answers for most queries."}
+    source: "https://openreview.net/forum?id=KGYYrHn7TX"
+    basis: "OpenReview abstract: 'compact attention models, which achieve 99.48% with 0.62M parameters and 99.62% with 1.06M and 1.97M on all 422,786 test puzzles. Using 1,000 training puzzles and one fixed-start trajectory of 64 iterations'; replaces the rounded 'about 99.5% with under 2M parameters'"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2510.04871"
+    set: {tldr: "Proposes the Tiny Recursive Model: a single 2-layer network (7M parameters; 5M MLP variant on Sudoku-Extreme) recursively updates a latent and an answer, generalizing better than HRM on Sudoku, Maze, and ARC-AGI."}
+    source: "https://arxiv.org/abs/2510.04871"
+    basis: "abstract ('a single tiny network with only 2 layers. With only 7M parameters'); Table 4: TRM-Att 7M, TRM-MLP 5M on Sudoku-Extreme. Per-task identity embeddings used for ARC are not part of the 7M (see the README note on parameters)"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "openreview-FScvogJslA"
+    set: {date: "2026-06", links: {paper: "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Human-like_Abstract_Visual_Reasoning_via_Understanding_and_Solving_Reasoning_Loop_CVPR_2026_paper.html"}}
+    source: "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_Human-like_Abstract_Visual_Reasoning_via_Understanding_and_Solving_Reasoning_Loop_CVPR_2026_paper.html"
+    basis: "CVF open-access page: CVPR 2026, pp. 41235-41244, BibTeX month = June, year = 2026 (no day given, so month precision); the exported 2026-09-17 is the later public date (odate) of the CVF-uploaded OpenReview record"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2604.09168"
+    set: {venue: "ECCV 2026", versions: [{label: "ECCV 2026 paper", url: "https://doi.org/10.1007/978-3-032-37324-3_17"}]}
+    source: "https://doi.org/10.1007/978-3-032-37324-3_17"
+    basis: "Crossref: container title 'Computer Vision - ECCV 2026' (Lecture Notes in Computer Science), same title and authors; arXiv comment: Accepted to ECCV 2026. The exported venue named only the book series (LNCS 2026)"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2605.17811"
+    set: {status: "V", venue: "NeurIPS 2026", versions: [{label: "NeurIPS 2026 poster", url: "https://neurips.cc/virtual/2026/poster/155435"}]}
+    source: "https://neurips.cc/virtual/2026/poster/155435"
+    basis: "official NeurIPS 2026 poster page with the same title and authors (poster session 2026-12-12); arXiv v2 comment: Accepted at NeurIPS 2026. The linked OpenReview record is author-uploaded (venue id OpenReview.net/Archive), not a venue decision"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2607.12227"
+    set: {links: {openreview: "https://openreview.net/forum?id=WVAeeSlVim"}, versions: [{label: "ICLR 2027 submission", url: "https://openreview.net/forum?id=QDdWiaNkk2"}]}
+    source: "https://openreview.net/forum?id=WVAeeSlVim"
+    basis: "the W status rests on the LLA @ COLM 2026 record (venue 'LLA 2026 Poster', venue id colmweb.org/COLM/2026/Workshop/LLA, OpenReview record retrieved 2026-10-13), so the OpenReview link now names it; the previously linked ICLR 2027 submission has the same title and abstract as arXiv v4 (which only rounds 10.9% to 11% and adds a code URL) and is listed as a version"
+    checked: "2026-11-16, AI-assisted source check"
 
 merges:
   - alias: "openreview-Vxu6kcIjwV"
