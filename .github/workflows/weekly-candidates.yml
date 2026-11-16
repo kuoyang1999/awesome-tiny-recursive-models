@@ -73,7 +73,7 @@ jobs:
             exit 0
           fi
           set +e
-          python scripts/check_status.py --json status.json > status.md
+          python scripts/check_status.py --title-search --json status.json > status.md
           set -e
           cat status.md >> "$GITHUB_STEP_SUMMARY"
           python -c "import json; print('changes=%d' % len(json.load(open('status.json'))['changes']))" >> "$GITHUB_OUTPUT"

@@ -48,6 +48,28 @@ def fetch(forum):
     return None
 
 
+def norm(t):
+    return re.sub(r"[^a-z0-9]+", "", (t or "").lower())
+
+
+def by_title(title):
+    """OpenReview forum notes whose title equals `title` (normalized), or None if the search failed."""
+    for attempt in range(3):
+        try:
+            r = requests.get("https://api2.openreview.net/notes/search", timeout=60, headers=UA, params={
+                "term": title, "type": "terms", "content": "all", "source": "forum", "limit": 25})
+        except requests.RequestException:
+            time.sleep(10 * (attempt + 1))
+            continue
+        if r.status_code == 429:
+            time.sleep(30 * (attempt + 1))
+            continue
+        if r.status_code != 200:
+            return None
+        return [n for n in r.json().get("notes", []) if norm(value(n.get("content", {}), "title")) == norm(title)]
+    return None
+
+
 def value(content, key):
     v = content.get(key)
     return v.get("value") if isinstance(v, dict) else v
@@ -70,8 +92,10 @@ def decision(venueid, venue):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--json")
+    ap.add_argument("--title-search", action="store_true",
+                    help="also look up entries without an OpenReview link by exact title")
     args = ap.parse_args()
-    changes, failed, records = [], [], []
+    changes, failed, records, matches = [], [], [], []
 
     def day(ms):
         return dt.datetime.fromtimestamp(ms / 1000, dt.timezone.utc).strftime("%Y-%m-%d") if ms else None
@@ -79,6 +103,18 @@ def main():
         url = (p.get("links") or {}).get("openreview") or ""
         m = re.search(r"forum\?id=([\w-]+)", url)
         if not m:
+            if args.title_search and p["status"] in ("P", "U"):
+                found = by_title(p["title"])
+                time.sleep(1.0)
+                if found is None:
+                    failed.append(p["id"] + " (title search)")
+                for n in found or []:
+                    c = n.get("content", {})
+                    status, label = decision(value(c, "venueid"), value(c, "venue"))
+                    matches.append({"id": p["id"], "title": p["title"], "catalog": f"{p['status']} ({p.get('venue')})",
+                                    "forum": n["forum"], "venue": value(c, "venue"), "venueid": value(c, "venueid"),
+                                    "odate": day(n.get("odate")), "pdate": day(n.get("pdate")),
+                                    "authors_visible": bool(value(c, "authors")), "suggested": status, "reason": label})
             continue
         note = fetch(m.group(1))
         time.sleep(0.4)  # stay well under the API's 180 requests/minute
@@ -102,11 +138,18 @@ def main():
         for c in changes:
             print(f"| [{c['title'][:80].replace('|', '/')}]({c['url']}) | {c['catalog']} | {c['official']} | "
                   f"{c['suggested']} ({c['reason']}) |")
+    if matches:
+        print(f"\nOpenReview records with the same title as {len({m['id'] for m in matches})} entries that have no "
+              "OpenReview link (confirm authors and content before linking; never link an anonymous record by inference):\n")
+        print("| Entry | Catalog | OpenReview record |\n|:--|:--|:--|")
+        for m in matches:
+            print(f"| {m['title'][:80].replace('|', '/')} | {m['catalog']} | "
+                  f"[{m['venue']}](https://openreview.net/forum?id={m['forum']}) |")
     if failed:
         print("\nNot fetched: " + ", ".join(failed))
     if args.json:
-        json.dump({"checked": len(records), "changes": changes, "failed": failed, "records": records},
-                  open(args.json, "w"), indent=1)
+        json.dump({"checked": len(records), "changes": changes, "failed": failed, "records": records,
+                   "title_matches": matches}, open(args.json, "w"), indent=1)
     sys.exit(2 if failed else 0)
 
 
