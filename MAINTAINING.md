@@ -16,8 +16,10 @@ papers, and the catalog is not updated until a maintainer screens them.
 If a query fails or arXiv answers HTTP 429, the issue title starts with `[incomplete search]`, the
 search log in the issue says which queries failed, and the run is marked as failed. Because the
 window starts from `data/coverage.yaml`, the next run searches the same weeks again. Do not treat a
-quiet week as covered unless the run was complete. OpenReview's term search returns at most 1000
-ranked matches per term; capped terms are listed in the log (reported, not fatal).
+quiet week as covered unless the run was complete. OpenReview's term search returns matches ranked by
+relevance, not date, 1,000 per request; the script reads up to four pages per term and lists a term
+with more matches as capped (reported, not fatal: newly public records ranked below the pages read
+are missed).
 
 To run the same search locally:
 
@@ -48,7 +50,9 @@ date the pass covered and add a `passes` entry with the sources, window, and any
 - The first Monday run of each month also runs `scripts/check_status.py`, which compares catalog
   statuses with OpenReview decisions (withdrawn, rejected, accepted). Confirm each change on the
   official record (OpenReview, ACL Anthology, PMLR, the publisher) before editing; never upgrade an
-  entry from an arXiv comment or a project page alone.
+  entry from an arXiv comment or a project page alone. Author-uploaded (`OpenReview.net/Archive`) and
+  DBLP mirror records are not decisions, and neither is a workshop record whose venue id still ends in
+  `/Submission` (some workshops never post decisions on OpenReview): check the workshop's accepted list.
 - Add protocol-annotated numbers to `data/results.yaml` only when the paper states them explicitly;
   record attempts (pass@k), augmentation/voting, sampled trajectories, test-time depth, identity
   embeddings, and training data. Write `value` as a quoted string with the source's precision

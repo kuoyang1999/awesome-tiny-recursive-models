@@ -81,6 +81,10 @@ def decision(venueid, venue):
         return "P", "withdrawn" if "Withdrawn" in vid else "desk rejected"
     if vid.endswith("/Rejected_Submission"):
         return "P", "not accepted"
+    if vid.endswith("/Submission") and "/Workshop/" in vid:
+        # Some workshops never post decisions on OpenReview, so an accepted paper can keep this venue id
+        # (e.g. colmweb.org/COLM/2026/Workshop/WAB/Submission); only the workshop's accepted list settles it.
+        return None, "workshop submission record without a posted decision (check the workshop's accepted papers)"
     if vid.endswith("/Submission") or (venue or "").startswith("Submitted to"):
         return "U", "under review"
     if vid:

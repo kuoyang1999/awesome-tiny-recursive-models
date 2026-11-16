@@ -52,7 +52,8 @@ jobs:
           CODE=$?
           set -e
           cat candidates.md
-          if [ "$CODE" -gt 2 ]; then exit "$CODE"; fi
+          # 0 = complete, 2 = incomplete search (reported in the issue, then the run fails); anything else is a crash
+          if [ "$CODE" -ne 0 ] && [ "$CODE" -ne 2 ]; then echo "::error::find_new.py exited with $CODE"; exit "$CODE"; fi
           python - >> "$GITHUB_OUTPUT" <<'EOF'
           import json
           r = json.load(open("candidates.json"))

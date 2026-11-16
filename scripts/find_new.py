@@ -9,8 +9,9 @@ abstract against CONTRIBUTING.md before it is added. By default the window start
 `searched_through` in data/coverage.yaml (the end of the last complete manual search), so a missed
 week is searched again instead of being skipped.
 
-The report says what was searched. A failed, rate-limited, or capped query is listed as such and
-makes the exit status 2, so an empty list is never mistaken for "no new papers".
+The report says what was searched. A failed or rate-limited query is listed as such and makes the
+exit status 2, so an empty list is never mistaken for "no new papers". An OpenReview term whose ranked
+matches outrun the pages read is listed as capped (reported, not fatal).
 """
 import argparse
 import datetime as dt
@@ -44,6 +45,20 @@ ARXIV_QUERIES = [
     'abs:"recurrent depth" OR abs:"recurrent-depth" OR abs:"depth-recurrent"',
     'abs:"weight-tied" AND (abs:reasoning OR abs:depth OR abs:recurrence)',
     'abs:"fixed-point" AND abs:reasoning AND (abs:transformer OR abs:recurrent OR abs:looped)',
+    # added 2026-11-16 from the knowledge base's query families: in the 2026-10-09..2026-11-12 manual pass,
+    # 33 of the 98 new candidates were found only by those families, not by the queries above
+    'abs:"depth recurrent" OR abs:"layer recurrence" OR abs:"layer-recurrent" OR abs:"recurrent layers"',
+    'abs:"universal transformer" AND (abs:reasoning OR abs:recurrence OR abs:depth)',
+    'abs:"latent reasoning" AND (abs:loop OR abs:looped OR abs:recurrent OR abs:recursive OR abs:iteration)',
+    'abs:"test-time compute" AND (abs:recurrent OR abs:looped OR abs:latent)',
+    'abs:"adaptive computation" AND (abs:halting OR abs:ponder)',
+    'abs:"deep equilibrium" AND abs:reasoning',
+    'abs:attractor AND abs:reasoning AND (abs:neural OR abs:transformer)',
+    'abs:"equilibrium reasoners" OR abs:"equilibrium reasoning"',
+    'abs:"ARC-AGI-2" OR abs:"ARC-AGI-3"',
+    'abs:sudoku AND (abs:recurrent OR abs:recursive OR abs:looped) AND abs:reasoning',
+    'ti:survey AND (abs:looped OR abs:"recurrent depth" OR abs:recursive) AND abs:reasoning',
+    '(ti:survey OR ti:review) AND (abs:"tiny recursive" OR abs:"hierarchical reasoning model" OR abs:"recursive reasoning")',
 ]
 OPENREVIEW_TERMS = ["tiny recursive", "recursive reasoning model", "recurrent reasoning model",
                     "hierarchical reasoning model", "Sudoku-Extreme", "Maze-Hard", "looped transformer",
@@ -51,7 +66,8 @@ OPENREVIEW_TERMS = ["tiny recursive", "recursive reasoning model", "recurrent re
 # used only when arXiv fails: plain phrases for OpenAlex, which indexes arXiv with a lag of days
 FALLBACK_PHRASES = ["tiny recursive model", "hierarchical reasoning model", "recursive reasoning model",
                     "Sudoku-Extreme", "Maze-Hard", "looped transformer"]
-OPENREVIEW_LIMIT = 1000
+OPENREVIEW_LIMIT = 1000   # notes per search request (the API maximum)
+OPENREVIEW_PAGES = 4      # pages per term via `offset`, i.e. up to 4,000 ranked matches
 ARXIV_PAGE = 200
 
 
@@ -165,20 +181,38 @@ def openreview(since, log):
     cutoff = dt.datetime.fromisoformat(since).replace(tzinfo=dt.timezone.utc).timestamp() * 1000
     for term in OPENREVIEW_TERMS:
         label = f"OpenReview: {term}"
-        r = get("https://api2.openreview.net/notes/search", {
-            "term": term, "type": "terms", "content": "all", "source": "forum", "limit": OPENREVIEW_LIMIT},
-            log, label)
-        time.sleep(1.5)
-        if r is None:
-            continue
-        try:
-            notes = r.json().get("notes", [])
-        except ValueError:
-            log.append({"source": label, "status": "failed", "detail": "unparseable response"})
-            continue
-        status = "capped" if len(notes) >= OPENREVIEW_LIMIT else "ok"
-        log.append({"source": label, "status": status, "detail": f"{len(notes)} results"
-                    + (" (API limit reached; lower-ranked matches are not returned)" if status == "capped" else "")})
+        # Matches are ranked by relevance, not date, so a newly public record can sit anywhere in the list:
+        # page with `offset` until a short page, and report the term as capped if the pages run out.
+        notes, ids, pages, failed, capped = [], set(), 0, False, ""
+        while pages < OPENREVIEW_PAGES:
+            r = get("https://api2.openreview.net/notes/search", {
+                "term": term, "type": "terms", "content": "all", "source": "forum",
+                "limit": OPENREVIEW_LIMIT, "offset": pages * OPENREVIEW_LIMIT}, log, label)
+            time.sleep(1.5)
+            if r is None:  # get() logged the failure; keep the pages already read
+                failed = True
+                break
+            try:
+                batch = r.json().get("notes", [])
+            except ValueError:
+                log.append({"source": label, "status": "failed", "detail": "unparseable response"})
+                failed = True
+                break
+            pages += 1
+            new = [n for n in batch if n.get("id") not in ids]
+            if batch and not new:
+                capped = "the API ignored `offset` and repeated a page"
+                break
+            ids.update(n.get("id") for n in new)
+            notes += new
+            if len(batch) < OPENREVIEW_LIMIT:
+                break
+        else:
+            capped = f"{OPENREVIEW_PAGES} pages read"
+        if not failed:
+            log.append({"source": label, "status": "capped" if capped else "ok",
+                        "detail": f"{len(notes)} results in {pages} page(s)"
+                        + (f" ({capped}; lower-ranked matches are not returned)" if capped else "")})
         for n in notes:
             c = n.get("content", {})
             title = (c.get("title") or {}).get("value", "")
@@ -225,7 +259,7 @@ def main():
     arxiv_failed = any(e["status"] == "failed" and e["source"].startswith("arXiv") for e in log)
     fallback = openalex(since, log) if arxiv_failed else {}
     # complete = every primary query answered; a capped OpenReview term is reported but not fatal,
-    # because multi-word terms routinely reach the API limit (matches are ranked, not dated)
+    # because multi-word terms can match more records than are read (matches are ranked, not dated)
     complete = not any(e["status"] == "failed" for e in log if not e["source"].startswith("OpenAlex"))
     capped = [e["source"] for e in log if e["status"] == "capped"]
 
@@ -256,8 +290,9 @@ def main():
         print("> [!WARNING]\n> **Incomplete search.** Some queries failed or were rate-limited (see the log "
               "below). Missing candidates are possible; rerun this window before treating it as covered.\n")
     if capped:
-        print(f"> [!NOTE]\n> {len(capped)} OpenReview term(s) reached the API result limit "
-              f"({OPENREVIEW_LIMIT}); newly public matches ranked below the limit are not returned.\n")
+        print(f"> [!NOTE]\n> {len(capped)} OpenReview term(s) had more ranked matches than were read "
+              f"(up to {OPENREVIEW_PAGES} x {OPENREVIEW_LIMIT}); newly public matches ranked below them are not "
+              "returned.\n")
     for title, src in (("OpenReview", "openreview"), ("arXiv", "arxiv"),
                        ("OpenAlex fallback (arXiv records; may lag by days)", "openalex")):
         rows = sorted((c for c in cands if c["source"] == src), key=lambda c: c["date"], reverse=True)
