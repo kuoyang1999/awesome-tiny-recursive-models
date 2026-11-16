@@ -2,7 +2,7 @@
 # scripts/find_new.py starts its window three days before `searched_through`, so update this file at the
 # end of each complete manual pass (see MAINTAINING.md). A pass with failed or capped queries is recorded
 # with its failures; do not advance `searched_through` past a window that was not fully searched.
-searched_through: '2026-11-13'   # last arXiv v1 submission date announced when the 2026-11-16 pass ran
+searched_through: '2026-11-12'   # 2026-11-13 searched on 2026-11-16 but not counted: see that pass's limits
 passes:
   - date: '2026-10-12'
     note: initial knowledge-base harvest (arXiv query families and OpenReview term search); 2026-10-13 release
@@ -23,13 +23,14 @@ passes:
   - date: '2026-11-16'
     window: ['2026-11-09', '2026-11-13']
     sources:
-      - "arXiv API: the knowledge base's 45 queries in 5 families plus 12 recall queries, submittedDate 2026-11-09..2026-11-16 (the announcement of 2026-11-16 01:00 UTC covers submissions through 2026-11-13 19:00 UTC); all 57 answered; 51 unique hits, 4 already listed, 47 screened: 5 added (3 looped, 2 boundary), 42 excluded (36 of them 'ti:looped' title matches on unrelated loops such as physics, closed-loop control and domain agent workflows)"
-      - "weekly-candidates workflow on main, report only (run 43794267067): complete; its 15 arXiv queries found 5 new hits, all among the above; OpenReview term search found no new record made public on or after 2026-11-09"
+      - "arXiv API: the knowledge base's 45 queries in 5 families plus 12 recall queries, submittedDate 2026-11-09..2026-11-16, run at 03:00 UTC and again with fresh (uncached) responses at 03:30 UTC; all 57 answered; 57 unique hits, 4 already listed, 53 screened: 5 added (3 looped, 2 boundary), 48 excluded (41 of them 'ti:looped' title matches on unrelated loops such as physics, closed-loop control and domain agent workflows)"
+      - "scripts/find_new.py (27 arXiv queries, 15 quoted OpenReview phrases), run locally from 2026-11-09: complete; no OpenReview record made public on or after 2026-11-09 is missing from the catalog; its arXiv candidates are among the above"
+      - "weekly-candidates workflow on main, report only (run 43794267067): complete, with 6 of 8 unquoted OpenReview terms capped at 1,000 matches; its 5 new arXiv hits are among the above"
       - "arXiv metadata for all 389 arXiv links in the catalog (all resolve; no catalog date later than arXiv v1) and the GitHub API for the 52 linked repositories (all resolve)"
       - "official records for venue and date checks: CVF open access (CVPR 2026), Crossref (ECCV 2026), the NeurIPS 2026 virtual site, the COLM 2026 WAB workshop site"
     limits:
-      - "6 of 8 OpenReview terms reached the 1000-result limit in run 43794267067, before paging was added; newly public records ranked below it were not returned"
-      - "OpenReview is challenge-gated outside GitHub Actions and was not bypassed; OpenReview pages and PDFs were not read"
-      - "arXiv submissions after 2026-11-13 19:00 UTC (announced from 2026-11-17) are not covered; the next default window starts 2026-11-10"
+      - "the arXiv search index lagged the 2026-11-16 01:00 UTC announcement (submissions through 2026-11-13 19:00 UTC): the 03:00 UTC run missed six 2026-11-13 submissions that the 03:30 UTC run returned, and arXiv caches responses per request URL; 2026-11-13 is therefore not counted in searched_through"
+      - "OpenReview answered HTTP 403 to GitHub Actions in a later test run (43796704257) but answered this machine's /notes/search requests normally; no challenge was bypassed; OpenReview pages and PDFs were not read"
+      - "quoted OpenReview phrases matched 97-100% of the records containing them in the knowledge base's 2026-10-12 OpenReview harvest; records that use none of the 15 phrases are not found"
       - "publisher-only papers without an arXiv or OpenReview record were not searched systematically"
     checked: 2026-11-16, AI-assisted search and screening
