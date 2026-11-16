@@ -55,7 +55,8 @@ date the pass covered and add a `passes` entry with the sources, window, and any
   official record (OpenReview, ACL Anthology, PMLR, the publisher) before editing; never upgrade an
   entry from an arXiv comment or a project page alone. Author-uploaded (`OpenReview.net/Archive`) and
   DBLP mirror records are not decisions, and neither is a workshop record whose venue id still ends in
-  `/Submission` (some workshops never post decisions on OpenReview): check the workshop's accepted list.
+  `/Submission` (some workshops never post decisions on OpenReview: check the workshop's accepted list)
+  or an ACL Rolling Review record (acceptance shows on the ACL Anthology of the venue it was committed to).
 - Add protocol-annotated numbers to `data/results.yaml` only when the paper states them explicitly;
   record attempts (pass@k), augmentation/voting, sampled trajectories, test-time depth, identity
   embeddings, and training data. Write `value` as a quoted string with the source's precision
