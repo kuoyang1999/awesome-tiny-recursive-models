@@ -227,17 +227,20 @@
   checked: 2026-11-15, AI-assisted screen of the abstract
 - id: '2610.19552'
   title: 'Test-Time Forecasting: Recurrent Depth Enables In-Context Dynamics Prediction'
-  date: '2026-10-14'
-  venue: arXiv
-  status: P
+  date: '2026-10-03'
+  venue: ICLR 2027 (under review)
+  status: U
   section: looped
   links:
     paper: https://arxiv.org/abs/2610.19552
+    openreview: https://openreview.net/forum?id=y9TdCNCSPF
   tldr: Links linear attention to dynamic mode decomposition and builds Test-Time Forecasting models whose recurrent
     depth runs gradient-descent steps, forecasting out-of-distribution ODE/PDE dynamics in context (depth as in-context
     optimization).
   short: TTF
-  checked: 2026-11-15, AI-assisted screen of the abstract
+  checked: '2026-11-15, AI-assisted screen of the abstract; 2026-11-16, AI-assisted source check: the ICLR 2027
+    submission y9TdCNCSPF has the same title and abstract as arXiv v1 (2026-10-14) and became public on 2026-10-03
+    (odate), venue id ICLR.cc/2027/Conference/Submission'
 - id: '2610.19768'
   title: Learning to Compute Is Not Learning to Retain or Reuse in Looped Transformers
   date: '2026-10-14'
@@ -264,18 +267,23 @@
   checked: 2026-11-15, AI-assisted screen of the abstract
 - id: '2610.23225'
   title: 'ReLaDrift: Recurrent Language Generation via Drifting for Test-Time Scaling'
-  date: '2026-10-16'
+  date: '2026-10-03'
   venue: arXiv
   status: P
   section: looped
   links:
     paper: https://arxiv.org/abs/2610.23225
     code: https://github.com/Yuki-Ots/ReLaDrift
+  versions:
+  - label: ICLR 2027 submission (withdrawn)
+    url: https://openreview.net/forum?id=C1HGhWNaYZ
   tldr: ReLaDrift turns a one-step Drifting Model into a recurrent refiner of a continuous latent draft, trained
     with sampled round counts and a loss and gradient only at the final round; trades rounds for quality on Sudoku
     Hard and GSM8K (truncated supervision).
   short: ReLaDrift
-  checked: 2026-11-15, AI-assisted screen of the abstract
+  checked: '2026-11-15, AI-assisted screen of the abstract; 2026-11-16, AI-assisted source check: the withdrawn
+    ICLR 2027 record C1HGhWNaYZ lists the same three authors and title (lightly revised abstract) and became public
+    on 2026-10-03 (odate), before arXiv v1 (2026-10-16)'
 - id: '2610.24135'
   title: 'Inside the Loop: A Mechanistic Study of Weight-Tied Transformers on Depth-Bound Algorithmic Tasks'
   date: '2026-10-16'

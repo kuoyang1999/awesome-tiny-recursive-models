@@ -3281,13 +3281,14 @@
   section: looped
   links:
     paper: https://arxiv.org/abs/2604.09168
-    openreview: https://openreview.net/forum?id=7DB1Xc8e7o
   tldr: Introduces Elastic Looped Transformers for image/video generation, trained with Intra-Loop Self Distillation
     so intermediate loops match the max-loop teacher, enabling any-time inference.
   short: ELT
   versions:
   - label: ECCV 2026 paper
     url: https://doi.org/10.1007/978-3-032-37324-3_17
+  - label: CVPR 2026 Workshop (EDGE) version
+    url: https://openreview.net/forum?id=7DB1Xc8e7o
 - id: '2604.07822'
   title: 'Loop, Think, & Generalize: Implicit Reasoning in Recurrent-Depth Transformers'
   date: '2026-04-09'
@@ -4557,14 +4558,18 @@
 - id: '2412.06769'
   title: Training Large Language Models to Reason in a Continuous Latent Space
   date: '2024-12-09'
-  venue: arXiv
-  status: P
+  venue: COLM 2025
+  status: V
   section: boundary
   links:
     paper: https://arxiv.org/abs/2412.06769
+    openreview: https://openreview.net/forum?id=Itxz7S4Ip3
   tldr: Coconut feeds an LLM's last hidden state back as the next input embedding to reason in continuous latent
     space, enabling BFS-like search and outperforming CoT on search-heavy logical tasks.
   short: Coconut
+  versions:
+  - label: ICLR 2025 Workshop (Reasoning and Planning for LLMs) version
+    url: https://openreview.net/forum?id=KrWSrrYGpT
 - id: '2412.04604'
   title: 'ARC Prize 2024: Technical Report'
   date: '2024-12-05'

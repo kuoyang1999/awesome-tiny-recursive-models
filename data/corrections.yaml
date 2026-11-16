@@ -934,9 +934,14 @@ papers:
     basis: "CVF open-access page: CVPR 2026, pp. 41235-41244, BibTeX month = June, year = 2026 (no day given, so month precision); the exported 2026-09-17 is the later public date (odate) of the CVF-uploaded OpenReview record"
     checked: "2026-11-16, AI-assisted source check"
   - id: "2604.09168"
-    set: {venue: "ECCV 2026", versions: [{label: "ECCV 2026 paper", url: "https://doi.org/10.1007/978-3-032-37324-3_17"}]}
+    set: {venue: "ECCV 2026", links: {openreview: null}, versions: [{label: "ECCV 2026 paper", url: "https://doi.org/10.1007/978-3-032-37324-3_17"}, {label: "CVPR 2026 Workshop (EDGE) version", url: "https://openreview.net/forum?id=7DB1Xc8e7o"}]}
     source: "https://doi.org/10.1007/978-3-032-37324-3_17"
-    basis: "Crossref: container title 'Computer Vision - ECCV 2026' (Lecture Notes in Computer Science), same title and authors; arXiv comment: Accepted to ECCV 2026. The exported venue named only the book series (LNCS 2026)"
+    basis: "Crossref: container title 'Computer Vision - ECCV 2026' (Lecture Notes in Computer Science), same title and authors; arXiv comment: Accepted to ECCV 2026. The exported venue named only the book series (LNCS 2026). The linked OpenReview record is the CVPR 2026 EDGE workshop poster (venue id thecvf.com/CVPR/2026/Workshop/EDGE), so it is listed as a version rather than as the record of the entry's venue"
+    checked: "2026-11-16, AI-assisted source check"
+  - id: "2412.06769"
+    set: {status: "V", venue: "COLM 2025", links: {openreview: "https://openreview.net/forum?id=Itxz7S4Ip3"}, versions: [{label: "ICLR 2025 Workshop (Reasoning and Planning for LLMs) version", url: "https://openreview.net/forum?id=KrWSrrYGpT"}]}
+    source: "https://openreview.net/forum?id=Itxz7S4Ip3"
+    basis: "OpenReview record with the same title and the same named authors (Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, ...): venue 'COLM 2025', venue id colmweb.org/COLM/2025/Conference (accepted); an earlier ICLR 2025 workshop record has the same title and authors. The arXiv v1 date (2024-12-09) stays the entry's date"
     checked: "2026-11-16, AI-assisted source check"
   - id: "2605.17811"
     set: {status: "V", venue: "NeurIPS 2026", versions: [{label: "NeurIPS 2026 poster", url: "https://neurips.cc/virtual/2026/poster/155435"}]}
