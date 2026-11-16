@@ -1,51 +1,117 @@
 name: weekly-candidates
 # Every Monday, list new arXiv/OpenReview papers that are not yet in the catalog and open one issue
-# with the list for a maintainer to screen (see MAINTAINING.md). Nothing is added to the list
-# automatically.
+# for a maintainer to screen (see MAINTAINING.md). Nothing is added to the catalog automatically, and
+# a candidate in the issue has not been screened yet.
+#
+# The window starts at data/coverage.yaml (end of the last complete manual search), so weeks missed by
+# failed runs are searched again. A run whose search failed or was rate-limited still opens an issue
+# that says so, and then fails, so an incomplete search is never shown as "no new papers".
 on:
   schedule:
     - cron: "17 6 * * 1"   # Mondays 06:17 UTC
   workflow_dispatch:
     inputs:
       since:
-        description: "List papers first posted on or after this date (YYYY-MM-DD); default 8 days ago"
+        description: "Window start (YYYY-MM-DD); default: data/coverage.yaml searched_through minus 3 days"
         required: false
+      open_issue:
+        description: "Open an issue (off = report only: see the run summary and artifact)"
+        type: boolean
+        default: true
+      status_check:
+        description: "Also compare catalog statuses with OpenReview decisions"
+        type: boolean
+        default: false
 permissions:
   contents: read
   issues: write
 jobs:
   candidates:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install pyyaml requests
+      - name: Collect papers already listed in earlier candidate issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue list --label candidates --state all --limit 500 --json body --jq '.[].body' > reported.txt || true
       - name: Find candidates
-        shell: bash
         id: find
+        shell: bash
         env:
           SINCE_INPUT: ${{ github.event.inputs.since }}
         run: |
-          SINCE="$SINCE_INPUT"
-          if ! [[ "$SINCE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then SINCE=$(date -u -d '-8 days' +%F); fi
-          python scripts/find_new.py --since "$SINCE" | tee candidates.md
-          N=$(grep -c '^- \[ \]' candidates.md || true)
-          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
-          echo "count=$N" >> "$GITHUB_OUTPUT"
+          ARGS=(--reported reported.txt --json candidates.json)
+          if [[ "$SINCE_INPUT" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then ARGS+=(--since "$SINCE_INPUT"); fi
+          set +e
+          python scripts/find_new.py "${ARGS[@]}" > candidates.md
+          CODE=$?
+          set -e
+          cat candidates.md
+          if [ "$CODE" -gt 2 ]; then exit "$CODE"; fi
+          python - >> "$GITHUB_OUTPUT" <<'EOF'
+          import json
+          r = json.load(open("candidates.json"))
+          print(f"since={r['since']}")
+          print(f"count={len(r['candidates'])}")
+          print(f"complete={'true' if r['complete'] else 'false'}")
+          EOF
           cat candidates.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Compare statuses with OpenReview (first Monday of each month, or on request)
+        id: status
+        if: github.event.inputs.status_check == 'true' || github.event_name == 'schedule'
+        shell: bash
+        env:
+          REQUESTED: ${{ github.event.inputs.status_check }}
+        run: |
+          if [ "$REQUESTED" != "true" ] && [ "$(date -u +%-d)" -gt 7 ]; then
+            echo "changes=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          set +e
+          python scripts/check_status.py --json status.json > status.md
+          set -e
+          cat status.md >> "$GITHUB_STEP_SUMMARY"
+          python -c "import json; print('changes=%d' % len(json.load(open('status.json'))['changes']))" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: candidates
+          path: |
+            candidates.md
+            candidates.json
+            status.md
+            status.json
+          if-no-files-found: ignore
       - name: Open an issue
-        if: steps.find.outputs.count != '0'
+        if: >-
+          github.event.inputs.open_issue != 'false' &&
+          (steps.find.outputs.count != '0' || steps.find.outputs.complete != 'true' ||
+           (steps.status.outputs.changes || '0') != '0')
         env:
           GH_TOKEN: ${{ github.token }}
+          COUNT: ${{ steps.find.outputs.count }}
+          SINCE: ${{ steps.find.outputs.since }}
+          COMPLETE: ${{ steps.find.outputs.complete }}
         run: |
-          gh label create candidates --color 0E8A16 --description "Weekly new-paper candidates" --force
+          gh label create candidates --color 0E8A16 --description "Weekly new-paper candidates (unscreened)" --force
+          TITLE="New candidates since $SINCE"
+          if [ "$COMPLETE" != "true" ]; then TITLE="[incomplete search] $TITLE"; fi
           {
-            echo "${{ steps.find.outputs.count }} papers posted since ${{ steps.find.outputs.since }} are not in the list yet."
-            echo "Screen each abstract against CONTRIBUTING.md; add accepted papers to \`data/extra_papers.yaml\`."
+            echo "$COUNT unscreened candidates posted since $SINCE are not in the catalog yet."
+            echo "Screen each abstract against CONTRIBUTING.md and record the decision here; add accepted papers"
+            echo "to \`data/extra_papers.yaml\`. A listed paper has not been checked or accepted."
             echo
             cat candidates.md
+            if [ -f status.md ]; then echo; cat status.md; fi
           } > body.md
-          gh issue create --title "New candidates since ${{ steps.find.outputs.since }}" --label candidates --body-file body.md
+          gh issue create --title "$TITLE" --label candidates --body-file body.md
+      - name: Fail if the search was incomplete
+        if: steps.find.outputs.complete != 'true'
+        run: |
+          echo "::error::Some arXiv/OpenReview queries failed or were rate-limited; this window is not covered."
+          exit 1

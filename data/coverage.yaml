@@ -1,0 +1,8 @@
+# Literature coverage of the catalog: what was searched, when, and what failed.
+# scripts/find_new.py starts its window three days before `searched_through`, so update this file at the
+# end of each complete manual pass (see MAINTAINING.md). A pass with failed or capped queries is recorded
+# with its failures; do not advance `searched_through` past a window that was not fully searched.
+searched_through: '2026-10-09'
+passes:
+  - date: '2026-10-12'
+    note: initial knowledge-base harvest (arXiv query families and OpenReview term search); see the 2026-10-13 release
