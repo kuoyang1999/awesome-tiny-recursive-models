@@ -3,7 +3,7 @@
 
     python scripts/check_status.py --json status.json > status.md
 
-For every catalog entry with an OpenReview link, fetch the forum note from the OpenReview API and
+For every catalog entry with an OpenReview link, find the forum note through the OpenReview search API and
 compare its venue id with the entry's status (U under review, V/W accepted, P otherwise). This only
 reports; a maintainer confirms each change on the official record before editing the data.
 Exit status 2 if some notes could not be fetched.
@@ -20,7 +20,7 @@ import requests
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-UA ={"User-Agent": "awesome-tiny-recursive-models/check_status (+https://github.com/kuoyang1999/awesome-tiny-recursive-models)"}
+UA = {"User-Agent": "awesome-tiny-recursive-models/check_status (+https://github.com/kuoyang1999/awesome-tiny-recursive-models)"}
 
 
 def catalog():
@@ -31,20 +31,19 @@ def catalog():
     return papers
 
 
-def fetch(forum):
+def fetch(forum, title):
+    """The forum note, found through the search endpoint (direct note lookups are challenge-gated for
+    anonymous clients) and, failing that, a direct lookup."""
+    for n in by_title(title) or []:
+        if n.get("forum") == forum or n.get("id") == forum:
+            return n
     for base in ("https://api2.openreview.net", "https://api.openreview.net"):  # API v2, then v1 venues
-        for attempt in range(3):
-            try:
-                r = requests.get(f"{base}/notes", params={"id": forum}, timeout=60, headers=UA)
-            except requests.RequestException:
-                time.sleep(10 * (attempt + 1))
-                continue
-            if r.status_code == 429:
-                time.sleep(30 * (attempt + 1))
-                continue
-            if r.status_code == 200 and r.json().get("notes"):
-                return r.json()["notes"][0]
-            break
+        try:
+            r = requests.get(f"{base}/notes", params={"id": forum}, timeout=60, headers=UA)
+        except requests.RequestException:
+            continue
+        if r.status_code == 200 and r.json().get("notes"):
+            return r.json()["notes"][0]
     return None
 
 
@@ -118,8 +117,8 @@ def main():
                                     "odate": day(n.get("odate")), "pdate": day(n.get("pdate")),
                                     "authors_visible": bool(value(c, "authors")), "suggested": status, "reason": label})
             continue
-        note = fetch(m.group(1))
-        time.sleep(0.4)  # stay well under the API's 180 requests/minute
+        note = fetch(m.group(1), p["title"])
+        time.sleep(1.0)  # stay well under the API's 180 requests/minute
         if note is None:
             failed.append(p["id"])
             continue
