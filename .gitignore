@@ -1,3 +1,8 @@
 # weekly candidate reports from scripts/find_new.py
 candidates*.md
 __pycache__/
+candidates*.json
+status*.md
+status*.json
+reported.txt
+body.md
