@@ -2,7 +2,21 @@
 # scripts/find_new.py starts its window three days before `searched_through`, so update this file at the
 # end of each complete manual pass (see MAINTAINING.md). A pass with failed or capped queries is recorded
 # with its failures; do not advance `searched_through` past a window that was not fully searched.
-searched_through: '2026-10-09'
+searched_through: '2026-11-12'   # last arXiv v1 submission date announced when the 2026-11-15 pass ran
 passes:
   - date: '2026-10-12'
-    note: initial knowledge-base harvest (arXiv query families and OpenReview term search); see the 2026-10-13 release
+    note: initial knowledge-base harvest (arXiv query families and OpenReview term search); 2026-10-13 release
+  - date: '2026-11-15'
+    window: ['2026-10-09', '2026-11-12']
+    sources:
+      - "arXiv API: the knowledge base's 45 queries in 5 families (core lineage, looped/recurrent depth, fixed point, benchmarks, competing surveys), submittedDate 2026-10-09..2026-11-16; all answered, zero-hit queries re-run once; 117 hits, 98 not yet listed, all screened"
+      - "arXiv API from GitHub Actions: scripts/find_new.py query set, same window; complete; its 65 new hits are a subset of the above"
+      - "OpenReview term search (8 terms) from GitHub Actions; 3 new records screened, 7 DBLP mirrors of already-screened arXiv papers dismissed"
+      - "arXiv exact-title search, Crossref and the ACL Anthology for versions, venues and dates of listed entries"
+      - "weekly-candidates issue #1 (window from 2026-10-11; all its arXiv queries had been rate-limited)"
+    limits:
+      - "6 of 8 OpenReview terms hit the API's 1000-result cap (multi-word terms); newly public records ranked below the cap are not returned"
+      - "OpenReview note lookups are challenge-gated outside GitHub Actions and were not bypassed; OpenReview pages and PDFs were not read"
+      - "Semantic Scholar answered HTTP 429 and was not used"
+      - "arXiv papers announced after 2026-11-13 and publisher-only papers without an arXiv or OpenReview record are not covered"
+    checked: 2026-11-15, AI-assisted search and screening

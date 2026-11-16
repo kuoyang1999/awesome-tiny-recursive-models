@@ -1,6 +1,8 @@
-# Hand-curated entries that are not arXiv/OpenReview records (blogs, reports).
+# Hand-curated and community entries: blogs and reports, plus papers added between knowledge-base
+# exports. build_readme.py merges this file at render time, so an export never overwrites it.
+# 'checked' says who screened the entry and how (AI-assisted screens are labelled as such).
 - id: arcprize-hrm-analysis-2025
-  title: "The Hidden Drivers of HRM's Performance on ARC-AGI"
+  title: The Hidden Drivers of HRM's Performance on ARC-AGI
   short: ARC Prize HRM analysis
   date: 2025-08
   venue: ARC Prize blog
@@ -10,28 +12,571 @@
   links:
     paper: https://arcprize.org/blog/hrm-analysis
     code: https://github.com/arcprize/hierarchical-reasoning-model-analysis
-  tldr: >-
-    Verification and ablation of HRM on ARC-AGI: semi-private score below the public one, a plain transformer
-    within a few points, gains concentrated in the outer refinement loop, and a transductive puzzle-ID setup.
+  tldr: 'Verification and ablation of HRM on ARC-AGI: semi-private score below the public one, a plain transformer
+    within a few points, gains concentrated in the outer refinement loop, and a transductive puzzle-ID setup.'
+  checked: hand-curated by the maintainer (2026-10-13 release)
 - id: osmani-loop-engineering-2026
-  title: "Loop Engineering"
-  date: 2026-06-07
+  title: Loop Engineering
+  date: '2026-06-07'
   venue: practitioner essay
   status: B
   section: boundary
   links:
     paper: https://addyosmani.com/blog/loop-engineering/
-  tldr: >-
-    Practitioner essay on specifying external agent loops (trigger, goal, verification, stop rule, memory);
+  tldr: Practitioner essay on specifying external agent loops (trigger, goal, verification, stop rule, memory);
     an agent-level loop, not a weight-tied model.
+  checked: hand-curated by the maintainer (2026-10-13 release)
 - id: weng-harness-2026
-  title: "Harness Engineering for Self-Improvement"
-  date: 2026-07-04
+  title: Harness Engineering for Self-Improvement
+  date: '2026-07-04'
   venue: Lil'Log
   status: B
   section: boundary
   links:
     paper: https://lilianweng.github.io/posts/2026-07-04-harness/
-  tldr: >-
-    Survey-style essay on agent harnesses as optimizable orchestration layers; boundary material for the
-    loop stack.
+  tldr: Survey-style essay on agent harnesses as optimizable orchestration layers; boundary material for the loop
+    stack.
+  checked: hand-curated by the maintainer (2026-10-13 release)
+- id: '2610.16427'
+  title: 'Resample the Answer: Where to Spend Test-Time Compute in Recursive Reasoning'
+  date: '2026-10-12'
+  venue: arXiv
+  status: P
+  section: search
+  links:
+    paper: https://arxiv.org/abs/2610.16427
+    code: https://github.com/MaximeILL/GAR
+  tldr: 'Controlled TRM experiments: a failed trajectory carries its failure in the answer state y, so at equal
+    compute resampling y recovers more failures than perturbing z; Gated Answer Resampling restarts only puzzles
+    the halting head rejects (Sudoku-Extreme 85.9% to 99.4%).'
+  short: GAR
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.04663'
+  title: 'Best-of-Depth: Learning Exploratory Dynamics in Looped Transformers'
+  date: '2026-11-03'
+  venue: arXiv
+  status: P
+  section: search
+  links:
+    paper: https://arxiv.org/abs/2611.04663
+  tldr: Best-of-Depth trains a looped Transformer on the minimum loss over depths so its latent trajectory becomes
+    a candidate set, raising solution coverage on N-Queens completion and graph coloring over final-depth and intermediate-supervision
+    training.
+  short: BoD
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.26666'
+  title: 'Nested Shared-Operator Recursion on ARC-AGI-1: An Empirical Study of HRM, TRM and URM'
+  date: '2026-10-19'
+  venue: arXiv
+  status: P
+  section: architecture
+  links:
+    paper: https://arxiv.org/abs/2610.26666
+  tldr: Adds a parameter-matched nested intermediate state to HRM, TRM and URM (official code, ARC-AGI-1, a single-GPU
+    budget far below the published protocols); no consistent gain in token accuracy, loss or exact solving, which
+    stays near zero, so the question is left open.
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.08977'
+  title: 'Energy-Based Reasoners: Your Recurrent Reasoner Should Be an Energy-Based Model'
+  date: '2026-11-06'
+  venue: arXiv
+  status: P
+  section: architecture
+  also:
+  - depth
+  links:
+    paper: https://arxiv.org/abs/2611.08977
+  tldr: 'Energy-Based Reasoners learn an energy over latent reasoning states and loop by gradient descent on it:
+    the energy scores and ranks candidates, its gradient signals when to stop, and exploration-based training shapes
+    the landscape (99.9% on Sudoku-Extreme).'
+  short: EBR
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.17309'
+  title: Classical Energies Learn to Reason 1,000x Faster than Looped Models
+  date: '2026-11-12'
+  venue: arXiv
+  status: P
+  section: architecture
+  links:
+    paper: https://arxiv.org/abs/2611.17309
+  tldr: CRAM learns a Hopfield-Tank-style energy and solves puzzles by descending it, with built-in stopping and
+    no backpropagation through a solver; reports 99.996% on Sudoku-Extreme and 100% on Maze-Unique and cautions
+    against these puzzles as reasoning benchmarks.
+  short: CRAM
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.27559'
+  title: Exploring Recurrent-Depth Language Models for Multitask Clinical Text Processing
+  date: '2026-10-20'
+  venue: arXiv
+  status: P
+  section: applications
+  app: language
+  links:
+    paper: https://arxiv.org/abs/2610.27559
+  tldr: Jointly fine-tunes recurrent-depth LMs (Ouro-1.4B/2.6B-Thinking, HRM-Text-1B) and Qwen3 baselines on nine
+    clinical NLP datasets; Ouro-1.4B beats Qwen3-1.7B on 11 of 13 datasets, while HRM-Text-1B gives mixed results.
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.12324'
+  title: How Many Exposures Does a World Model Need? Learning Unseen Game Mechanics at Test Time
+  date: '2026-11-09'
+  venue: arXiv
+  status: P
+  section: benchmarks
+  links:
+    paper: https://arxiv.org/abs/2611.12324
+  tldr: MechEval labels 69 recurring ARC-AGI-3 game mechanics and scores world-model predictions per exposure; WARC,
+    a 35M ViT updated after every transition, learns four in five held-out mechanics to at least 80% accuracy on
+    the cells they change, mostly through test-time training.
+  short: MechEval
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.06827'
+  title: 'Rules, Traces and Routing Statistics: Training and Calibration Data for Open Models on ARC-AGI-2'
+  date: '2026-11-04'
+  venue: arXiv
+  status: P
+  section: benchmarks
+  links:
+    paper: https://arxiv.org/abs/2611.06827
+  tldr: '189 runs on ARC-AGI-2''s semi-private tasks under the offline Kaggle budget: real-task fine-tuning helps
+    a test-time-trained grid model while synthetic tasks do not, and most of a reasoning LLM''s gain comes from
+    its inference procedure.'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.22289'
+  title: 'Improving Environment-Agnostic Agents: The Role of Scaffolding'
+  date: '2026-10-15'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2610.22289
+  tldr: 'An environment-agnostic Codex-based agent on ARC-AGI-3, AGI Maze and Terminal-Bench: a prompt change that
+    reports difficulties and returns control helps on ARC-AGI-3 and AGI Maze, but the agent stays below an ARC-AGI-3-specific
+    scaffold. Agent loop, not a weight-tied model.'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.26632'
+  title: 'When the harness decides success: state that cannot be re-observed'
+  date: '2026-10-19'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2610.26632
+  tldr: 'Pre-registered harness study: dropping old turns is harmless when a needed fact can be re-observed and
+    fatal when it cannot; on ARC-AGI-3 (one model, four games), summarizing old turns recovers 86% of a 63-point
+    gap between two harnesses. Harness loop.'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.40503'
+  title: 'Algebraic World Model: From Exploration to Proofs'
+  date: '2026-10-29'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2610.40503
+  tldr: 'Algebraic World Model: an agent explores games, writes executable hypotheses and formalizes them in Lean
+    4 to prove level reachability or impossibility; replays all 183 public ARC-AGI-3 levels from its learned models.
+    Agent loop.'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.06793'
+  title: 'Transforming Integer Grids to Spatial Intuition: Perception, Not Planning, Governs ARC-AGI-3'
+  date: '2026-11-04'
+  venue: arXiv
+  status: P
+  section: boundary
+  links:
+    paper: https://arxiv.org/abs/2611.06793
+  tldr: SARBLOH, an open-weight ARC-AGI-3 agent, pairs a zero-parameter perception engine (objects, invariants,
+    annotated canvas) with a code-as-action runtime and argues that perception, not planning, limits play. Agent
+    loop.
+  short: SARBLOH
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.14456'
+  title: Learning to Extrapolate in Depth with Looped Transformers
+  date: '2026-10-10'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.14456
+  tldr: 'Theory of depth extrapolation for one looped block on graph connectivity: training at depth K yields a
+    finite window of useful extra test-time loops, with derived endpoints and a certified depth gain (depth/stopping).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.15218'
+  title: Running Fewer Loops Removes Refusal Behaviour in Recurrent-Depth Language Models
+  date: '2026-10-10'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.15218
+  tldr: Running released recurrent-depth LMs (Ouro, Huginn) at fewer loops keeps most GSM8K accuracy but removes
+    refusal of harmful requests; early-exit rules and per-request depth do not repair it, training at random depths
+    does (test-time depth).
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.18127'
+  title: Monitoring latent reasoning in looped language models
+  date: '2026-10-13'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.18127
+  tldr: 'Interpretability protocol with five lenses on eight looped LMs: models that re-supply the prompt every
+    iteration (re-read loops) settle and tolerate state noise better than models that carry it only in the state
+    (input injection, stability).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.19552'
+  title: 'Test-Time Forecasting: Recurrent Depth Enables In-Context Dynamics Prediction'
+  date: '2026-10-14'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.19552
+  tldr: Links linear attention to dynamic mode decomposition and builds Test-Time Forecasting models whose recurrent
+    depth runs gradient-descent steps, forecasting out-of-distribution ODE/PDE dynamics in context (depth as in-context
+    optimization).
+  short: TTF
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.19768'
+  title: Learning to Compute Is Not Learning to Retain or Reuse in Looped Transformers
+  date: '2026-10-14'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.19768
+  tldr: On in-context Mealy-machine execution, looped transformers compute exactly but lose answers when run past
+    their trained depth; supervising a random position or randomizing loop counts restores retention, gradient truncation
+    does not, and retained states are still not reusable (overthinking, supervision).
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.23036'
+  title: 'Towards Looped Models Done Right, Part I: Topology, Input Injection, Recurrent-State Design'
+  date: '2026-10-16'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.23036
+  tldr: 'Controlled looped-LM design study at matched parameters, depth and tokens: a prelude/recurrent/coda layout
+    helps, input injection aids retrieval, and random state initialization and separate H/L recurrent states give
+    mixed or negative returns (state design, input injection).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.23225'
+  title: 'ReLaDrift: Recurrent Language Generation via Drifting for Test-Time Scaling'
+  date: '2026-10-16'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.23225
+    code: https://github.com/Yuki-Ots/ReLaDrift
+  tldr: ReLaDrift turns a one-step Drifting Model into a recurrent refiner of a continuous latent draft, trained
+    with sampled round counts and a loss and gradient only at the final round; trades rounds for quality on Sudoku
+    Hard and GSM8K (truncated supervision).
+  short: ReLaDrift
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.24135'
+  title: 'Inside the Loop: A Mechanistic Study of Weight-Tied Transformers on Depth-Bound Algorithmic Tasks'
+  date: '2026-10-16'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.24135
+    code: https://github.com/magnus-sesodia/insidetheloop
+  tldr: 'Mechanistic study on directed permutation traversal: a weight-tied 4-layer block looped 8 times solves
+    the task in every seed where an identically trained untied stack of equal depth does not, advancing hops gradually
+    across iterations (weight tying vs depth).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.25998'
+  title: Internalizing Chain-of-thought into Looped Transformers
+  date: '2026-10-19'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.25998
+  tldr: 'Constructs constant-bit-size looped transformers that interpolate between chain of thought and latent iteration:
+    with L loops a Turing-machine simulation needs L times fewer generated tokens and context (depth vs tokens,
+    theory).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.26030'
+  title: Truncate or Not? A Scaling Study of Looped Transformers with Truncated Backpropagation
+  date: '2026-10-19'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.26030
+  tldr: 'Scaling law over nearly 600 looped-transformer runs varying size, tokens and forward/backward loop counts:
+    at matched compute, full backpropagation through fewer loops beats truncated backpropagation (gradient truncation,
+    scaling).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.27628'
+  title: 'PAR: Progress-Aligned Recurrence for Length Generalization in State Tracking'
+  date: '2026-10-20'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.27628
+  tldr: Progress-Aligned Recurrence supervises the iteration-k prediction of a looped LM with the state after k
+    operations and rescales states to first-iteration norms, with a learned readout for when to answer; 16x length
+    extrapolation on swap-S5 (per-step supervision, stability).
+  short: PAR
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.28871'
+  title: How Much Gradient Does Truncated Backprop Lose in Looped Transformers?
+  date: '2026-10-20'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.28871
+  tldr: 'Measures exactly how much weight gradient last-k-loop truncated backpropagation discards in nine looped
+    LMs: the lost share is fixed near the output, changes little with loop count, and falls during fine-tuning (gradient
+    truncation).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.32246'
+  title: Do Halting Heads Really Save Compute in Looped Language Models?
+  date: '2026-10-23'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.32246
+  tldr: 'Looped LMs pretrained up to 1.3B: halting heads trained on all iterations rarely stop tokens early under
+    the standard rule, and with batches that run until the slowest token, a model without a head costs about the
+    same; recommends reporting iterations actually run (halting).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.32492'
+  title: 'Accordion: Elastic-Depth Inference via Fixed-Prefix Layer Looping'
+  date: '2026-10-23'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.32492
+  tldr: 'Accordion: a mixture-of-experts LM with five inference budgets via fixed-prefix layer looping, pretrained
+    by sampling one budget per micro-batch; deeper budgets add 3.01 points on a 37-task average (elastic depth training).'
+  short: Accordion
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.34639'
+  title: 'Cross-Loop Query Handoff: How Later Loops Redirect Two-Hop Retrieval in the Ouro Looped Language Models'
+  date: '2026-10-25'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.34639
+  tldr: 'Transplanting attention queries between loops of Ouro: loop-3 queries placed in loop 1 rescue most synthetic
+    two-hop questions that later loops fix, while late keys and values rescue far fewer (what later loops add).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.41720'
+  title: 'UpLoop: Training Looped Transformers via Upcycling at No Extra Pretraining Compute'
+  date: '2026-10-30'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.41720
+  tldr: UpLoop pretrains looped Transformers within a dense baseline's parameter, token and FLOP budgets by growing
+    a shallow model through layer copying and spending the saved compute on looping a shared middle block (training
+    schedule, scaling).
+  short: UpLoop
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2610.41819'
+  title: 'ElTab: Elastically Looped Tabular Transformers'
+  date: '2026-10-30'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2610.41819
+  tldr: ElTab trains one looped TabPFN-style tabular transformer with supervision at randomly sampled exits; on
+    30 OpenML datasets it matches six depth-specific looped models at under half the training cost (early-exit supervision).
+  short: ElTab
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.02333'
+  title: When Does Adaptive Halting Win? Selection Rules Matter in Looped Language Models
+  date: '2026-11-02'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.02333
+  tldr: 'Pre-registered halting study on a frozen Ouro-1.4B: whether a trained stability probe beats the native
+    exit gate depends on the operating-point selection rule, and it shows no demonstrated edge over an untrained
+    successive-loop KL signal (halting evaluation).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.02857'
+  title: 'Solv3R: 3D Looped Transformer as a Multi-view Solver'
+  date: '2026-11-02'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.02857
+    project: https://ubc-vision.github.io/solv3r/
+  tldr: 'Solv3R: a looped transformer for multi-view 3D reconstruction whose iteration-independent update is trained
+    to keep accurate states stable under continued iteration and to correct wrong ones, serving offline, incremental
+    and streaming use (fixed-point stability).'
+  short: Solv3R
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.06206'
+  title: 'Loop Before You Leap: What Recurrent Depth Can and Cannot Buy in Data-Limited Pretraining'
+  date: '2026-11-04'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.06206
+  tldr: 'BabyLM-scale study under a 100M-word budget: a 12-layer stack looped four times beats a 48-layer Transformer
+    by 5.4 BLiMP points at matched inference compute, but recurrence does not offset the drop from multimodal training
+    (recurrence vs depth, data-limited scaling).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.07736'
+  title: Extending Reasoning in Typed Decision Models via Looping
+  date: '2026-11-05'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.07736
+  tldr: RELOAD retrofits a damped loop over the middle block of pretrained encoders and decoders, with a controller
+    that picks the number of passes per input; looping improves accuracy and calibration, mostly on longer reasoning
+    chains than seen in training (adaptive depth).
+  short: RELOAD
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.12293'
+  title: 'Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in Large Language Models'
+  date: '2026-11-09'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.12293
+  tldr: On recurrent-depth LLMs, deeper recurrence can lose answers found at shallower depths and per-depth success
+    sets are non-nested; Depth Portfolio Allocation spreads a candidate budget across depths instead of choosing
+    one stopping depth (selection across depths).
+  short: DPA
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2611.16265'
+  title: Rectified Looped Transformer
+  date: '2026-11-12'
+  venue: arXiv
+  status: P
+  section: looped
+  links:
+    paper: https://arxiv.org/abs/2611.16265
+  tldr: Rectified Looped Transformer forms each loop's input by interpolating between the current state and its
+    prediction, provably bounding state norms under assumptions; lower perplexity and more robust to depth changes
+    at no extra parameters (stability).
+  short: RLT
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: openreview-VMseebPhOg
+  title: 'Looped Transformers: Architectures, Training, Inference, and Evidence'
+  date: '2026-10-13'
+  venue: ACL ARR 2026 October (under review)
+  status: U
+  section: surveys
+  links:
+    openreview: https://openreview.net/forum?id=VMseebPhOg
+  tldr: Survey of looped (recurrent-depth) Transformers for language modeling along architecture, training and inference;
+    separates constructive capability from learning guarantees and offers a diagnostic guide to depth sweeps, output
+    selection and cost accounting.
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: openreview-rb40gfDDaW
+  title: 'LoopChem: Addressing Representation Alignment and Derivation-State Decay across Loops in Molecular String
+    Generation'
+  date: '2026-10-21'
+  venue: TMLR (under review)
+  status: U
+  section: looped
+  links:
+    openreview: https://openreview.net/forum?id=rb40gfDDaW
+  tldr: 'LoopChem: a weight-tied looped Transformer for SMILES/SELFIES generation with step-position injection,
+    LayerNorm re-centering and a CKA-convergence test-time stopping rule, analyzing fixed-point convergence versus
+    chaotic orbits across loops (stopping, stability).'
+  short: LoopChem
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: doi-10.3390-asi9020045
+  title: 'TRM-ViT: A Tiny Recursive Vision Transformer for Efficient Melanoma Detection'
+  short: TRM-ViT
+  date: '2026-02-19'
+  venue: Applied System Innovation
+  status: V
+  section: applications
+  app: vision
+  links:
+    paper: https://doi.org/10.3390/asi9020045
+  tldr: Applies one shared-weight Transformer encoder block recursively instead of a stack of independent blocks
+    for binary melanoma classification on HAM10000 (ROC-AUC 0.7952, comparable to a standard ViT while substantially
+    reducing trainable parameters).
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: doi-10.36774-sisiti.v15i1.2133
+  title: Implementasi Hierarchical Reasoning Model (HRM) Pada Kasus Klasifikasi
+  date: '2026-01-30'
+  venue: SISITI 2026 (seminar proceedings)
+  status: V
+  section: applications
+  app: tabular
+  links:
+    paper: https://doi.org/10.36774/sisiti.v15i1.2133
+  tldr: (Indonesian) Implements a simulated HRM with high-level planning and low-level execution cycles in Keras
+    for tabular classification on Breast Cancer Wisconsin, Pima Diabetes and Iris; best on the 30-feature dataset
+    (96% test accuracy), overfits on Diabetes.
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: acl-2026.babylm-main.29
+  title: 'TRLM: Shared-Weight Recursive Reasoning for Non-Autoregressive Language Generation'
+  short: TRLM
+  date: 2026-10
+  venue: BabyLM Workshop 2026
+  status: W
+  section: applications
+  app: language
+  links:
+    paper: https://aclanthology.org/2026.babylm-main.29/
+  tldr: 'A small masked non-autoregressive LM with input, answer and latent states: a shared Transformer repeatedly
+    refines the latent state (TRM-style) before one parallel decoding pass; pretrained on about 1B tokens and evaluated
+    on GSM8K and SVAMP.'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: acl-2026.acl-srw.120
+  title: Learning Shortcut Models for Efficient Recursive Reasoning
+  date: 2026-07
+  venue: ACL 2026 Student Research Workshop
+  status: W
+  section: efficiency
+  links:
+    paper: https://aclanthology.org/2026.acl-srw.120/
+  tldr: Distills recursive latent reasoning into a multiscale 'shortcut' model that predicts the effect of several
+    steps at once, with a denoising repair step and stepwise-improvement supervision; competitive on ARC-AGI with
+    fewer sequential updates.
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: acl-2026.babylm-main.41
+  title: Weight-Tied Looped Depth for Data-Constrained Pretraining
+  date: 2026-10
+  venue: BabyLM Workshop 2026
+  status: W
+  section: looped
+  links:
+    paper: https://aclanthology.org/2026.babylm-main.41/
+  tldr: 'BabyLM Strict-Small (10M words): running a 50M-parameter block stack twice per forward pass lowers held-out
+    bits-per-byte in every seed at no parameter cost but takes 1.71x the training time; looping buys parameter,
+    not compute, efficiency (scaling).'
+  checked: 2026-11-15, AI-assisted screen of the abstract
+- id: '2506.15746'
+  title: Neural Cellular Automata for ARC-AGI
+  date: '2025-06-18'
+  venue: ALIFE 2025
+  status: V
+  section: architecture
+  links:
+    paper: https://arxiv.org/abs/2506.15746
+  versions:
+  - label: ALIFE 2025 paper
+    url: https://doi.org/10.1162/isal.a.844
+  tldr: Gradient-trained neural cellular automata learn an iterative local update rule from each ARC-AGI task's
+    demonstrations and apply it to the test input; examines design modifications and training constraints.
+  checked: 2026-11-15, AI-assisted screen of the abstract
