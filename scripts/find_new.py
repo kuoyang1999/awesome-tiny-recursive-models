@@ -60,9 +60,13 @@ ARXIV_QUERIES = [
     'ti:survey AND (abs:looped OR abs:"recurrent depth" OR abs:recursive) AND abs:reasoning',
     '(ti:survey OR ti:review) AND (abs:"tiny recursive" OR abs:"hierarchical reasoning model" OR abs:"recursive reasoning")',
 ]
-OPENREVIEW_TERMS = ["tiny recursive", "recursive reasoning model", "recurrent reasoning model",
-                    "hierarchical reasoning model", "Sudoku-Extreme", "Maze-Hard", "looped transformer",
-                    "recurrent depth"]
+# searched as quoted phrases, which do not match plurals: list both forms (phrase recall against the
+# knowledge base's 2026-10-12 OpenReview harvest was 97-100% per phrase)
+OPENREVIEW_TERMS = ["tiny recursive", "recursive reasoning model", "recursive reasoning models",
+                    "recurrent reasoning model", "recurrent reasoning models", "hierarchical reasoning model",
+                    "hierarchical reasoning models", "Sudoku-Extreme", "Maze-Hard", "looped transformer",
+                    "looped transformers", "looped language model", "looped language models", "recurrent depth",
+                    "depth-recurrent"]
 # used only when arXiv fails: plain phrases for OpenAlex, which indexes arXiv with a lag of days
 FALLBACK_PHRASES = ["tiny recursive model", "hierarchical reasoning model", "recursive reasoning model",
                     "Sudoku-Extreme", "Maze-Hard", "looped transformer"]
@@ -73,6 +77,11 @@ ARXIV_PAGE = 200
 
 def norm(t):
     return re.sub(r"[^a-z0-9]+", "", t.lower())
+
+
+def phrase(t):
+    """Lower-cased words separated by single spaces (so "Sudoku-Extreme" matches "sudoku extreme")."""
+    return " " + re.sub(r"[^a-z0-9]+", " ", t.lower()).strip() + " "
 
 
 def known():
@@ -181,12 +190,13 @@ def openreview(since, log):
     cutoff = dt.datetime.fromisoformat(since).replace(tzinfo=dt.timezone.utc).timestamp() * 1000
     for term in OPENREVIEW_TERMS:
         label = f"OpenReview: {term}"
-        # Matches are ranked by relevance, not date, so a newly public record can sit anywhere in the list:
-        # page with `offset` until a short page, and report the term as capped if the pages run out.
+        # The term is sent as a quoted phrase: unquoted, the search matches any of its words (thousands of
+        # records ranked by relevance, not date). Matches are still paged with `offset`, and a term whose
+        # matches outrun the pages read is reported as capped.
         notes, ids, pages, failed, capped = [], set(), 0, False, ""
         while pages < OPENREVIEW_PAGES:
             r = get("https://api2.openreview.net/notes/search", {
-                "term": term, "type": "terms", "content": "all", "source": "forum",
+                "term": f'"{term}"', "type": "terms", "content": "all", "source": "forum",
                 "limit": OPENREVIEW_LIMIT, "offset": pages * OPENREVIEW_LIMIT}, log, label)
             time.sleep(1.5)
             if r is None:  # get() logged the failure; keep the pages already read
@@ -217,7 +227,7 @@ def openreview(since, log):
             c = n.get("content", {})
             title = (c.get("title") or {}).get("value", "")
             abstract = (c.get("abstract") or {}).get("value", "")
-            if term.lower() not in (title + " " + abstract).lower():
+            if phrase(term) not in phrase(title + " " + abstract):
                 continue
             venueid = (c.get("venueid") or {}).get("value", "")
             links = " ".join(str((c.get(k) or {}).get("value", "")) for k in ("pdf", "html"))

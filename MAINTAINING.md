@@ -16,10 +16,13 @@ papers, and the catalog is not updated until a maintainer screens them.
 If a query fails or arXiv answers HTTP 429, the issue title starts with `[incomplete search]`, the
 search log in the issue says which queries failed, and the run is marked as failed. Because the
 window starts from `data/coverage.yaml`, the next run searches the same weeks again. Do not treat a
-quiet week as covered unless the run was complete. OpenReview's term search returns matches ranked by
-relevance, not date, 1,000 per request; the script reads up to four pages per term and lists a term
-with more matches as capped (reported, not fatal: newly public records ranked below the pages read
-are missed).
+quiet week as covered unless the run was complete. OpenReview terms are searched as quoted phrases
+(unquoted, the search matches any of the words and returns thousands of records ranked by relevance,
+not date); up to four pages of 1,000 are read, and a term with more matches is listed as capped
+(reported, not fatal). OpenReview sometimes answers HTTP 403 (a bot challenge) to GitHub-hosted
+runners: the run then reports an incomplete search. Rerun it later or run `scripts/find_new.py` and
+`scripts/check_status.py` from a machine that OpenReview answers normally; never try to get around
+the challenge.
 
 To run the same search locally:
 
